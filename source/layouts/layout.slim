@@ -1,0 +1,9 @@
+doctype html
+html lang="nl"
+  head
+    = partial 'head'
+  body
+    = partial 'header'
+    = yield
+    = partial 'footer'
+    = javascript_include_tag :all
