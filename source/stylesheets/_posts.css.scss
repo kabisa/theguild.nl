@@ -1,0 +1,86 @@
+//
+// List of posts
+//
+.posts-list {
+  padding-top: 4em;
+
+  li {
+    padding-bottom: 3em;
+    margin-bottom: 2em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  li:nth-child(6n-5) a:hover::before {
+    background: $brand-primary;
+  }
+  li:nth-child(6n-4) a:hover::before {
+    background: $brand-purple;
+  }
+  li:nth-child(6n-3) a:hover::before {
+    background: $brand-pink;
+  }
+  li:nth-child(6n-2) a:hover::before {
+    background: $brand-orange;
+  }
+  li:nth-child(6n-1) a:hover::before {
+    background: $brand-yellow;
+  }
+  li:nth-child(6n-0) a:hover::before {
+    background: $brand-green;
+  }
+
+  a {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: $brand-dark;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -1em;
+      left: -1000em;
+      bottom: -1.5em;
+      right: -1000em;
+    }
+
+    > * {
+      // Give postition so content is raised above the ::before
+      position: relative;
+    }
+  }
+  a:hover * {
+    color: white;
+  }
+
+  h2 {
+    margin: 0;
+    color: $brand-primary;
+  }
+  p {
+    margin: 1em 0 0 0;
+  }
+  .meta {
+    opacity: 0.5;
+  }
+}
+.prose .posts-list {
+  list-style: none;
+}
+
+//
+// Actual post itself
+//
+.post {
+  margin-bottom: 4em;
+
+  p:first-child {
+    font-size: $larger-font;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
