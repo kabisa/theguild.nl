@@ -72,3 +72,25 @@ configure :build do
 end
 
 activate :directory_indexes
+
+# https://github.com/middleman-contrib/middleman-dotenv
+# Dotenv for Middleman
+# Loads environment variables from `.env`
+#
+# Activate before using any ENV defined in `.env`
+activate :dotenv
+
+activate :contentful do |f|
+  f.space              = { site: '8v4g74v8oew0' }
+  f.access_token       = ENV['TECH_BLOG_ACCESS_TOKEN']
+  f.use_preview_api    = true if ENV['TECH_BLOG_ENVIRONMENT'] == 'preview'
+  #f.cda_query          = QUERY
+  #
+  # To get the id for the content type, in Contentful go to
+  # `APIs`, `Content Types`
+  f.content_types      = {
+    author:          '22AHer1UygAKmCC4KOMQ4M',
+    category:        '3hGz8Hs0VG8mYaauKssyk4',
+    post:            '2bSTvV1Q7ug20QoKmM0cIA'
+  }
+end
