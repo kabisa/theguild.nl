@@ -1,0 +1,5 @@
+main role="main"
+  section.prose
+    ul.posts-list
+      - @posts.each do |post|
+        = partial 'post-teaser', locals: { post: post }
