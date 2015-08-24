@@ -1,0 +1,11 @@
+li
+  a href="/#{post.slug}"
+    h2= post.title
+
+    p.meta
+      ' Geschreven door
+      = post.author.each { |a| a.name }
+      '  op
+      = post.createdOn.strftime('%d-%m-%Y')
+
+    p.excerpt= post.summary
