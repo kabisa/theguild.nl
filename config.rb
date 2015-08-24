@@ -95,6 +95,14 @@ activate :contentful do |f|
   }
 end
 
+if data['site']
+  @posts = data.site.post.values.sort_by(&:createdOn).reverse
+
+  @posts.each do |post|
+    proxy "#{post.slug}.html", 'templates/post-template.html', locals: { post: post }, ignore: true
+  end
+end
+
 # Move partials out of the way of regular pages
 set :partials_dir, 'partials/'
 
