@@ -4,7 +4,8 @@ li
 
     p.meta
       ' Geschreven door
-      = post.author.each { |a| a.name }
+      - post.author.each do |author|
+        = author.name
       '  op
       = post.createdOn.strftime('%d-%m-%Y')
 
