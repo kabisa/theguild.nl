@@ -94,3 +94,8 @@ activate :contentful do |f|
     post:            '2bSTvV1Q7ug20QoKmM0cIA'
   }
 end
+
+# Force HTML5 to avoid self-closing tags
+Slim::Engine.options[:format] = :html
+# Set slim-lang output style
+Slim::Engine.options[:pretty] = true

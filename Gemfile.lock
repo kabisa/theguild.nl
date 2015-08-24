@@ -50,6 +50,9 @@ GEM
     hitimes (1.2.2)
     hooks (0.4.1)
       uber (~> 0.0.14)
+    hpricot (0.8.6)
+    html2slim (0.2.0)
+      hpricot
     http (0.8.12)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -123,6 +126,9 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     sass (3.4.17)
+    slim (3.0.6)
+      temple (~> 0.7.3)
+      tilt (>= 1.3.3, < 2.1)
     sprockets (2.12.4)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -133,6 +139,7 @@ GEM
     sprockets-sass (1.3.1)
       sprockets (~> 2.0)
       tilt (~> 1.1)
+    temple (0.7.6)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
@@ -153,8 +160,10 @@ PLATFORMS
 
 DEPENDENCIES
   contentful_middleman
+  html2slim
   middleman
   middleman-dotenv
   middleman-livereload
+  slim
   tzinfo-data
   wdm (~> 0.1.0)
