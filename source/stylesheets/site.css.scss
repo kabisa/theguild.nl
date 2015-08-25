@@ -1,5 +1,36 @@
 @charset "utf-8";
 
+
+// Colors
+$brand-primary:       #6692a6;
+$brand-primary-dark:  #2b546d;
+$brand-dark:          #141d21; // E.g. footer
+$light-gray:          #f0f0f0;
+$dark-gray:           #969696;
+
+$brand-purple:        #7761a7;
+$brand-pink:          #a76191;
+$brand-orange:        #a77761;
+$brand-yellow:        #91a761;
+$brand-green:         #61a777;
+
+// Animation
+$shadow: rgba($brand-dark, 0.75) 1px 1px 10px;
+
+// Typography
+$smaller-font: 0.75em;
+$larger-font:  1.25em;
+
+// Variables - layout
+$header-height:           4em;
+$page-max-width:          80em;
+$page-side-padding:       8%;
+$page-topbottom-padding:  3em;
+$hero-height:             25em;
+$prose-width:             40em;
+$arrow-size:              40px;
+
+
 //
 // Base styles / reset
 //
@@ -7,4 +38,168 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+
+//
+// Typography + base styles
+//
+body {
+  font-family: "chaparral-pro", Georgia, Times, "Times New Roman", serif;
+  line-height: 1.45;
+  font-size: 120%;
+  color: $brand-dark;
+  min-width: 320px;
+  font-weight: 300;
+}
+.prose p,
+.prose ul {
+  // We only want top/bottom margin in prose
+  margin-bottom: 1.3em;
+}
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: 1.2;
+
+  .prose & {
+    // We only want top/bottom margin in prose
+    margin: 1.414em 0 0.5em;
+  }
+}
+h1 {
+  font-size: 3.157em;
+  margin-top: 0;
+}
+h2 {
+  font-size: 2.369em;
+}
+h3 {
+  font-size: 1.777em;
+}
+h4 {
+  font-size: 1.333em;
+}
+small {
+  font-size: 0.75em; // Also see $smaller-font
+}
+a {
+  color: $brand-primary;
+
+  &:hover, &:focus, &:visited {
+    color: $brand-primary-dark;
+  }
+}
+ul {
+  list-style: none;
+}
+
+
+//
+// Hero
+//
+.hero {
+  position: relative;
+  width: 100%;
+  height: $hero-height; // Will act as min-height because of dispay:table
+  display: table;
+  background-color: $brand-primary;
+  background-size: cover;
+  background-position: center;
+
+  -webkit-font-feature-settings: 'kern' 1,'onum' 1,'liga' 1;
+  font-feature-settings: 'kern' 1,'onum' 1,'liga' 1;
+
+  color: white;
+
+  .button {
+    text-shadow: none;
+  }
+}
+// We have a background image, so don't set background color
+.hero-home,
+.hero[style] {
+  background-color: transparent;
+  text-shadow: $shadow;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: $header-height;
+
+    background: rgba(0, 0, 0, 0.35);
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
+  }
+}
+.hero-inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 0 $page-side-padding;
+}
+.hero-big {
+  font-size: 2em;
+}
+.site-header + .hero {
+  // Slide the hero upwards so it's underneath the header
+  top: -$header-height;
+
+  .hero-inner {
+    padding-top: ($header-height / 4); // More natural aligment
+  }
+}
+// No hero? Slide main contect area up and have it give the header a background
+.site-header + main {
+  top: -$header-height;
+  border-top: $header-height solid $brand-primary;
+  padding-bottom: 0;
+}
+
+//
+// Reusable page elements
+//
+.prose {
+  // Also see "Typography" elsewhere in this document
+  max-width: $prose-width;
+  margin-left: auto;
+  margin-right: auto;
+
+  -webkit-font-feature-settings: 'kern' 1,'onum' 1,'liga' 1;
+  font-feature-settings: 'kern' 1,'onum' 1,'liga' 1;
+
+  ul {
+    list-style-type: disc;
+  }
+}
+
+
+@import "_posts";
+
+
+//
+// Media queries
+//
+@media screen and (max-width: 62em) {
+  .site-header {
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (max-width: 52em) {
+  body {
+    font-size: 100%;
+  }
+  .site-header {
+    font-size: inherit;
+    background: $brand-primary;
+  }
+  .site-header + .hero {
+    top: 0;
+    margin-bottom: $page-topbottom-padding;
+
+    &:before {
+      content: none;
+    }
+  }
 }
