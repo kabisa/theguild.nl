@@ -8,3 +8,7 @@ header.hero[style=("background-image: url('#{post.featuredImage.url}')" if post.
 main.post role="main"
   section.prose
     = Kramdown::Document.new(post.body).to_html
+
+- if post.comments
+  section.prose.comments
+    = partial 'partials/disqus'
