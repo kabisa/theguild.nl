@@ -73,6 +73,10 @@ end
 
 activate :directory_indexes
 
+# https://github.com/middleman/middleman-syntax
+# Syntax highlighting via Rouge
+activate :syntax, line_numbers: true
+
 # https://github.com/middleman-contrib/middleman-dotenv
 # Dotenv for Middleman
 # Loads environment variables from `.env`
