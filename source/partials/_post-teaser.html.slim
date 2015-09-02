@@ -3,10 +3,10 @@ li
     h2= post.title
 
     p.meta
-      ' Geschreven door
+      ' Posted by
       - post.author.each do |author|
         = author.name
-      '  op
-      = post.createdOn.strftime('%d-%m-%Y')
+      '  on
+      = post.createdOn.strftime('%-d %B %Y')
 
     p.excerpt= post.summary
