@@ -13,7 +13,7 @@ main.post role="main"
     h2 Read more related articles
 
     ul
-      - similar_posts(post).each do |p|
+      - similar_posts(post, @posts).each do |p|
         .related-post-inner
           = partial 'post-teaser', locals: { post: p }
 

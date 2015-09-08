@@ -1,8 +1,8 @@
 module PostHelpers
   # Returns an array of posts from the same category
-  def related_posts(post)
+  def related_posts(post, posts)
     category_ids = Array(post.categories).map(&:id)
-    other_posts  = @posts - [post]
+    other_posts  = posts - [post]
 
     other_posts.select do |p|
       next if (other_categories = p.categories).nil?
@@ -15,10 +15,11 @@ module PostHelpers
   # if there are not enough related posts
   #
   # (copied from `website-kabisa-nl` and optimized)
-  def similar_posts(post)
-    related_posts = related_posts(post)
-    completion    = (@posts - [post]).first(2)
+  def similar_posts(post, posts, limit=2)
+    related_posts = related_posts(post, posts)
+    # In case we found < limit:
+    completion    = (posts - [post]).first(limit)
 
-    (related_posts | completion).first(2)
+    (related_posts | completion).first(limit)
   end
 end
