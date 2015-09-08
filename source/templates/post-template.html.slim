@@ -9,6 +9,15 @@ main.post role="main"
   section.prose
     = Kramdown::Document.new(post.body).to_html
 
+  section.related-posts
+    h2 Read more related articles
+
+    ul
+      - similar_posts(post).each do |p|
+        .related-post-inner
+          = partial 'post-teaser', locals: { post: p }
+
+
 - if post.comments
   section.prose.comments
     = partial 'disqus', locals: { disqus_shortname: 'kabisa-blog' }
