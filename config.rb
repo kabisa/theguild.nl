@@ -99,6 +99,10 @@ activate :contentful do |f|
   }
 end
 
+activate :autoprefixer do |config|
+  config.browsers = ['last 2 versions', 'Explorer >= 9']
+end
+
 if data['site']
   @posts = data.site.post.values.sort_by(&:createdOn).reverse
 
