@@ -1,0 +1,22 @@
+- content_for(:description, post.summary)
+- content_for(:title, post.title)
+
+header.hero[style=("background-image: url('#{post.featuredImage.url}')" if post.featuredImage)]
+  .hero-inner
+    h1= post.title
+
+main.post role="main"
+  section.prose
+    = Kramdown::Document.new(post.body).to_html
+
+  section.prose
+    h2 Read more related articles
+
+    ul.posts-list
+      - similar_posts(post, @posts).each do |p|
+        = partial 'post-teaser', locals: { post: p }
+
+
+- if post.comments
+  section.prose.comments
+    = partial 'disqus', locals: { disqus_shortname: 'kabisa-blog' }
