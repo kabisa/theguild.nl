@@ -9,13 +9,12 @@ main.post role="main"
   section.prose
     = Kramdown::Document.new(post.body).to_html
 
-  section.related-posts
+  section.prose
     h2 Read more related articles
 
-    ul
+    ul.posts-list
       - similar_posts(post, @posts).each do |p|
-        .related-post-inner
-          = partial 'post-teaser', locals: { post: p }
+        = partial 'post-teaser', locals: { post: p }
 
 
 - if post.comments
