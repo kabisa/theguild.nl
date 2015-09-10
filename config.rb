@@ -103,7 +103,7 @@ if data['site']
   @posts = data.site.post.values.sort_by(&:createdOn).reverse
 
   @posts.each do |post|
-    proxy "#{post.slug}.html", 'templates/post-template.html', locals: { post: post }, ignore: true
+    proxy "#{post.slug}.html", 'templates/post.html', locals: { post: post }, ignore: true
   end
 end
 

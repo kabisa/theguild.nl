@@ -4,7 +4,7 @@ li
 
     p.meta
       ' Posted by
-      - post.author.each do |author|
+      - post.authors.each do |author|
         = author.name
       '  on
       = post.createdOn.strftime('%-d %B %Y')
