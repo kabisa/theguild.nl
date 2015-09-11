@@ -23,6 +23,6 @@ jobs = """
  cNNl.  oNX: ,0NXOkkkNN0 'ONXOk0NNO. kNN. :xkkkkkXN0.'ONXOkkkXNN. .OXxlld0N0c
  'oo'    :oo.  'cooooool   'cooo:.   .:o..oooooooo;    .cooooooo.   .:lll:.
 
-#{jobMessages[lang] || jobMessages['nl']}
+#{jobMessages[lang] || jobMessages['en']}
 """
 window.console && console.log(jobs)
