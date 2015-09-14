@@ -174,8 +174,9 @@ ul {
 }
 
 
-@import "_posts";
-@import "_syntax";
+@import "posts";
+@import "syntax";
+@import 'page-not-found';
 
 //
 // Media queries
