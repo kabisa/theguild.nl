@@ -114,3 +114,12 @@ set :partials_dir, 'partials/'
 Slim::Engine.options[:format] = :html
 # Set slim-lang output style
 Slim::Engine.options[:pretty] = true
+
+after_build do
+  # Netlify
+  #
+  FileUtils.cp 'build/404/index.html', 'build/404.html'
+  #
+  # End Netlify
+end
+
