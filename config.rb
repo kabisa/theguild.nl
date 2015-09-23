@@ -95,7 +95,8 @@ activate :contentful do |f|
   f.content_types      = {
     author:          '22AHer1UygAKmCC4KOMQ4M',
     category:        '3hGz8Hs0VG8mYaauKssyk4',
-    post:            '2bSTvV1Q7ug20QoKmM0cIA'
+    post:            '2bSTvV1Q7ug20QoKmM0cIA',
+    page:            '59E4QY5S3eGyAsga0Csmsg'
   }
 end
 
