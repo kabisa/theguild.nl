@@ -178,13 +178,17 @@ ul {
 //
 // Reusable page elements
 //
+.column-content {
+  max-width: $page-max-width;
+  padding: 0 $page-side-padding;
+  margin: 0 auto;
+}
 .prose {
   // Also see "Typography" elsewhere in this document
   max-width: $prose-width;
   margin-left: auto;
   margin-right: auto;
 
-  -webkit-font-feature-settings: 'kern' 1,'onum' 1,'liga' 1;
   font-feature-settings: 'kern' 1,'onum' 1,'liga' 1;
 
   ul {
@@ -192,6 +196,23 @@ ul {
   }
 }
 
+//
+// Helper classes
+//
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.no-top {
+  margin-top: 0 !important; // .no-top should trump all other margin declarations
+}
+.center-text {
+  text-align: center;
+}
 
 @import "_posts";
 @import "_syntax";
@@ -200,6 +221,12 @@ ul {
 // Media queries
 //
 @media screen and (max-width: 62em) {
+  .column-content {
+    max-width: $page-max-width;
+    padding: 0 ($page-side-padding / 2);
+    margin: 0 auto;
+  }
+
   .site-header {
     font-size: 0.9em;
   }
@@ -221,5 +248,9 @@ ul {
   .site-header {
     height: $header-height-small;
     line-height: $header-height-small;
+  }
+  .prose {
+    padding-left: ($page-side-padding / 2);
+    padding-right: ($page-side-padding / 2);
   }
 }
