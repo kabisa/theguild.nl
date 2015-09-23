@@ -18,15 +18,29 @@ $brand-green:         #61a777;
 $shadow: rgba($brand-dark, 0.75) 1px 1px 10px;
 
 // Typography
-$smaller-font: 0.75em;
-$larger-font:  1.25em;
+$heading-font:    "brandon-grotesque", Arial, Verdana, sans-serif;
+$heading-weight:  100;
+
+$body-font:       "merriweather", Georgia, Times, "Times New Roman", serif;
+$bold:            700;
+$normal:          300;
+$line-height:     1.5;
+$smaller-font:    0.707em;
+$larger-font:     1.414em;
+
+$h1-size:         3.998em;
+$h2-size:         2.827em;
+$h3-size:         1.999em;
+$h4-size:         1.414em;
 
 // Variables - layout
-$header-height:           4em;
+$header-height:           6em;
+$header-height-small:     4em;
 $page-max-width:          80em;
 $page-side-padding:       8%;
-$page-topbottom-padding:  3em;
-$hero-height:             25em;
+$content-whitespace:      4em;
+$hero-height:             20em;
+$hero-height-image:       25em;
 $prose-width:             40em;
 $arrow-size:              40px;
 
@@ -195,11 +209,12 @@ ul {
     background: $brand-primary;
   }
   .site-header + .hero {
-    top: 0;
-    margin-bottom: $page-topbottom-padding;
-
     &:before {
       content: none;
     }
+  }
+  .site-header {
+    height: $header-height-small;
+    line-height: $header-height-small;
   }
 }
