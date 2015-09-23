@@ -161,12 +161,6 @@ ul {
 .hero-big {
   font-size: 2em;
 }
-// No hero? Slide main contect area up and have it give the header a background
-.site-header + main {
-  top: -$header-height;
-  border-top: $header-height solid $brand-primary;
-  padding-bottom: 0;
-}
 
 //
 // Reusable page elements
@@ -219,28 +213,11 @@ ul {
     padding: 0 ($page-side-padding / 2);
     margin: 0 auto;
   }
-
-  .site-header {
-    font-size: 0.9em;
-  }
 }
 
 @media screen and (max-width: 52em) {
   body {
     font-size: 100%;
-  }
-  .site-header {
-    font-size: inherit;
-    background: $brand-primary;
-  }
-  .site-header + .hero {
-    &:before {
-      content: none;
-    }
-  }
-  .site-header {
-    height: $header-height-small;
-    line-height: $header-height-small;
   }
   .prose {
     padding-left: ($page-side-padding / 2);
