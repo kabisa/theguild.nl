@@ -59,12 +59,12 @@ $arrow-size:              40px;
 // Typography + base styles
 //
 body {
-  font-family: "chaparral-pro", Georgia, Times, "Times New Roman", serif;
-  line-height: 1.45;
-  font-size: 120%;
+  font-family: $body-font;
+  line-height: $line-height;
+  font-size: 110%;
   color: $brand-dark;
   min-width: 320px;
-  font-weight: 300;
+  font-weight: $normal;
 }
 .prose p,
 .prose ul {
@@ -72,29 +72,33 @@ body {
   margin-bottom: 1.3em;
 }
 h1, h2, h3, h4 {
-  font-weight: 700;
   line-height: 1.2;
+
+  font-family: $heading-font;
+  font-weight: $heading-weight;
+  // color: $brand-primary;
+  text-transform: uppercase;
 
   .prose & {
     // We only want top/bottom margin in prose
-    margin: 1.414em 0 0.5em;
+    margin: 0.75em 0 0.5em;
   }
 }
 h1 {
-  font-size: 3.157em;
+  font-size: $h1-size;
   margin-top: 0;
 }
 h2 {
-  font-size: 2.369em;
+  font-size: $h2-size;
 }
 h3 {
-  font-size: 1.777em;
+  font-size: $h3-size;
 }
 h4 {
-  font-size: 1.333em;
+  font-size: $h4-size;
 }
 small {
-  font-size: 0.75em; // Also see $smaller-font
+  font-size: $smaller-font;
 }
 a {
   color: $brand-primary;
