@@ -137,6 +137,7 @@ ul {
 }
 // We have a background image, so don't set background color
 .hero-home,
+.page-not-found,
 .hero[style] {
   background-color: transparent;
   text-shadow: $shadow;
@@ -201,8 +202,9 @@ ul {
   text-align: center;
 }
 
-@import "_posts";
-@import "_syntax";
+@import "posts";
+@import "syntax";
+@import 'page-not-found';
 
 //
 // Media queries

@@ -115,3 +115,14 @@ set :partials_dir, 'partials/'
 Slim::Engine.options[:format] = :html
 # Set slim-lang output style
 Slim::Engine.options[:pretty] = true
+
+# Middleman places all pages in a folder with its name and
+# index.html inside it. Netlify is looking for pages like 404.html
+# at the root of site folder
+after_build do
+  # Netlify
+  #
+  FileUtils.cp 'build/404/index.html', 'build/404.html'
+  #
+  # End Netlify
+end

@@ -1,1 +1,6 @@
 site_title: Kabisa - Tech blog
+
+# Lookup table with IDs as used
+# by the corresponding entries in Contentful
+pages:
+  '404': 5LCeYkNMqsYkeYYCIo88K2
