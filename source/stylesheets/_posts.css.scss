@@ -76,11 +76,27 @@
 .post {
   margin-bottom: 4em;
 
-  p:first-child {
-    font-size: $larger-font;
-  }
-
   img {
     max-width: 100%;
   }
+}
+.written-by {
+  height: 3em;
+  line-height: 3em;
+  margin-bottom: 4em;
+
+  span {
+    opacity: 0.5;
+  }
+
+  img {
+    border-radius: 50%;
+    height: 100%;
+    float: left;
+    margin-right: 1em;
+  }
+  font-style: italic;
+}
+.written-by + p {
+  font-size: $larger-font;
 }
