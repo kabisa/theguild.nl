@@ -62,7 +62,8 @@ body {
   font-family: $body-font;
   line-height: $line-height;
   font-size: 110%;
-  color: $brand-dark;
+  // color: $brand-dark;
+  color: #666;
   min-width: 320px;
   font-weight: $normal;
 }

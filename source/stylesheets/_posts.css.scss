@@ -2,11 +2,13 @@
 // List of posts
 //
 .posts-list {
-  padding-top: 4em;
+  $post-list-whitespace: 2em;
+
+  padding-top: $post-list-whitespace;
 
   li {
-    padding-bottom: 3em;
-    margin-bottom: 2em;
+    padding-top: $post-list-whitespace;
+    padding-bottom: $post-list-whitespace;
 
     &:last-child {
       margin-bottom: 0;
@@ -40,9 +42,9 @@
     &::before {
       content: "";
       position: absolute;
-      top: -1em;
+      top: -$post-list-whitespace;
       left: -1000em;
-      bottom: -1.5em;
+      bottom: -$post-list-whitespace;
       right: -1000em;
     }
 
@@ -58,6 +60,7 @@
   h2 {
     margin: 0;
     color: $brand-primary;
+    line-height: 1;
   }
   p {
     margin: 1em 0 0 0;
