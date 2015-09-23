@@ -86,7 +86,7 @@
 .written-by {
   height: 3em;
   line-height: 3em;
-  margin-bottom: 4em;
+  margin: 4em 0;
 
   span {
     opacity: 0.5;
@@ -102,4 +102,50 @@
 }
 .written-by + p {
   font-size: $larger-font;
+}
+
+//
+// Related posts
+//
+.related-posts {
+  background-color: $brand-primary;
+  color: white;
+  padding: $content-whitespace 0;
+
+  h2 {
+    color: inherit;
+  }
+  ul {
+    display: table;
+
+    h2 {
+      font-size: $h4-size;
+    }
+  }
+  li {
+    border: solid $brand-primary 1em;
+    display: table-cell;
+    height: 20em;
+    vertical-align: middle;
+    width: 50%;
+  }
+  a {
+    display: block;
+    background-color: white;
+    padding: 1.5em;
+    transition: transform 0.1s $easing;
+
+    text-decoration: none;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  p {
+    margin-top: 1em;
+  }
+  .meta {
+    font-style: italic;
+    opacity: 0.5;
+  }
 }

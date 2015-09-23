@@ -15,7 +15,8 @@ $brand-yellow:        #91a761;
 $brand-green:         #61a777;
 
 // Animation
-$shadow: rgba($brand-dark, 0.75) 1px 1px 10px;
+$shadow:       rgba($brand-dark, 0.75) 1px 1px 10px;
+$easing:       cubic-bezier(0.55, 0, 0.1, 1);
 
 // Typography
 $heading-font:    "brandon-grotesque", Arial, Verdana, sans-serif;
@@ -160,14 +161,6 @@ ul {
 .hero-big {
   font-size: 2em;
 }
-.site-header + .hero {
-  // Slide the hero upwards so it's underneath the header
-  top: -$header-height;
-
-  .hero-inner {
-    padding-top: ($header-height / 4); // More natural aligment
-  }
-}
 // No hero? Slide main contect area up and have it give the header a background
 .site-header + main {
   top: -$header-height;
@@ -252,5 +245,15 @@ ul {
   .prose {
     padding-left: ($page-side-padding / 2);
     padding-right: ($page-side-padding / 2);
+  }
+  .related-posts {
+    ul {
+      display: initial;
+    }
+    li {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
   }
 }
