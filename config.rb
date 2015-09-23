@@ -88,7 +88,7 @@ activate :contentful do |f|
   f.space              = { site: '8v4g74v8oew0' }
   f.access_token       = ENV['TECH_BLOG_ACCESS_TOKEN']
   f.use_preview_api    = true if ENV['TECH_BLOG_ENVIRONMENT'] == 'preview'
-  #f.cda_query          = QUERY
+  f.cda_query          = { limit: 1000 }
   #
   # To get the id for the content type, in Contentful go to
   # `APIs`, `Content Types`
