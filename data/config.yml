@@ -1,1 +1,6 @@
-site_title: Kabisa - Tech blog
+site_title: The Guild
+
+# Lookup table with IDs as used
+# by the corresponding entries in Contentful
+pages:
+  '404': 5LCeYkNMqsYkeYYCIo88K2

@@ -2,11 +2,13 @@
 // List of posts
 //
 .posts-list {
-  padding-top: 4em;
+  $post-list-whitespace: 2em;
+
+  padding-top: $post-list-whitespace;
 
   li {
-    padding-bottom: 3em;
-    margin-bottom: 2em;
+    padding-top: $post-list-whitespace;
+    padding-bottom: $post-list-whitespace;
 
     &:last-child {
       margin-bottom: 0;
@@ -40,9 +42,9 @@
     &::before {
       content: "";
       position: absolute;
-      top: -1em;
+      top: -$post-list-whitespace;
       left: -1000em;
-      bottom: -1.5em;
+      bottom: -$post-list-whitespace;
       right: -1000em;
     }
 
@@ -58,6 +60,7 @@
   h2 {
     margin: 0;
     color: $brand-primary;
+    line-height: 1;
   }
   p {
     margin: 1em 0 0 0;
@@ -76,11 +79,73 @@
 .post {
   margin-bottom: 4em;
 
-  p:first-child {
-    font-size: $larger-font;
+  img {
+    max-width: 100%;
+  }
+}
+.written-by {
+  height: 3em;
+  line-height: 3em;
+  margin: 4em 0;
+
+  span {
+    opacity: 0.5;
   }
 
   img {
-    max-width: 100%;
+    border-radius: 50%;
+    height: 100%;
+    float: left;
+    margin-right: 1em;
+  }
+  font-style: italic;
+}
+.written-by + p {
+  font-size: $larger-font;
+}
+
+//
+// Related posts
+//
+.related-posts {
+  background-color: $brand-primary;
+  color: white;
+  padding: $content-whitespace 0;
+
+  h2 {
+    color: inherit;
+  }
+  ul {
+    display: table;
+
+    h2 {
+      font-size: $h4-size;
+    }
+  }
+  li {
+    border: solid $brand-primary 1em;
+    display: table-cell;
+    height: 20em;
+    vertical-align: middle;
+    width: 50%;
+  }
+  a {
+    display: block;
+    background-color: white;
+    padding: 1.5em;
+    transition: transform 0.1s $easing;
+
+    text-decoration: none;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  p {
+    margin-top: 1em;
+  }
+  .meta {
+    font-style: italic;
+    opacity: 0.5;
   }
 }

@@ -86,16 +86,17 @@ activate :dotenv
 
 activate :contentful do |f|
   f.space              = { site: '8v4g74v8oew0' }
-  f.access_token       = ENV['TECH_BLOG_ACCESS_TOKEN']
-  f.use_preview_api    = true if ENV['TECH_BLOG_ENVIRONMENT'] == 'preview'
-  #f.cda_query          = QUERY
+  f.access_token       = ENV['THE_GUILD_WEBSITE_ACCESS_TOKEN']
+  f.use_preview_api    = true if ENV['THE_GUILD_WEBSITE_ENVIRONMENT'] == 'preview'
+  f.cda_query          = { limit: 1000 }
   #
   # To get the id for the content type, in Contentful go to
   # `APIs`, `Content Types`
   f.content_types      = {
     author:          '22AHer1UygAKmCC4KOMQ4M',
     category:        '3hGz8Hs0VG8mYaauKssyk4',
-    post:            '2bSTvV1Q7ug20QoKmM0cIA'
+    post:            '2bSTvV1Q7ug20QoKmM0cIA',
+    page:            '59E4QY5S3eGyAsga0Csmsg'
   }
 end
 
@@ -114,3 +115,14 @@ set :partials_dir, 'partials/'
 Slim::Engine.options[:format] = :html
 # Set slim-lang output style
 Slim::Engine.options[:pretty] = true
+
+# Middleman places all pages in a folder with its name and
+# index.html inside it. Netlify is looking for pages like 404.html
+# at the root of site folder
+after_build do
+  # Netlify
+  #
+  FileUtils.cp 'build/404/index.html', 'build/404.html'
+  #
+  # End Netlify
+end

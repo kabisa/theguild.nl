@@ -7,15 +7,24 @@ header.hero[style=("background-image: url('#{post.featuredImage.url}')" if post.
 
 main.post role="main"
   section.prose
+    - post.authors.each do |author|
+      .written-by.clearfix
+        = image_tag author.profilePhoto.url
+        span
+          'Written by
+          = author.name
+          '  on
+          = post.createdOn.strftime('%-d-%-m-%Y')
     = Kramdown::Document.new(post.body).to_html
 
-  section.prose
-    h2 Read more related articles
+  section.related-posts
+    .prose
+      h2.no-top.center-text Related articles
 
-    ul.posts-list
-      - similar_posts(post, @posts).each do |p|
-        = partial 'post-teaser', locals: { post: p }
-
+    .column-content.clearfix
+      ul
+        - similar_posts(post, @posts).each do |p|
+          = partial 'post-teaser', locals: { post: p }
 
 - if post.comments
   section.prose.comments
