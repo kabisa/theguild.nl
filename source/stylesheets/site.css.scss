@@ -43,7 +43,6 @@ $content-whitespace:      4em;
 $hero-height:             20em;
 $hero-height-image:       25em;
 $prose-width:             50em;
-$arrow-size:              40px;
 
 
 //
@@ -159,15 +158,17 @@ ul {
 }
 
 .hero-home {
-  border-bottom: 1px solid rgba(245,245,247,0.984);
+  border-bottom: 2px solid rgba(245,245,247,0.984);
   color: $brand-primary;
-  height: $hero-height * 1.5;
+  height: $hero-height * 1.7;
 
   img {
     max-height: ($hero-height * 0.5);
   }
   h2 {
-    padding: 1em;
+    font-weight: 700;
+    padding: 0.3em;
+    text-transform: initial;
   }
 }
 
@@ -233,6 +234,18 @@ ul {
     padding-left: ($page-side-padding / 2);
     padding-right: ($page-side-padding / 2);
   }
+  .hero-home {
+    height: auto;
+    padding-top: 1em;
+
+    .hero-inner {
+      text-align: center;
+    }
+  }
+  .prose {
+    padding-left: ($page-side-padding / 2);
+    padding-right: ($page-side-padding / 2);
+  }
   .related-posts {
     ul {
       display: initial;
@@ -241,6 +254,27 @@ ul {
       display: block;
       height: 100%;
       width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 36em) {
+  $heading-scale: 0.75;
+
+  h1 {
+    font-size: ($h1-size * $heading-scale);
+  }
+  h2 {
+    font-size: ($h2-size * $heading-scale);
+  }
+  h3 {
+    font-size: ($h3-size * $heading-scale);
+  }
+  h4 {
+    font-size: ($h4-size * $heading-scale);
+  }
+  .hero-inner {
+    h1 {
+      font-size: ($h2-size * $heading-scale);
     }
   }
 }
