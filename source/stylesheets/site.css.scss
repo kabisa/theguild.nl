@@ -116,6 +116,14 @@ ul {
   list-style: none;
 }
 
+//
+// Main content
+//
+main {
+  display: block; // Correct `block` display not defined for `main` in ancient browsers
+  overflow: hidden; // Avoid children's margins pushing outside the element
+  position: relative;
+}
 
 //
 // Hero
