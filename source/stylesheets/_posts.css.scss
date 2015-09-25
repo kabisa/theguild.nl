@@ -77,8 +77,6 @@
 // Actual post itself
 //
 .post {
-  margin-bottom: 4em;
-
   img {
     max-width: 100%;
   }
@@ -111,6 +109,7 @@
   background-color: $brand-primary;
   color: white;
   padding: $content-whitespace 0;
+  margin: $content-whitespace 0;
 
   h2 {
     color: inherit;
