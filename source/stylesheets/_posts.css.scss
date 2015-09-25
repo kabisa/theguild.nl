@@ -112,34 +112,35 @@
   color: white;
   padding: $content-whitespace 0;
 
-  h2 {
-    color: inherit;
-  }
   ul {
     display: table;
 
     h2 {
       font-size: $h4-size;
+      color: inherit;
     }
   }
   li {
-    border: solid $brand-red 1em;
-    display: table-cell;
-    height: 20em;
-    vertical-align: middle;
-    width: 50%;
-  }
-  a {
-    display: block;
     background-color: white;
-    padding: 1.5em;
-    transition: transform 0.1s $easing;
-
-    text-decoration: none;
+    display: table-cell;
+    width: 50%;
 
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.025);
     }
+  }
+  li:first-child {
+    border-right: solid $brand-red 1em;
+  }
+  li:last-child {
+    border-left: solid $brand-red 1em;
+  }
+  a {
+    vertical-align: middle;
+    display: block;
+    padding: 1.5em;
+    transition: transform 0.1s $easing;
+    text-decoration: none;
   }
   p {
     margin-top: 1em;

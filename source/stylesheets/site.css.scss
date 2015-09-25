@@ -266,15 +266,15 @@ main {
       margin: 2em auto;
     }
   }
+  .prose {
+    padding-left: ($page-side-padding / 2);
+    padding-right: ($page-side-padding / 2);
+  }
 }
 
 @media screen and (max-width: 52em) {
   body {
     font-size: 100%;
-  }
-  .prose {
-    padding-left: ($page-side-padding / 2);
-    padding-right: ($page-side-padding / 2);
   }
   .hero-home {
     height: auto;
@@ -284,18 +284,17 @@ main {
       text-align: center;
     }
   }
-  .prose {
-    padding-left: ($page-side-padding / 2);
-    padding-right: ($page-side-padding / 2);
-  }
   .related-posts {
     ul {
       display: initial;
     }
-    li {
+    li:first-child,
+    li:last-child {
+      border: none;
       display: block;
       height: 100%;
       width: 100%;
+      margin-bottom: 1em;
     }
   }
 }
