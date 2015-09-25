@@ -2,11 +2,16 @@
 
 
 // Colors
-$brand-primary:       #ce0000;
-$brand-dark:          #a60000;
+
+// TODO: Decide upon the site colors and refactor
+// $brand-primary:       #ce0000;
+// $brand-dark:          #a60000;
+$brand-primary:       #000;
+$brand-dark:          #000;
 $light-gray:          #f0f0f0;
 $dark-gray:           #969696;
 
+$brand-red:           #ce0000;
 $brand-purple:        #6900ce;
 $brand-pink:          #ce00cb;
 $brand-orange:        #ce6700;
@@ -120,7 +125,7 @@ ul {
   width: 100%;
   height: $hero-height; // Will act as min-height because of dispay:table
   display: table;
-  background-color: $brand-primary;
+  background-color: $brand-red;
   background-size: cover;
   background-position: center;
 
