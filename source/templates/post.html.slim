@@ -4,6 +4,9 @@
 header.hero[style=("background-image: url('#{post.featuredImage.url}')" if post.featuredImage)]
   .hero-inner
     .prose
+      .site-logo
+        a href="/"
+          img src="images/theguild-logo.png"
       h1= post.title
 
 main.post role="main"

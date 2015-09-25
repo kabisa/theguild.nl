@@ -44,7 +44,6 @@ $hero-height:             20em;
 $hero-height-image:       25em;
 $prose-width:             50em;
 
-
 //
 // Base styles / reset
 //
@@ -151,12 +150,15 @@ ul {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
-  padding: 0 $page-side-padding;
+  padding: 0 $page-side-padding*3;
+
+  .prose {
+    position: relative;
+  }
 }
 .hero-big {
   font-size: 2em;
 }
-
 .hero-home {
   border-bottom: 2px solid rgba(245,245,247,0.984);
   color: $brand-primary;
@@ -169,6 +171,21 @@ ul {
     font-weight: 700;
     padding: 0.3em;
     text-transform: initial;
+  }
+}
+.site-logo {
+  background-color: white;
+  border-radius: 50%;
+  height: ($hero-height * 0.5);
+  left: -($hero-height * 0.5);
+  margin-top: -($hero-height * 0.25);
+  padding: 2em;
+  position: absolute;
+  top: 50%;
+  width: ($hero-height * 0.5);
+
+  img {
+    height: ($hero-height * 0.3);
   }
 }
 
@@ -223,6 +240,15 @@ ul {
     max-width: $page-max-width;
     padding: 0 ($page-side-padding / 2);
     margin: 0 auto;
+  }
+  .hero-inner {
+    padding: 0 $page-side-padding;
+
+   .site-logo {
+      position: initial;
+      left: initial;
+      margin: 2em auto;
+    }
   }
 }
 
