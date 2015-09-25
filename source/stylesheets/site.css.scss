@@ -167,7 +167,7 @@ ul {
 .hero-home {
   border-bottom: 2px solid rgba(245,245,247,0.984);
   color: $brand-primary;
-  height: $hero-height * 1.7;
+  height: $hero-height * 1.5;
 
   img {
     max-height: ($hero-height * 0.5);
@@ -176,6 +176,9 @@ ul {
     font-weight: 700;
     padding: 0.3em;
     text-transform: initial;
+  }
+  .hero-inner {
+    vertical-align: bottom;
   }
 }
 .site-logo {
