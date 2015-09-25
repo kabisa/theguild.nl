@@ -2,17 +2,17 @@
 
 
 // Colors
-$brand-primary:       #6692a6;
-$brand-primary-dark:  #2b546d;
-$brand-dark:          #141d21; // E.g. footer
+$brand-primary:       #ce0000;
+$brand-dark:          #a60000;
 $light-gray:          #f0f0f0;
 $dark-gray:           #969696;
 
-$brand-purple:        #7761a7;
-$brand-pink:          #a76191;
-$brand-orange:        #a77761;
-$brand-yellow:        #91a761;
-$brand-green:         #61a777;
+$brand-purple:        #6900ce;
+$brand-pink:          #ce00cb;
+$brand-orange:        #ce6700;
+$brand-yellow:        #ccce00;
+$brand-green:         #65ce00;
+$brand-blue:          #0065ce;
 
 // Animation
 $shadow:       rgba($brand-dark, 0.75) 1px 1px 10px;
@@ -105,7 +105,7 @@ a {
   color: $brand-primary;
 
   &:hover, &:focus, &:visited {
-    color: $brand-primary-dark;
+    color: $brand-dark;
   }
 }
 ul {
