@@ -139,7 +139,6 @@ ul {
 .page-not-found,
 .hero[style] {
   background-color: transparent;
-  text-shadow: $shadow;
 
   &:before {
     content: '';
@@ -147,9 +146,6 @@ ul {
     top: 0;
     width: 100%;
     height: $header-height;
-
-    background: rgba(0, 0, 0, 0.35);
-    background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
   }
 }
 .hero-inner {
@@ -160,6 +156,19 @@ ul {
 }
 .hero-big {
   font-size: 2em;
+}
+
+.hero-home {
+  border-bottom: 1px solid rgba(245,245,247,0.984);
+  color: $brand-primary;
+  height: $hero-height * 1.5;
+
+  img {
+    max-height: ($hero-height * 0.5);
+  }
+  h2 {
+    padding: 1em;
+  }
 }
 
 //

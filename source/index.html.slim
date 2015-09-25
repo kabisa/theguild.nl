@@ -1,4 +1,13 @@
 main role="main"
+  header.hero.hero-home
+    .hero-inner
+      a href="/"
+        img src="images/theguild-logo.png"
+      h2.column-content The guild of artisans masterclass in development and geekery
+      p.column-content
+        | Written by&nbsp;
+        a href="http://kabisa.nl/" #kabisa
+
   section.prose
     ul.posts-list
       - @posts.each do |post|
