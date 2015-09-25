@@ -3,7 +3,8 @@
 
 header.hero[style=("background-image: url('#{post.featuredImage.url}')" if post.featuredImage)]
   .hero-inner
-    h1= post.title
+    .prose
+      h1= post.title
 
 main.post role="main"
   section.prose
