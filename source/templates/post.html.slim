@@ -1,0 +1,35 @@
+- content_for(:description, post.summary)
+- content_for(:title, post.title)
+
+header.hero[style=("background-image: url('#{post.featuredImage.url}')" if post.featuredImage)]
+  .hero-inner
+    .prose
+      .site-logo
+        a href="/"
+          = image_tag "images/theguild-logo.png"
+      h1= post.title
+
+main.post role="main"
+  section.prose
+    - post.authors.each do |author|
+      .written-by.clearfix
+        = image_tag author.profilePhoto.url
+        span
+          'Written by
+          = author.name
+          '  on
+          = post.createdOn.strftime('%-d-%-m-%Y')
+    = Kramdown::Document.new(post.body).to_html
+
+  section.related-posts
+    .prose
+      h2.no-top.center-text Related articles
+
+    .column-content.clearfix
+      ul
+        - similar_posts(post, @posts).each do |p|
+          = partial 'post-teaser', locals: { post: p }
+
+- if post.comments
+  section.prose.comments
+    = partial 'disqus', locals: { disqus_shortname: 'kabisa-blog' }
