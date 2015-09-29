@@ -7,3 +7,4 @@ html lang="nl"
     = yield
     = partial 'footer'
     = javascript_include_tag :all
+    = partial 'ga', locals: { tracking_id: data.config.tracker_id }
