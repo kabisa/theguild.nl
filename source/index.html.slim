@@ -4,10 +4,11 @@ main role="main"
       .prose
         a href="/"
           = image_tag "images/theguild-logo.png"
-        h2 The Guild of Artisans Masterclass in Development and Geekery
+        h2= data.config.site_subtitle
         p
           | Written by&nbsp;
-          a href="http://kabisa.nl/" Kabisa
+          a href="http://kabisa.nl/"
+            = data.config.author
 
   section.prose
     ul.posts-list
