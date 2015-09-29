@@ -77,6 +77,9 @@
 // Actual post itself
 //
 .post {
+  ul, ol {
+    padding-left: 1.1em;
+  }
   img {
     max-width: 100%;
   }
@@ -113,6 +116,7 @@
 
   ul {
     display: table;
+    width: 100%;
 
     h2 {
       font-size: $h4-size;
