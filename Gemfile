@@ -20,3 +20,4 @@ gem 'middleman-autoprefixer'
 
 gem 'slim'
 gem 'html2slim' # Use `bundle exec erb2slim|html2slim -h` for more info
+gem 'builder' # XMLfeeds
