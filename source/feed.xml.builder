@@ -24,7 +24,7 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
         xml.author { xml.name author.name }
       end
       xml.summary post.summary, "type" => "html"
-      xml.content post.body, "type" => "html"
+      xml.content Kramdown::Document.new(post.body).to_html, "type" => "html"
     end
   end
 end
