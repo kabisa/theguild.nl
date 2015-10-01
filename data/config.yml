@@ -1,4 +1,8 @@
 site_title: The Guild
+site_subtitle: The Guild of Artisans Masterclass in Development and Geekery
+author: Kabisa
+email: info@kabisa.nl
+host: www.theguild.nl
 
 # Lookup table with IDs as used
 # by the corresponding entries in Contentful
