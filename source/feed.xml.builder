@@ -1,12 +1,13 @@
 xml.instruct!
 xml.feed xmlns: "http://www.w3.org/2005/Atom" do
-  site_url = "http://#{data.config.host}"
+  site_url = data.config.site_url
+  feed_path = data.config.feed_path
 
   xml.title "#{data.config.site_title}"
   xml.subtitle "#{data.config.site_subtitle}"
   xml.id URI(site_url)
   xml.link href: URI(site_url)
-  xml.link href: URI.join(site_url, "/feed.xml"), rel: "self"
+  xml.link href: URI.join(site_url, feed_path), rel: "self"
   xml.updated @posts.first.createdOn.to_time.iso8601
   xml.author do
     xml.name "#{data.config.author}"

@@ -113,7 +113,7 @@ if data['site']
 end
 
 # Create RSS Feed xml
-page '/feed.xml', layout: false
+page data.config.feed_path, layout: false
 
 # Move partials out of the way of regular pages
 set :partials_dir, 'partials/'
