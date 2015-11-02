@@ -13,6 +13,7 @@ You will need the following things properly installed on your computer.
 * `bundle install`
 * `cp .env.example .env`
 * edit the environment variables in `.env`
+* fetch content from contentful: `middleman contentful`
 
 ## Running / Development
 
