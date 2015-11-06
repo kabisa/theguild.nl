@@ -6,7 +6,8 @@ site_url: http://www.theguild.nl
 feed_path: /feed.xml
 
 # Vendor ids and configuration names
-tracker_id: UA-31335705-4
+tracker_id: UA-31335705-1
+domain_name: "theguild.nl"
 
 # Lookup table with IDs as used
 # by the corresponding entries in Contentful
