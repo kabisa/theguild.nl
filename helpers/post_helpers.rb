@@ -41,14 +41,9 @@ module PostHelpers
   end
 
   def avg_read_time_as_text(words)
-    avg_minutes = (words / 250).round
+    unit = (avg_minutes = words / 250) == 1 ? 'minute' : 'minutes'
 
-    if(avg_minutes == 1)
-      return "~ " + avg_minutes.to_s + " minute"
-    else
-      return "~ " + avg_minutes.to_s + " minutes"
-    end
-
+    "~#{avg_minutes} #{unit}"
   end
 
 end
