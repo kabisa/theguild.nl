@@ -25,9 +25,9 @@ module TextHelpers
   #   average_reading_time Array.new(500, 'lorem')
   #   #=> "~2 minutes"
   def average_reading_time(content)
-    words_per_minute = 250.0
+    words_per_minute = 250
     word_count       = word_count content
-    minutes          = (word_count / words_per_minute).round
+    minutes          = (word_count / Float(words_per_minute)).round
     unit             = minutes == 1 ? 'minute' : 'minutes'
 
     "~#{minutes} #{unit}"
