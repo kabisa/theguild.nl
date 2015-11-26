@@ -8,5 +8,10 @@ li
         = author.name
       '  on
       = post.createdOn.strftime('%-d %B %Y')
+      '  •
+      = post.body.split.count
+      '  words
+      '•
+      = avg_read_time_as_text(post.body.split.count)
 
     p.excerpt= post.summary

@@ -19,6 +19,12 @@ main.post role="main"
           = author.name
           '  on
           = post.createdOn.strftime('%-d-%-m-%Y')
+          '  • 
+          = post.body.split.count
+          '  words
+          '•
+          = avg_read_time_as_text(post.body.split.count)
+
     = Kramdown::Document.new(post.body).to_html
 
   section.related-posts
