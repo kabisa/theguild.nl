@@ -39,16 +39,4 @@ module PostHelpers
       (other_categories.map(&:id) & category_ids).present?
     end
   end
-
-  def avg_read_time_as_text(words)
-    avg_minutes = (words / 250).round
-
-    if(avg_minutes == 1)
-      return "~ " + avg_minutes.to_s + " minute"
-    else
-      return "~ " + avg_minutes.to_s + " minutes"
-    end
-
-  end
-
 end
