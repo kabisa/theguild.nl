@@ -120,8 +120,12 @@ set :partials_dir, 'partials/'
 
 # Force HTML5 to avoid self-closing tags
 Slim::Engine.options[:format] = :html
+
 # Set slim-lang output style
 Slim::Engine.options[:pretty] = true
+
+# Disable option validator
+Slim::Engine.disable_option_validator!
 
 # Middleman places all pages in a folder with its name and
 # index.html inside it. Netlify is looking for pages like 404.html
