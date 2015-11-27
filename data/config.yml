@@ -5,10 +5,10 @@ email: info@kabisa.nl
 site_url: http://www.theguild.nl
 feed_path: /feed.xml
 
-# Vendor ids and configuration names
+# Google analytics tracker ID
 tracker_id: UA-31335705-1
 
-# Lookup table with IDs as used
-# by the corresponding entries in Contentful
+# Lookup table with contentful IDs for 
+# mapping specific pages to contentful content.
 pages:
   '404': 5LCeYkNMqsYkeYYCIo88K2
