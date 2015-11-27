@@ -12,7 +12,7 @@ module TextHelpers
     content_length       = content_length content
     average_reading_time = average_reading_time content
 
-    "• #{content_length} • #{average_reading_time}"
+    "#{content_length} in about #{average_reading_time}"
   end
 
   # Show the average reading time of
@@ -30,7 +30,7 @@ module TextHelpers
     minutes          = (word_count / Float(words_per_minute)).round
     unit             = minutes == 1 ? 'minute' : 'minutes'
 
-    "~#{minutes} #{unit}"
+    "#{minutes} #{unit}"
   end
 
   # Show the length of the passed `content`

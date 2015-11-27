@@ -14,11 +14,9 @@ main.post role="main"
     - post.authors.each do |author|
       .written-by.clearfix
         = image_tag author.profilePhoto.url
-        span
-          'Written by
-          = author.name
-          '  on
-          = post.createdOn.strftime('%-d-%-m-%Y')
+        p
+          '#{author.name} – #{post.createdOn.strftime('%-d %B %Y')}
+          br
           =< content_length_and_average_reading_time(post.body)
 
     = Kramdown::Document.new(post.body).to_html

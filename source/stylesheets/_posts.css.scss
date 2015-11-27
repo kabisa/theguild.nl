@@ -83,24 +83,24 @@
   }
 }
 .written-by {
-  height: 3em;
-  line-height: 3em;
   margin: 4em 0;
-
-  span {
-    opacity: 0.5;
-  }
+  text-align: center;
+  font-style: italic;
 
   img {
     border-radius: 50%;
-    height: 100%;
-    float: left;
-    margin-right: 1em;
+    height: $content-whitespace; 
+    margin-bottom: $content-whitespace * 0.25; 
   }
-  font-style: italic;
+  
+  p {
+      opacity: 0.5;
+  }
+
 }
+
 .written-by + p {
-  font-size: $larger-font;
+    font-size: $larger-font;
 }
 
 //
