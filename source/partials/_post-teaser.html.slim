@@ -5,8 +5,9 @@ li
     p.meta
       ' Posted by
       - post.authors.each do |author|
-        = author.name
-      '  on
+        => author.name
+      ' on
       = post.createdOn.strftime('%-d %B %Y')
+      =< content_length_and_average_reading_time(post.body)
 
     p.excerpt= post.summary
