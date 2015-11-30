@@ -8,7 +8,6 @@ li
         => author.name
       ' on
       = post.createdOn.strftime('%-d %B %Y')
-      '  -
-      =< content_length_and_average_reading_time(post.body)
+      '
 
     p.excerpt= post.summary
