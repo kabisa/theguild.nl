@@ -24,6 +24,10 @@ main.post role="main"
     - post.authors.each do |author|    
       = partial 'author-testimonial', locals: { author: author }
 
+- if post.comments
+  section.prose.comments
+    = partial 'disqus', locals: { disqus_shortname: 'kabisa-blog' }
+    
   section.related-posts
     .prose
       h2.no-top.center-text Related articles
@@ -33,6 +37,4 @@ main.post role="main"
         - similar_posts(post, @posts).each do |p|
           = partial 'post-teaser', locals: { post: p }
 
-- if post.comments
-  section.prose.comments
-    = partial 'disqus', locals: { disqus_shortname: 'kabisa-blog' }
+
