@@ -1,0 +1,6 @@
+- if author.biography
+  section.author-testimonial
+    .image= image_tag author.profilePhoto.url
+    .details
+      h4= author.name
+      = Kramdown::Document.new(author.biography).to_html
