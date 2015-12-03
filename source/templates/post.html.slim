@@ -21,6 +21,9 @@ main.post role="main"
 
     = Kramdown::Document.new(post.body).to_html
 
+    - post.authors.each do |author|    
+      = partial 'author-testimonial', locals: { author: author }
+
   section.related-posts
     .prose
       h2.no-top.center-text Related articles
