@@ -7,7 +7,7 @@ module TextHelpers
   #
   # @example
   #   content_length_and_average_reading_time Array.new(500, 'lorem')
-  #   #=> "• 500 words • ~2 minutes"
+  #   #=> "500 words in about 2 minutes"
   def content_length_and_average_reading_time(content)
     content_length       = content_length content
     average_reading_time = average_reading_time content
@@ -23,11 +23,11 @@ module TextHelpers
   #
   # @example
   #   average_reading_time Array.new(500, 'lorem')
-  #   #=> "~2 minutes"
+  #   #=> "2 minutes"
   def average_reading_time(content)
     words_per_minute = 250
     word_count       = word_count content
-    minutes          = (word_count / Float(words_per_minute)).round
+    minutes          = (word_count / Float(words_per_minute)).ceil
     unit             = minutes == 1 ? 'minute' : 'minutes'
 
     "#{minutes} #{unit}"
