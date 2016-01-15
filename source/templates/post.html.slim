@@ -41,6 +41,6 @@ main.post role="main"
     .column-content.clearfix
       ul
         - similar_posts(post, @posts).each do |p|
-          = partial 'post-teaser', locals: { post: p }
+          = partial 'related-post', locals: { post: p }
 
 
