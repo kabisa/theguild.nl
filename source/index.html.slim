@@ -12,7 +12,7 @@ main role="main"
         p
           | <script async defer src="https://theguildslacking.herokuapp.com/slackin.js"></script>
 
-  section.prose
-    ul.posts-list
+  section
+    .flex-posts-list
       - @posts.each do |post|
         = partial 'post-teaser', locals: { post: post }
