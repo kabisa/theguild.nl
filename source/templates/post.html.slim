@@ -15,13 +15,15 @@ main.post role="main"
       .written-by.clearfix
         = image_tag author.profilePhoto.url
         p
-          '#{author.name} – #{post.createdOn.strftime('%-d %B %Y')}
+          = link_to author.name, "profiles/#{author.nameAsSlug}"
+          '  –
+          = post.createdOn.strftime('%-d %B %Y')
           br
           =< content_length_and_average_reading_time(post.body)
 
     = Kramdown::Document.new(post.body).to_html
 
-    - post.authors.each do |author|    
+    - post.authors.each do |author|
       = partial 'author-testimonial', locals: { author: author }
 
   section.related-posts

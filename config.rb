@@ -1,3 +1,6 @@
+require 'lib/author_mapper'
+require 'lib/post_mapper'
+
 ###
 # Compass
 ###
@@ -93,9 +96,9 @@ activate :contentful do |f|
   # To get the id for the content type, in Contentful go to
   # `APIs`, `Content Types`
   f.content_types      = {
-    author:          '22AHer1UygAKmCC4KOMQ4M',
+    author:          { mapper: AuthorMapper, id: '22AHer1UygAKmCC4KOMQ4M' },
     category:        '3hGz8Hs0VG8mYaauKssyk4',
-    post:            '2bSTvV1Q7ug20QoKmM0cIA',
+    post:            { mapper: PostMapper, id: '2bSTvV1Q7ug20QoKmM0cIA' },
     page:            '59E4QY5S3eGyAsga0Csmsg'
   }
 end
@@ -109,6 +112,16 @@ if data['site']
 
   @posts.each do |post|
     proxy "#{post.slug}.html", 'templates/post.html', locals: { post: post }, ignore: true
+  end
+
+    # Create separate pages for each author
+  data.site.author.values.each do |author|
+    page "/profiles/#{author.nameAsSlug}.html", proxy: 'templates/profile.html', ignore: false do
+      @author = author
+      @posts = @posts.select do |post|
+        post[:authors].map(&:id).include? author.id
+      end
+    end
   end
 end
 
