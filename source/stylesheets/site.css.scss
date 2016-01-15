@@ -4,14 +4,12 @@
 // Colors
 
 // TODO: Decide upon the site colors and refactor
-// $brand-primary:       #ce0000;
-// $brand-dark:          #a60000;
-$brand-primary:       #000;
-$brand-dark:          #000;
+$brand-primary:       #ce0000;
+$brand-dark:          darken($brand-primary, 10%);
 $light-gray:          #f0f0f0;
 $dark-gray:           #969696;
 
-$brand-red:           #ce0000;
+$brand-red:           $brand-primary;
 $brand-purple:        #6900ce;
 $brand-pink:          #ce00cb;
 $brand-orange:        #ce6700;
@@ -66,7 +64,6 @@ body {
   font-family: $body-font;
   line-height: $line-height;
   font-size: 110%;
-  // color: $brand-dark;
   color: #666;
   min-width: 320px;
   font-weight: $normal;
@@ -160,13 +157,37 @@ main {
   }
 }
 .hero-inner {
+  $logo-size: 3em;
+
   display: table-cell;
   vertical-align: middle;
   text-align: center;
-  padding: 0 $page-side-padding*3;
+  position: relative;
+  padding: 0;
 
-  .prose {
+  h1 {
+    display: inline-block;
     position: relative;
+    padding-left: $logo-size;
+    line-height: 1;
+    margin: 0.5em 3%;
+    max-width: 20em;
+  }
+
+  .hero-logo {
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: $logo-size;
+    width: $logo-size;
+    margin-top: -(0.5 * $logo-size);
+    padding: (0.2 * $logo-size);
+
+    img {
+      max-width: 100%;
+    }
   }
 }
 .hero-big {
@@ -189,21 +210,7 @@ main {
     vertical-align: bottom;
   }
 }
-.site-logo {
-  background-color: white;
-  border-radius: 50%;
-  height: ($hero-height * 0.5);
-  left: -($hero-height * 0.5);
-  margin-top: -($hero-height * 0.25);
-  padding: 2em;
-  position: absolute;
-  top: 50%;
-  width: ($hero-height * 0.5);
 
-  img {
-    height: ($hero-height * 0.3);
-  }
-}
 
 //
 // Reusable page elements
@@ -261,15 +268,6 @@ main {
     padding: 0 ($page-side-padding / 2);
     margin: 0 auto;
   }
-  .hero-inner {
-    padding: 0 $page-side-padding;
-
-    .site-logo {
-      position: initial;
-      left: initial;
-      margin: 2em auto;
-    }
-  }
   .prose {
     padding-left: ($page-side-padding / 2);
     padding-right: ($page-side-padding / 2);
@@ -277,6 +275,8 @@ main {
 }
 
 @media screen and (max-width: 52em) {
+  $heading-scale: 0.75;
+
   body {
     font-size: 100%;
   }
@@ -301,10 +301,6 @@ main {
       margin-bottom: 1em;
     }
   }
-}
-@media screen and (max-width: 36em) {
-  $heading-scale: 0.75;
-
   h1 {
     font-size: ($h1-size * $heading-scale);
   }
@@ -317,9 +313,17 @@ main {
   h4 {
     font-size: ($h4-size * $heading-scale);
   }
+}
+
+@media screen and (max-width: 36em) {
   .hero-inner {
     h1 {
-      font-size: ($h2-size * $heading-scale);
+      padding: 0;
+    }
+    .hero-logo {
+      display: block;
+      position: static;
+      margin: 0 auto 0.5em auto;
     }
   }
 }

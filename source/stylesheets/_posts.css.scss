@@ -89,10 +89,10 @@
 
   img {
     border-radius: 50%;
-    height: $content-whitespace; 
-    margin-bottom: $content-whitespace * 0.25; 
+    height: $content-whitespace;
+    margin-bottom: $content-whitespace * 0.25;
   }
-  
+
   p {
       opacity: 0.5;
   }
@@ -107,7 +107,7 @@
 // Related posts
 //
 .related-posts {
-  background-color: $brand-red;
+  background-color: $brand-primary;
   color: white;
   padding: $content-whitespace 0;
   margin: $content-whitespace 0;
@@ -131,10 +131,10 @@
     }
   }
   li:first-child {
-    border-right: solid $brand-red 1em;
+    border-right: solid $brand-primary 1em;
   }
   li:last-child {
-    border-left: solid $brand-red 1em;
+    border-left: solid $brand-primary 1em;
   }
   a {
     vertical-align: middle;

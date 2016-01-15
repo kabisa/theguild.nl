@@ -8,11 +8,10 @@
 
 header.hero[style=("background-image: url('#{post.featuredImage.url}')" if post.featuredImage)]
   .hero-inner
-    .prose
-      .site-logo
-        a href="/"
-          = image_tag "images/theguild-logo.png"
-      h1= post.title
+    h1
+      a.hero-logo href="/"
+        = image_tag "images/theguild-logo.png"
+      =post.title
 
 main.post role="main"
   section.prose
