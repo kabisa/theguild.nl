@@ -89,14 +89,17 @@
 
   img {
     border-radius: 50%;
-    height: $content-whitespace; 
-    margin-bottom: $content-whitespace * 0.25; 
+    height: $content-whitespace;
+    margin-bottom: $content-whitespace * 0.25;
   }
-  
+
   p {
       opacity: 0.5;
   }
 
+  a {
+    text-decoration: underline;
+  }
 }
 
 .written-by + p {

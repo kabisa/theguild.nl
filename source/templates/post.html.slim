@@ -15,8 +15,8 @@ main.post role="main"
       .written-by.clearfix
         = image_tag author.profilePhoto.url
         p
-          = link_to_profile author.name, author
-          '  –
+          = link_to_profile(author) { author.name }
+          ' –
           = post.createdOn.strftime('%-d %B %Y')
           br
           =< content_length_and_average_reading_time(post.body)
@@ -24,7 +24,7 @@ main.post role="main"
     = Kramdown::Document.new(post.body).to_html
 
     - post.authors.each do |author|
-      = link_to_profile partial('author-testimonial', locals: { author: author }), author
+      = link_to_profile(author) { partial('author-testimonial', locals: { author: author }) }
 
   section.related-posts
     .prose
