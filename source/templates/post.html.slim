@@ -24,7 +24,7 @@ main.post role="main"
     = Kramdown::Document.new(post.body).to_html
 
     - post.authors.each do |author|
-      = partial 'author-testimonial', locals: { author: author }
+      = link_to partial('author-testimonial', locals: { author: author }), "profiles/#{author.nameAsSlug}"
 
   section.related-posts
     .prose

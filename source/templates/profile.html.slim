@@ -1,1 +1,17 @@
-h1 Hoi
+main.post role="main"
+  header.hero.hero-home
+    .hero-inner
+      .prose
+        a href="/"
+          = image_tag "images/theguild-logo.png"
+        h2= data.config.site_subtitle
+        p
+          ' Written by
+          = @author.name
+
+
+  section.prose
+    = partial 'author-testimonial', locals: { author: @author }
+    ul.posts-list
+      - @posts.each do |post|
+        = partial 'post-teaser', locals: { post: post }
