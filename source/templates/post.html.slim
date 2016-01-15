@@ -2,9 +2,11 @@
 - content_for(:title, post.title)
 - content_for(:slug, post.slug)
 - content_for(:pagetype, 'article')
-- content_for :images do
+- content_for :extra_opengraph_tags do
   - [post.featuredImage && post.featuredImage.url, post.authors.map {|a| a.profilePhoto.url }, "#{data.config.site_url}/images/theguild-logo.png"].flatten.compact.each do |f|
     meta property="og:image" content=(f)
+  meta name="twitter:label1" value="Reading time"
+  meta name="twitter:data1" value=(average_reading_time post.body)
 
 header.hero[style=("background-image: url('#{post.featuredImage.url}')" if post.featuredImage)]
   .hero-inner
