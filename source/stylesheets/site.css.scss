@@ -120,6 +120,7 @@ main {
   display: block; // Correct `block` display not defined for `main` in ancient browsers
   overflow: hidden; // Avoid children's margins pushing outside the element
   position: relative;
+  margin-bottom: $content-whitespace;
 }
 
 //
