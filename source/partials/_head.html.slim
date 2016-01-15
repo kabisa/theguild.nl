@@ -12,7 +12,9 @@ meta property="og:type" content=(current_page.data.pagetype || yield_content(:pa
 = yield_content(:images)
 
 title=[current_page.data.title, yield_content(:title), data.config.site_title].compact.join(' - ')
-= stylesheet_link_tag :site
+/ = stylesheet_link_tag :site
+= inline_stylesheet :site
+
 link rel="alternate" type="application/atom+xml" href=data.config.feed_path
 
 |<script src="//use.typekit.net/wer4zsm.js"></script>
