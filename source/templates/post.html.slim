@@ -1,5 +1,10 @@
 - content_for(:description, post.summary)
 - content_for(:title, post.title)
+- content_for(:slug, post.slug)
+- content_for(:pagetype, 'article')
+- content_for :images do
+  - [post.featuredImage && post.featuredImage.url, post.authors.map {|a| a.profilePhoto.url }, "#{data.config.site_url}/images/theguild-logo.png"].flatten.compact.each do |f|
+    meta property="og:image" content=(f)
 
 header.hero[style=("background-image: url('#{post.featuredImage.url}')" if post.featuredImage)]
   .hero-inner
@@ -21,7 +26,7 @@ main.post role="main"
 
     = Kramdown::Document.new(post.body).to_html
 
-    - post.authors.each do |author|    
+    - post.authors.each do |author|
       = partial 'author-testimonial', locals: { author: author }
 
   section.related-posts

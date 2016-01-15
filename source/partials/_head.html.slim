@@ -1,10 +1,25 @@
-meta[charset="utf-8"]
-meta[content="width=device-width,initial-scale=1" name="viewport"]
-meta[content=(current_page.data.description || yield_content(:description) || data.config.description) name="description"]
-title= [data.config.site_title, current_page.data.title, yield_content(:title)].compact.join(' - ')
+meta charset="utf-8"
+meta name="viewport" content="width=device-width,initial-scale=1"
+meta name="description" content=(current_page.data.description || yield_content(:description) || data.config.description)
+
+meta name="twitter:card" content="summary"
+meta name="twitter:site" content=data.config.twitteraccount
+meta property="og:url" content=[data.config.site_url, current_page.data.slug, yield_content(:slug)].compact.join('/')
+meta property="og:title" content=[data.config.site_title, yield_content(:title), current_page.data.title].compact.join(' - ')
+meta property="og:description" content=(current_page.data.description || yield_content(:description) || data.config.description)
+meta property="og:site_name" content=(data.config.site_title)
+meta property="og:type" content=(current_page.data.pagetype || yield_content(:pagetype) || data.config.pagetype)
+= yield_content(:images)
+
+title=[data.config.site_title, current_page.data.title, yield_content(:title)].compact.join(' - ')
 = stylesheet_link_tag :site
 link rel="alternate" type="application/atom+xml" href=data.config.feed_path
 / TODO: Create a HTML5 link tag to the stylesheet, instead of the Ruby helper
 / link rel="stylesheet" href= :site
 |<script src="//use.typekit.net/wer4zsm.js"></script>
 |<script>try{Typekit.load({ async: false });}catch(e){}</script>
+
+
+
+
+

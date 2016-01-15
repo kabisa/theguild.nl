@@ -1,9 +1,11 @@
 site_title: The Guild
-site_subtitle: The Guild of Artisans Masterclass in Development and Geekery
+site_subtitle: The Guild of Artisans, Masterclass in Development and Geekery
+description: The nerd blog of Kabisa's nerdiest nerds
 author: Kabisa
 email: info@kabisa.nl
 site_url: http://www.theguild.nl
 feed_path: /feed.xml
+twitteraccount: '@theguildtech'
 
 # Vendor ids and configuration names
 tracker_id: UA-31335705-1
