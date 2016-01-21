@@ -1,13 +1,19 @@
 - content_for(:description, post.summary)
 - content_for(:title, post.title)
+- content_for(:slug, post.slug)
+- content_for(:pagetype, 'article')
+- content_for :extra_opengraph_tags do
+  - [post.featuredImageLink, post.authors.map {|a| a.profilePhoto.url }, "#{data.config.site_url}/images/theguild-logo.png"].flatten.compact.each do |f|
+    meta property="og:image" content=(f)
+  meta name="twitter:label1" value="Reading time"
+  meta name="twitter:data1" value=(average_reading_time post.body)
 
-header.hero[style=("background-image: url('#{post.featuredImage.url}')" if post.featuredImage)]
+header.hero[style=("background-image: url('#{post.featuredImageLink}')" if post.featuredImageLink)]
   .hero-inner
-    .prose
-      .site-logo
-        a href="/"
-          = image_tag "images/theguild-logo.png"
-      h1= post.title
+    h1
+      a.hero-logo href="/"
+        = image_tag "images/theguild-logo.png"
+      =post.title
 
 main.post role="main"
   section.prose
@@ -26,6 +32,10 @@ main.post role="main"
     - post.authors.each do |author|
       = link_to_profile(author) { partial('author-testimonial', locals: { author: author }) }
 
+- if post.comments
+  section.prose.comments
+    = partial 'disqus', locals: { disqus_shortname: 'kabisa-blog' }
+
   section.related-posts
     .prose
       h2.no-top.center-text Related articles
@@ -33,8 +43,6 @@ main.post role="main"
     .column-content.clearfix
       ul
         - similar_posts(post, @posts).each do |p|
-          = partial 'post-teaser', locals: { post: p }
+          = partial 'related-post', locals: { post: p }
 
-- if post.comments
-  section.prose.comments
-    = partial 'disqus', locals: { disqus_shortname: 'kabisa-blog' }
+

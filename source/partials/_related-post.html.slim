@@ -1,0 +1,13 @@
+li
+  a href="/#{post.slug}"
+    h2= post.title
+
+    p.meta
+      ' Posted by
+      - post.authors.each do |author|
+        => author.name
+      ' on
+      = post.createdOn.strftime('%-d %B %Y')
+      '
+
+    p.excerpt= post.summary

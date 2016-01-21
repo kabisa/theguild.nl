@@ -1,13 +1,18 @@
-li
-  a href="/#{post.slug}"
-    h2= post.title
+.item
+  - if post.featuredImageLink
+    .item-background[style=("background-image: url('#{post.featuredImageLink}')" if post.featuredImageLink)]
+  - else
+    .item-background[style=("background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);")]
+  .item-content
+    a href="/#{post.slug}"
+      h2= post.title
 
-    p.meta
-      ' Posted by
-      - post.authors.each do |author|
-        => author.name
-      ' on
-      = post.createdOn.strftime('%-d %B %Y')
-      '
+      p.meta
+        ' Posted by
+        - post.authors.each do |author|
+          => author.name
+        ' on
+        = post.createdOn.strftime('%-d %B %Y')
+        '
 
-    p.excerpt= post.summary
+      p.excerpt= post.summary
