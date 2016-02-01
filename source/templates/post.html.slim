@@ -34,13 +34,5 @@ main.post role="main"
   section.prose.comments
     = partial 'disqus', locals: { disqus_shortname: 'kabisa-blog' }
     
-  section.related-posts
-    .prose
-      h2.no-top.center-text Related articles
-
-    .column-content.clearfix
-      ul
-        - similar_posts(post, @posts).each do |p|
-          = partial 'related-post', locals: { post: p }
-
+= partial 'related-posts', locals: { posts: similar_posts(post, @posts) }
 

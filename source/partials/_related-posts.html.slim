@@ -1,0 +1,9 @@
+- if Array(posts).any?
+  section.related-posts
+    .prose
+      h2.no-top.center-text Gerelateerde artikelen
+
+    .column-content.clearfix
+      ul
+        - posts.each do |post|
+          = partial 'related-post', locals: { post: post }
