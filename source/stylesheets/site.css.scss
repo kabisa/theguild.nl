@@ -69,7 +69,7 @@ body {
   font-weight: $normal;
 }
 .prose p,
-.prose ul {
+.prose ul, .prose ol {
   // We only want top/bottom margin in prose
   margin-bottom: 1.3em;
 }
