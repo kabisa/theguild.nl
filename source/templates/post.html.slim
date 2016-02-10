@@ -33,6 +33,6 @@ main.post role="main"
 - if post.comments
   section.prose.comments
     = partial 'disqus', locals: { disqus_shortname: 'kabisa-blog' }
-    
+
 = partial 'related-posts', locals: { posts: similar_posts(post, @posts) }
 
