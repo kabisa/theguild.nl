@@ -25,16 +25,19 @@
       filter: grayscale(1) opacity(0.4) brightness(0.6);
     }
 
-    .item-content {
+    a {
       display: flex;
+      color: white;
       position: absolute;
       align-items: flex-end;
       height: 100%;
       padding: $post-list-whitespace;
     }
+  }
 
-    a {
-      color: white;
+  .item:hover {
+    .item-background {
+      filter: grayscale(1) opacity(0.6) brightness(0.4);
     }
   }
 
