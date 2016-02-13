@@ -84,6 +84,10 @@ activate :syntax, line_numbers: true
 # Activate before using any ENV defined in `.env`
 activate :dotenv
 
+# Sitemap configuration
+set :url_root, data.config.site_url
+activate :search_engine_sitemap
+
 activate :contentful do |f|
   f.space              = { site: '8v4g74v8oew0' }
   f.access_token       = ENV['THE_GUILD_WEBSITE_ACCESS_TOKEN']
