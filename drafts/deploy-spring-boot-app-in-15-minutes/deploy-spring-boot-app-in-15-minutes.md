@@ -53,10 +53,10 @@ server.port=${port:8080}
 
 ```sh
 # Procfile
-web: java -Ddatabase.url=$JDBC_DATABASE_URL -jar target/dokku-boot-demo-0.0.1-SNAPSHOT.jar
+web: env DATABASE_URL=$JDBC_DATABASE_URL target/dokku-boot-demo-0.0.1-SNAPSHOT.jar
 ```
 
-During deployment Dokku invokes `mvn install` on our app so it will build a jar. Here we instruct Dokku that to launch our app it needs to execute the jar. We set the `database.url` to `$JDBC_DATABASE_URL` which is an environment variable provided by the Java buildpack that formats the database connection string for JDBC compatibility.
+During deployment Dokku invokes `mvn install` on our app so it will build a jar. Here we instruct Dokku that to launch our app it needs to execute the jar. We set the `$DATABASE_URL` to `$JDBC_DATABASE_URL` which is an environment variable provided by the Java buildpack that formats the database connection string for JDBC compatibility.
 
 ## 4. Deploy your app
 
