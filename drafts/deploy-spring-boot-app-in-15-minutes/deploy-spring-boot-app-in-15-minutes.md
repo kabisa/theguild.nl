@@ -1,4 +1,4 @@
-# Deploy your Spring Boot app on your own server in less than 15 minutes
+# Deploy a Spring Boot app on your own server in less than 15 minutes
 
 PaaS offerings like [Heroku](https://heroku.com) are great but not always suitable or even possible. If you need or want full control over your data and servers, or you just want to host your latest side project but don’t want [Heroku dyno sleeping](https://devcenter.heroku.com/articles/dyno-sleeping) you might just want to self host.
 
