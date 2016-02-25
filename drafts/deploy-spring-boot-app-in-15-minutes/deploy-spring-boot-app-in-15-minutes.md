@@ -186,9 +186,9 @@ Open your browser at `http://my-app.dokku.example.org/` and see a nice random qu
 
 ## Closing thoughts
 
-Dokku takes a bit of one time setup but once you have your Dokku instance ready deploying new applications will be a breeze. Do note that Dokku was designed for simple single server setups. If you need fancy stuff like clustering, access control etc you might want to look at one of the more comprehensive projects in this space like [Flynn](https://flynn.io) or [Deis](http://deis.io).
+Dokku takes a bit of one time setup but once you have your Dokku instance ready, deploying new applications will be a breeze. Do note that Dokku was designed for simple single server setups. If you need fancy stuff like clustering, access control etc you might want to look at one of the more comprehensive projects in this space like [Flynn](https://flynn.io) or [Deis](http://deis.io).
 
-Even though Dokku is quite simple we've only scratched the surface of what Dokku can do. Now you have a fully functional Dokku instance go ahead and explore the [Dokku docs](http://dokku.viewdocs.io/dokku/installation/) to see what more is possible.
+Even though Dokku is quite simple, we've only scratched the surface of what Dokku can do. Now you have a fully functional Dokku instance go ahead and explore the [Dokku docs](http://dokku.viewdocs.io/dokku/installation/) to see what more is possible!
 
 If there's no suitable Heroku buildpack for your app you can always deploy a raw Docker container using Dokku by simply including a `Dockerfile` in the root of your project.
 
