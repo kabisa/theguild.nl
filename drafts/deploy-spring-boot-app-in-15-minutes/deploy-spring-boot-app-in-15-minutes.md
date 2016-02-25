@@ -2,8 +2,7 @@
 
 PaaS offerings like [Heroku](https://heroku.com) are great but not always suitable or even possible. If you need or want full control over your data and servers, or you just want to host your latest side project but don’t want [Heroku dyno sleeping](https://devcenter.heroku.com/articles/dyno-sleeping) you might just want to self host.
 
-Traditionally self-hosting was painful and cumbersome but today there are plenty options to self-host your apps that are nearly as painless as a PaaS solution.  
-In this tutorial I will show you how to deploy an app on [Dokku](https://github.com/dokku/dokku).
+Traditionally self-hosting was painful and cumbersome but today there are plenty options to self-host your apps that are nearly as painless as a PaaS solution. In this tutorial I will show you how to deploy an app on [Dokku](https://github.com/dokku/dokku):
 
 > Dokku is an extensible, open source Platform as a Service that runs on a single server of your choice.
 
@@ -36,9 +35,9 @@ That's it, you now have a fully functional Dokku instance up and running! Let’
 
 ## 3. Prepare your app for deployment on Dokku
 
-We're about ready to deploy our first app. In general if you want to deploy an app to Dokku you don't need to make a lot of modifications to your app. Especially if your app adheres to the [12 Factor](http://12factor.net/) guidelines you should be fine. Most importantly your app should allow configuration via environment variables or command line parameters.
+We're about ready to deploy our first app. In general if you want to deploy an app on Dokku you don't need to make a lot of modifications to your app. Especially if your app adheres to the [Twelve Factor](http://12factor.net/) guidelines you should be fine. Most importantly your app should allow configuration via environment variables or command line parameters.
 
-Fortunately Spring Boot embraces the 12 Factor guidelines. Spring Boot supports configuration via environment variables out of the box and it's trivial to implement your own.
+Fortunately Spring Boot embraces the Twelve Factor guidelines. Spring Boot supports configuration via environment variables out of the box and it's trivial to implement your own.
 
 Looking at the [example app](https://github.com/kabisa/dokku-boot-demo) I prepared there are two important things to notice:
 
@@ -57,11 +56,11 @@ server.port=${port:8080}
 web: java -Ddatabase.url=$JDBC_DATABASE_URL -jar target/dokku-boot-demo-0.0.1-SNAPSHOT.jar
 ```
 
-We tell Dokku how to start our app and we set the `database.url` property with the value of `$JDBC_DATABASE_URL`. The default Dokku (and Heroku) `$DATABASE_URL`s are in the format `postgres://<user>:<password>@<host>:<port>` whereas Spring Boot requires a JDBC compatible connection string that looks like `jdbc:postgresql://<user>:<password>@<host>:<port>`. Fortunately the Java buildpack knows this and helpfully provides a `$JDBC_DATABASE_URL` variable that formats the `$DATABASE_URL` in a JDBC compatible way.
+During deployment Dokku invokes `mvn install` on our app so it will build a jar. Here we instruct Dokku that to launch our app it needs to execute the jar. We set the `database.url` to `$JDBC_DATABASE_URL` which is an environment variable provided by the Java buildpack that formats the database connection string for JDBC compatibility.
 
 ## 4. Deploy your app
 
-Good so now our app is Dokku compatible. Before we can push our app to Dokku we need to configure our application in Dokku. For simplicity enter the following `dokku` commands in an SSH session on your server. Later you can setup the [Dokku CLI client](http://dokku.viewdocs.io/dokku/community/clients/) to run these commands directly from your local machine.
+Alright so now our app is Dokku compatible. Before we can push our app to Dokku we need to configure our application in Dokku. For simplicity enter the following `dokku` commands in an SSH session on your server. Later you can setup the [Dokku CLI client](http://dokku.viewdocs.io/dokku/community/clients/) to run these commands directly from your local machine.
 
 First we'll create our app in Dokku:
 
