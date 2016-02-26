@@ -97,7 +97,9 @@ $ git clone https://github.com/kabisa/dokku-boot-demo.git
 $ cd dokku-boot-demo
 ```
 
-Dokku uses a Heroku-style `git push to deploy` model, so we'll need to add a Git remote to our repo to point to Dokku's Git repo. Replace `dokku.example.org` with your actual Dokku hostname.
+Dokku uses a `Git push to deploy` model, meaning that you push your app sources into Dokku using Git. To deploy you simply add a `git remote` to your repository pointing to Dokku and `git push` every time you want to deploy your latest changes.
+
+Execute the following command in your shell. Replace `dokku.example.org` with your actual Dokku hostname.
 
 ```sh
 $ git remote add dokku dokku@dokku.example.org:my-app
@@ -106,10 +108,10 @@ $ git remote add dokku dokku@dokku.example.org:my-app
 And finally push our app to Dokku:
 
 ```sh
-$ git push dokku
+$ git push dokku master
 ```
 
-Dokku will now detect our app is a Java app, download the Heroku Java buildpack, compile the app and run it.
+Dokku will now detect our app is a Java app, build a Docker image suitable to run Java apps, compile the app and run it.
 
 You should see similar output as below:
 
