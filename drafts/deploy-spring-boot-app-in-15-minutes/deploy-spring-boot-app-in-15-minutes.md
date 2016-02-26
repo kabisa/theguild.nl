@@ -1,8 +1,8 @@
 # Deploy a Spring Boot app on your own server in less than 15 minutes
 
-PaaS offerings like [Heroku](https://heroku.com) are great but not always suitable or even possible. If you need or want full control over your data and servers, or you just want to host your latest side project but don’t want [Heroku dyno sleeping](https://devcenter.heroku.com/articles/dyno-sleeping) you might just want to self host.
+Hosted PaaS (Platform As A Service) offerings like [Heroku](https://heroku.com) and [OpenShift](https://www.openshift.com/) are great but not always suitable or even possible to use. If you need or want full control over your data and servers, or you just want to host your latest side project but don’t want [Heroku dyno sleeping](https://devcenter.heroku.com/articles/dyno-sleeping) you might just want to self host.
 
-Traditionally self-hosting was painful and cumbersome but today there are plenty options to self-host your apps that are nearly as painless as a PaaS solution. In this tutorial I will show you how to deploy an app on [Dokku](https://github.com/dokku/dokku):
+Traditionally self-hosting was painful and cumbersome but today there are plenty options to self-host your apps that are nearly as painless as a hosted PaaS solution. In this tutorial I will show you how to deploy an app on [Dokku](https://github.com/dokku/dokku):
 
 > Dokku is an extensible, open source Platform as a Service that runs on a single server of your choice.
 
@@ -49,7 +49,7 @@ spring.datasource.url=${database.url:jdbc:postgresql://localhost:5432/dokku-demo
 server.port=${port:8080}
 ```
 
-&nbsp;2. I've added a Procfile to instruct Dokku how to start our app. Just like Heroku, you need to instruct Dokku how to start your application using a Procfile.
+&nbsp;2. I've added a Procfile to instruct Dokku how to start our app. Dokku will read this file during deployment and use the `web` process to boot our app. You can read more about Procfiles [here](https://devcenter.heroku.com/articles/procfile).
 
 ```sh
 # Procfile
@@ -186,9 +186,9 @@ Open your browser at `http://my-app.dokku.example.org/` and see a nice random qu
 
 ## Closing thoughts
 
-Dokku takes a bit of one time setup but once you have your Dokku instance ready, deploying new applications will be a breeze. Do note that Dokku was designed for simple single server setups. If you need fancy stuff like clustering, access control etc you might want to look at one of the more comprehensive projects in this space like [Flynn](https://flynn.io) or [Deis](http://deis.io).
+Dokku takes a bit of one time setup but once you have your Dokku instance ready, deploying new applications will be a breeze. Do note that Dokku was designed for simple single server setups. If you need fancy stuff like clustering, access control etc you might want to look at one of the more comprehensive projects in this space like [Flynn](https://flynn.io), [Deis](http://deis.io) or [Cloud Foundry](http://docs.cloudfoundry.org/).
 
-Even though Dokku is quite simple, we've only scratched the surface of what Dokku can do. Now you have a fully functional Dokku instance go ahead and explore the [Dokku docs](http://dokku.viewdocs.io/dokku/installation/) to see what more is possible!
+Even though Dokku is quite simple, we've only scratched the surface of what it can do. You now have a fully functional Dokku instance so go ahead and explore the [Dokku docs](http://dokku.viewdocs.io/dokku/installation/) to see what more is possible!
 
 If there's no suitable Heroku buildpack for your app you can always deploy a raw Docker container using Dokku by simply including a `Dockerfile` in the root of your project.
 
