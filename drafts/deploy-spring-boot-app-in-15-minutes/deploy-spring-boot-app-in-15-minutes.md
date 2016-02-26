@@ -26,7 +26,7 @@ wget -qO- https://raw.githubusercontent.com/dokku/dokku/v0.4.14/bootstrap.sh | b
 
 Sit back, get some coffee, this will take a couple of minutes. When the command completes open your browser and navigate to the ip address or hostname assigned to your server to complete the Dokku setup.
 
-![Dokku setup](./dokku-setup.png)
+![Dokku setup](./dokku-setup.jpg)
 
 Provide your SSH public key here so you’ll be able to push your app to Dokku later via Git.
 Enable `use virtualhost naming for apps` and enter the hostname you assigned to your server in step 1.
