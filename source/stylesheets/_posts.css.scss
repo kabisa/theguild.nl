@@ -125,7 +125,7 @@
   padding: $content-whitespace 0;
 
   ul {
-    display: table;
+    display: flex;
     width: 100%;
 
     h2 {
@@ -135,7 +135,6 @@
   }
   li {
     background-color: white;
-    display: table-cell;
     width: 50%;
 
     &:hover {
@@ -143,10 +142,10 @@
     }
   }
   li:first-child {
-    border-right: solid $brand-primary 1em;
+    margin-right: 1em;
   }
   li:last-child {
-    border-left: solid $brand-primary 1em;
+    margin-left: 1em;
   }
   a {
     vertical-align: middle;
