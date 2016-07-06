@@ -255,10 +255,7 @@ main {
   text-align: center;
 }
 
-@import "posts";
-@import "syntax";
-@import 'page-not-found';
-@import './modules/author-testimonial';
+@import "modules";
 
 //
 // Media queries
