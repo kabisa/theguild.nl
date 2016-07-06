@@ -3,18 +3,32 @@
 //
 
 .flex-posts-list {
-  $post-list-whitespace: 2em;
-
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
 
   .item {
-    width: 400px;
     height: 500px;
-    flex-grow: 1;
+    flex: 1 1 400px;
+    display: flex;
     position: relative;
 
+    a {
+      height: 100%;
+      padding: 2em;
+      display: flex;
+      z-index: 1;
+      align-items: flex-end;
+    }
+
+    // Coloring...
+    a {
+      color: white;
+    }
+    &:hover {
+      .item-background {
+        filter: grayscale(0) opacity(0.6) brightness(0.4) blur(0);
+      }
+    }
     .item-background {
       background-size: cover;
       position: absolute;
@@ -22,42 +36,16 @@
       top: 0;
       width: 100%;
       height: 100%;
-      filter: grayscale(1) opacity(0.4) brightness(0.6);
+      filter: grayscale(1) opacity(0.4) brightness(0.6) blur(3px);
+      transition: filter 0.2s ease;
     }
 
-    a {
-      display: flex;
-      color: white;
-      position: absolute;
-      align-items: flex-end;
-      height: 100%;
-      padding: $post-list-whitespace;
+    $cnt: length($item-bg-colors);
+    @for $i from 1 through $cnt {
+      &:nth-child(#{$cnt}n+#{$i}) {
+        background-color: nth($item-bg-colors, $i);
+      }
     }
-  }
-
-  .item:hover {
-    .item-background {
-      filter: grayscale(1) opacity(0.6) brightness(0.4);
-    }
-  }
-
-  .item:nth-child(6n-5) {
-    background-color: $brand-red;
-  }
-  .item:nth-child(6n-4) {
-    background-color: $brand-purple;
-  }
-  .item:nth-child(6n-3) {
-    background-color: $brand-pink;
-  }
-  .item:nth-child(6n-2) {
-    background-color: $brand-orange;
-  }
-  .item:nth-child(6n-1) {
-    background-color: $brand-yellow;
-  }
-  .item:nth-child(6n-0) {
-    background-color: $brand-green;
   }
 
   h2 {
@@ -79,6 +67,20 @@
 
   a {
     text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 52em) {
+  .flex-posts-list {
+    display: initial;
+
+    .item {
+      height: auto;
+
+      a {
+        padding: 3em;
+      }
+    }
   }
 }
 
