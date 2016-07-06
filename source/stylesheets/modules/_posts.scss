@@ -1,0 +1,166 @@
+//
+// List of posts
+//
+
+.flex-posts-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  .item {
+    height: 500px;
+    flex: 1 1 400px;
+    display: flex;
+    position: relative;
+
+    a {
+      height: 100%;
+      padding: 2em;
+      display: flex;
+      z-index: 1;
+      align-items: flex-end;
+    }
+
+    // Coloring...
+    a {
+      color: white;
+    }
+    &:hover {
+      .item-background {
+        filter: grayscale(0) opacity(0.6) brightness(0.4) blur(0);
+      }
+    }
+    .item-background {
+      background-size: cover;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      filter: grayscale(1) opacity(0.4) brightness(0.6) blur(3px);
+      transition: filter 0.2s ease;
+    }
+
+    $cnt: length($item-bg-colors);
+    @for $i from 1 through $cnt {
+      &:nth-child(#{$cnt}n+#{$i}) {
+        background-color: nth($item-bg-colors, $i);
+      }
+    }
+  }
+
+  h2 {
+    margin: 0;
+    color: white;
+    line-height: 1;
+    font-size: $h4-size;
+  }
+
+  p.excerpt {
+    height: 100px;
+  }
+
+  p.meta {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    margin-top: 5px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 52em) {
+  .flex-posts-list {
+    display: initial;
+
+    .item {
+      height: auto;
+
+      a {
+        padding: 3em;
+      }
+    }
+  }
+}
+
+.prose .posts-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+//
+// Actual post itself
+//
+.post {
+  img {
+    max-width: 100%;
+  }
+}
+.written-by {
+  margin: 4em 0;
+  text-align: center;
+  font-style: italic;
+
+  img {
+    border-radius: 50%;
+    height: $content-whitespace;
+    margin-bottom: $content-whitespace * 0.25;
+  }
+
+  p {
+      opacity: 0.5;
+  }
+
+}
+
+.written-by + p {
+    font-size: $larger-font;
+}
+
+//
+// Related posts
+//
+.related-posts {
+  background-color: $brand-primary;
+  color: white;
+  padding: $content-whitespace 0;
+
+  ul {
+    display: flex;
+    width: 100%;
+
+    h2 {
+      font-size: $h4-size;
+      color: inherit;
+    }
+  }
+  li {
+    background-color: white;
+    width: 50%;
+
+    &:hover {
+      transform: scale(1.025);
+    }
+  }
+  li:first-child {
+    margin-right: 1em;
+  }
+  li:last-child {
+    margin-left: 1em;
+  }
+  a {
+    vertical-align: middle;
+    display: block;
+    padding: 1.5em;
+    transition: transform 0.1s $easing;
+    text-decoration: none;
+  }
+  p {
+    margin-top: 1em;
+  }
+  .meta {
+    font-style: italic;
+    opacity: 0.5;
+  }
+}
