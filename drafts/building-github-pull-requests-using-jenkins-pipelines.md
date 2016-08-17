@@ -19,7 +19,7 @@ For the remainder of this post I'm going to assume you have:
 
 After following this tutorial you'll end up with the following job structure in Jenkins:
 
-```
+<pre>
 Github
 |--- Project 1
   |- master
@@ -29,7 +29,7 @@ Github
 |--- Project 2
   |- master
   |- ...
-```
+</pre><br/>
 
 All GitHub projects will be nested under a GitHub namespace. Jenkins will build all master branches and any Pull Requests.
 
