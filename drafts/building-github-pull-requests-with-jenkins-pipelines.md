@@ -1,8 +1,8 @@
 # Building Github Pull Requests with Jenkins Pipelines
 
-We've written about building Github Pull Requests using Jenkins [before](/building-github-pull-requests-with-jenkins/), back in 2013. Now in 2016 we're still strong Jenkins users here at Kabisa and Jenkins has changed quite a bit in recent years. Most notably Jenkins  introduced the notion of [Pipelines](https://jenkins.io/solutions/pipeline/).
+We've written about building Github Pull Requests with Jenkins [back in 2013](/building-github-pull-requests-with-jenkins/). Three years later we're still strong Jenkins users here at Kabisa, even though Jenkins changed quite a bit. Most notably Jenkins  introduced the notion of [Pipelines](https://jenkins.io/solutions/pipeline/).
 
-Jenkins Pipelines allow you to describe your entire CI/CD pipeline in code and version it together with your production code. Additionally the whole Jenkins Pipelines ecosystem allows for many powerful setups, including [building jobs in Docker containers](https://wiki.jenkins-ci.org/display/JENKINS/CloudBees+Docker+Pipeline+Plugin) and inbuilt support for building Github Pull Requests.
+Jenkins Pipelines allow you to describe your entire CI/CD pipeline in code and version it together with your production code. Additionally the whole Jenkins Pipelines ecosystem allows for many powerful setups, including [building jobs in Docker containers](https://wiki.jenkins-ci.org/display/JENKINS/CloudBees+Docker+Pipeline+Plugin) and built-in support for building Github Pull Requests.
 
 In this post I'm going to show you how to configure Jenkins 2.0 with Pipelines to setup a complete CI/CD pipeline with builds running in Docker containers for isolation and ease of environment setup.
 
@@ -37,17 +37,17 @@ To get started navigate to the `New Item` page in Jenkins and configure as follo
 
 ![](https://kabisa-website-assets.s3.amazonaws.com/theguild/posts/building-github-pull-requests-with-jenkins-pipeline-style/create-organisation-directory.png)
 
-On the next screen some details about your GitHub origanisation have to be configured:
+On the next screen some details about your GitHub organisation have to be configured:
 
 ![](https://kabisa-website-assets.s3.amazonaws.com/theguild/posts/building-github-pull-requests-with-jenkins-pipeline-style/configure-github-organisation.png)
 
 * **Owner**: enter the name of your GitHub organisation here
 * **Scan credentials**: select or create credentials that should be used to communicate with the GitHub API. You should use a GitHub OAuth token here that has permissions to access all repositories you'd like to build in Jenkins.
-* **Checkout credentials**: Configures which credentials should be used to clone repositories. By default https will be used using the same OAuth token used for scanning but you can also chose to use an SSH key here.
+* **Checkout credentials**: Configures which credentials should be used to clone repositories. By default HTTPS will be used with the same OAuth token used for scanning; Alternatively you can use SSH.
 
 Adapt the other fields to your own taste. With the configuration shown in the screenshot Jenkins will build only the `master` branch of each project and all Pull Requests.
 
-Hit the save button and Jenkins will start scanning your GitHub account for repositories containing a `Jenkinsfile` in the project root. `Jenkinsfile`s tell Jenkins how your project should be built. If this is your first interaction with Jenkins Pipelines you probably won't have any projects that have a Jenkinsfile so read on to learn how to create a Jenkinsfile.
+Hit the save button and Jenkins will start scanning your GitHub account for repositories containing a `Jenkinsfile` in the project root. `Jenkinsfile`s tell Jenkins how your project should be built. If this is your first interaction with Jenkins Pipelines you probably won't have any projects that have a Jenkinsfile so read on to learn how to create one.
 
 Jenkins is now fully setup to build any project in your GitHub organisation, provided it has a `Jenkinsfile`. Contrary to Jenkins 1.x no further interaction with Jenkins web UI is required to enable and configure new projects. Simply add `Jenkinsfile`s to your projects and Jenkins will automatically start building your project! 
 
@@ -55,7 +55,7 @@ Jenkins is now fully setup to build any project in your GitHub organisation, pro
 
 A `Jenkinsfile` tells Jenkins how to build your project. Jenkinsfiles are very powerful as you'll have the full power of [Groovy](http://www.groovy-lang.org/) at your fingertips. I won't go into detail about the Jenkinsfile syntax as that's beyond the scope of this post. [Here's](https://jenkins.io/doc/pipeline/) some documentation to get you started. Read on for a simple example.
 
-The most basic `Jenkinsfile` looks like this:
+The most basic Jenkinsfile looks like this:
 
 ```groovy
 node {
@@ -63,7 +63,7 @@ node {
 }
 ```
 
-Obviously this doesn't do much useful, but bear with me. Put this in a file named `Jenkinsfile` in the root of a Github project, commit and push. With this your project can now be built by a Jenkins pipeline, however Jenkins doesn't know about this project yet. By default Jenkins will only look for new projects once a day. To ensure the project is recognized immediately you can press the `Re-scan Organization > Run Now` button. Jenkins will then scan the GitHub organisation again and this time find the `Jenkinsfile` we just commited and setup the project for you.
+Obviously this doesn't do much useful, but bear with me. Put this in a file named `Jenkinsfile` in the root of a Github project, commit and push. With this your project can now be built by a Jenkins pipeline, however Jenkins doesn't know about this project yet. By default Jenkins will only look for new projects once a day. To ensure the project is recognized immediately you can press the `Re-scan Organization > Run Now` button. Jenkins will then scan the GitHub organisation again, this time finding the Jenkinsfile we've just committed and setting up the project for you.
 
 That's it! From now on Jenkins will automatically build the master branch as commits are pushed to it, as well as build all Pull Requests each time a commit is added.
 
@@ -101,8 +101,8 @@ This only scratches the surface of what Jenkins Pipelines can do. Please refer t
 
 If you have any issues setting this up please feel free to reply in the comments. Some things to keep in mind:
 
-* The GitHub OAuth token you use at minimal needs *write* access to your projects to be able to set the build status on Pull Requests.
-* If your OAuth token also provides organisation administration permissions Jenkins will automatically set up required webhooks. If you don't want Jenkins to do all this make sure you configure the webhook yourself. [Details here](https://github.com/jenkinsci/github-organization-folder-plugin#hook-configuration).
+* The GitHub OAuth token you use needs at least write access to your projects to be able to set the build status on Pull Requests.
+* If your OAuth token also provides organisation administration permissions Jenkins will automatically set up required webhooks. If you don't want Jenkins to do all this make sure to configure the webhook yourself. [Details here](https://github.com/jenkinsci/github-organization-folder-plugin#hook-configuration).
 * For Docker builds to work Docker needs to run on your Jenkins machine(s) and the user running Jenkins should be in the `docker` group
 
 ## Resources
