@@ -47,7 +47,7 @@ On the next screen some details about your GitHub organisation have to be config
 
 Adapt the other fields to your own taste. With the configuration shown in the screenshot Jenkins will build only the `master` branch of each project and all Pull Requests.
 
-Hit the save button and Jenkins will start scanning your GitHub account for repositories containing a `Jenkinsfile` in the project root. `Jenkinsfile`s tell Jenkins how your project should be built. If this is your first interaction with Jenkins Pipelines you probably won't have any projects that have a Jenkinsfile so read on to learn how to create one.
+Hit the save button and Jenkins will start scanning your GitHub account for repositories supporting Pipelines. Jenkins detects this by looking for a file named `Jenkinsfile` in the root of a project. If this is your first interaction with Jenkins Pipelines you probably won't have any projects that have a Jenkinsfile so read on to learn how to create one.
 
 Jenkins is now fully setup to build any project in your GitHub organisation, provided it has a `Jenkinsfile`. Contrary to Jenkins 1.x no further interaction with Jenkins web UI is required to enable and configure new projects. Simply add `Jenkinsfile`s to your projects and Jenkins will automatically start building your project! 
 
