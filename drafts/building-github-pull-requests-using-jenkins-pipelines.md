@@ -57,11 +57,11 @@ A `Jenkinsfile` tells Jenkins how to build your project. Jenkinsfiles are very p
 
 The most basic Jenkinsfile looks like this:
 
-```groovy
+~~~ groovy
 node {
     echo 'Hello from Pipeline'
 }
-```
+~~~
 
 Obviously this doesn't do much useful, but bear with me. Put this in a file named `Jenkinsfile` in the root of a Github project, commit and push. With this your project can now be built by a Jenkins pipeline, however Jenkins doesn't know about this project yet. By default Jenkins will only look for new projects once a day. To ensure the project is recognized immediately you can press the `Re-scan Organization > Run Now` button. Jenkins will then scan the GitHub organisation again, this time finding the Jenkinsfile we've just committed and setting up the project for you.
 
@@ -81,7 +81,7 @@ As mentioned before Jenkins Pipelines have inbuilt support for building inside D
 
 Given a Dockerfile located in the root of your project the following Jenkinsfile would use that to build your project:
 
-```groovy
+~~~ groovy
 node {
   checkout scm
 
@@ -89,7 +89,7 @@ node {
     sh 'script/ci'
   }
 }
-```
+~~~
 
 This will basically run a `docker build -t <job name> .` and then invoke all commands contained in the `inside` block in the container.
 
