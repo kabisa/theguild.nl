@@ -1,4 +1,4 @@
-# Building Github Pull Requests with Jenkins Pipelines
+# Building GitHub Pull Requests using Jenkins Pipelines
 
 We've written about building Github Pull Requests with Jenkins [back in 2013](/building-github-pull-requests-with-jenkins/). Three years later we're still strong Jenkins users here at Kabisa, even though Jenkins changed quite a bit. Most notably Jenkins  introduced the notion of [Pipelines](https://jenkins.io/solutions/pipeline/).
 
