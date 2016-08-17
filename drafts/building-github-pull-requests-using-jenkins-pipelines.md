@@ -108,7 +108,7 @@ If you have any issues setting this up please feel free to reply in the comments
 ## Resources
 
 * [Getting Started with Pipeline](https://jenkins.io/doc/pipeline/)
-* https://jenkins.io/blog/2015/12/03/pipeline-as-code-with-multibranch-workflows-in-jenkins/
-* https://github.com/jenkinsci/github-organization-folder-plugin
-* https://go.cloudbees.com/docs/cloudbees-documentation/cje-user-guide/chapter-docker-workflow.html
+* [https://jenkins.io/blog/2015/12/03/pipeline-as-code-with-multibranch-workflows-in-jenkins/](https://jenkins.io/blog/2015/12/03/pipeline-as-code-with-multibranch-workflows-in-jenkins/)
+* [https://github.com/jenkinsci/github-organization-folder-plugin](https://github.com/jenkinsci/github-organization-folder-plugin)
+* [https://go.cloudbees.com/docs/cloudbees-documentation/cje-user-guide/chapter-docker-workflow.html](https://go.cloudbees.com/docs/cloudbees-documentation/cje-user-guide/chapter-docker-workflow.html)
 * [JUC West 2015 - Jenkins Workflow: What's Up? (Video)](https://www.youtube.com/watch?v=VkIzoU7zYzE)
