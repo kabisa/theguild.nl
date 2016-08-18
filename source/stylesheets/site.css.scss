@@ -33,8 +33,8 @@ h1, h2, h3, h4 {
 
   font-family: $heading-font;
   font-weight: $heading-weight;
-  // color: $brand-primary;
   text-transform: uppercase;
+  word-spacing: 0.1em;
 
   .prose & {
     // We only want top/bottom margin in prose
