@@ -25,7 +25,7 @@ main.post role="main"
           br
           =< content_length_and_average_reading_time(post.body)
 
-    = Kramdown::Document.new(post.body).to_html
+    = render_markdown(post.body)
 
     - post.authors.each do |author|
       = partial 'author-testimonial', locals: { author: author }
@@ -35,4 +35,3 @@ main.post role="main"
     = partial 'disqus', locals: { disqus_shortname: 'kabisa-blog' }
 
 = partial 'related-posts', locals: { posts: similar_posts(post, @posts) }
-
