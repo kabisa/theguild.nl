@@ -8,4 +8,4 @@ header.hero.page-not-found
 
 main.post role="main"
   section.prose
-    = Kramdown::Document.new(page.body).to_html
+    = render_markdown(page.body)
