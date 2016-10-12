@@ -1,0 +1,49 @@
+.newsletter {
+  margin: 2em 0;
+
+  form {
+    display: inline-block;
+    width: 50%;
+
+    input {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+      width: 60%;
+    }
+
+    .button {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      height: 2.45em;
+      margin: -2px 0 0 -1px;
+      padding: 0 1em;
+    }
+  }
+}
+
+@media screen and (max-width: 52em) {
+  .newsletter {
+    form {
+      display: block;
+      margin-bottom: .5em;
+      width: 100%;
+
+      input,
+      .button {
+        display: block;
+        width: 100%;
+      }
+
+      input {
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 4px;
+      }
+
+      .button {
+        border-bottom-left-radius: 4px;
+        border-top-right-radius: 0;
+        margin: -1px 0 0;
+      }
+    }
+  }
+}

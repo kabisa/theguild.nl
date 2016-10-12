@@ -67,7 +67,17 @@ a {
 ul {
   list-style: none;
 }
-
+input {
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0.5em;
+  background-color: white;
+  border: 1px solid $dark-gray;
+  border-radius: 0.25em;
+  box-shadow: none;
+  width: 100%;
+  appearance: none;
+}
 //
 // Main content
 //
