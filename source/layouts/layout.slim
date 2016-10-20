@@ -8,3 +8,4 @@ html lang="nl"
     = partial 'footer'
     = javascript_include_tag :all
     = partial 'ga', locals: { tracking_id: data.config.tracker_id }
+    = partial 'partials/dynamic-remarketing', locals: { google_conversion_id: data.config.google_conversion_id }

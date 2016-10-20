@@ -9,6 +9,7 @@ twitteraccount: '@theguildtech'
 
 # Vendor ids and configuration names
 tracker_id: UA-31335705-1
+google_conversion_id: 1005994939 # Google dynamic remarketing tag, https://support.google.com/adwords/answer/3103357?hl=en
 
 # Lookup table with IDs as used
 # by the corresponding entries in Contentful
