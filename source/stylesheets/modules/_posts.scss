@@ -24,11 +24,13 @@
     a {
       color: white;
     }
+
     &:hover {
       .item-background {
         filter: grayscale(0) opacity(0.6) brightness(0.4) blur(0);
       }
     }
+
     .item-background {
       background-size: cover;
       position: absolute;
@@ -67,20 +69,6 @@
 
   a {
     text-decoration: none;
-  }
-}
-
-@media screen and (max-width: 52em) {
-  .flex-posts-list {
-    display: initial;
-
-    .item {
-      height: auto;
-
-      a {
-        padding: 3em;
-      }
-    }
   }
 }
 
@@ -162,5 +150,30 @@
   .meta {
     font-style: italic;
     opacity: 0.5;
+  }
+}
+
+//
+// Media queries
+//
+@media screen and (max-width: 52em) {
+  .flex-posts-list {
+    display: initial;
+
+    .item {
+      height: auto;
+
+      a {
+        padding: 3em;
+      }
+    }
+  }
+
+  .written-by {
+    margin: 2em 0;
+
+    + p {
+      font-size: 1.25em;
+    }
   }
 }

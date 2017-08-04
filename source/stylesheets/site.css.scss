@@ -41,7 +41,7 @@ h1, h2, h3, h4 {
 
   .prose & {
     // We only want top/bottom margin in prose
-    margin: 0.75em 0 0.5em;
+    margin: 1.25em 0 0.5em;
   }
 }
 h1 {
@@ -241,8 +241,6 @@ main {
 }
 
 @media screen and (max-width: 52em) {
-  $heading-scale: 0.75;
-
   body {
     font-size: 100%;
   }
@@ -269,7 +267,7 @@ main {
     }
   }
   h1 {
-    font-size: ($h1-size * $heading-scale);
+    font-size: ($h2-size * $heading-scale);
   }
   h2 {
     font-size: ($h2-size * $heading-scale);
@@ -283,14 +281,20 @@ main {
 }
 
 @media screen and (max-width: 36em) {
+  .hero {
+    height: auto;
+  }
+
   .hero-inner {
     h1 {
       padding: 0;
+      margin: 1.5em 0.5em;
     }
+
     .hero-logo {
       display: block;
       position: static;
-      margin: 0 auto 0.5em auto;
+      margin: 0 auto 1.5em auto;
     }
   }
 }
