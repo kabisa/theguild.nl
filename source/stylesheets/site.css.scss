@@ -23,6 +23,9 @@ body {
   min-width: 320px;
   font-weight: $normal;
 }
+strong {
+  font-weight: bold;
+}
 .prose p,
 .prose ul, .prose ol {
   // We only want top/bottom margin in prose
