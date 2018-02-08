@@ -29,4 +29,5 @@ group :development do
   gem 'rake'
   gem 'rspec'
   gem 'capybara'
+  gem 'poltergeist'
 end
