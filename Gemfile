@@ -11,7 +11,7 @@ gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
 gem "tzinfo-data", platforms: [:mswin, :mingw, :jruby]
 
 # Middleman Gems
-gem "middleman"
+gem 'middleman', '~>4.2'
 gem "middleman-livereload"
 
 gem 'contentful_middleman'
@@ -30,4 +30,5 @@ group :development do
   gem 'rspec'
   gem 'capybara'
   gem 'poltergeist'
+  gem 'pry'
 end

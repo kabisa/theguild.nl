@@ -1,6 +1,6 @@
 .item
-  - if post.featuredImage
-    .item-background[style=("background-image: url('#{post.featuredImage.url}')" if post.featuredImage)]
+  - if post.featured_image
+    .item-background[style=("background-image: url('#{post.featured_image.url}')" if post.featured_image)]
   - else
     .item-background[style=("background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);")]
 
@@ -13,7 +13,7 @@
         - post.authors.each do |author|
           => author.name
         ' on
-        = post.createdOn.strftime('%-d %B %Y')
+        = post.created_on.strftime('%-d %B %Y')
         '
 
       p.excerpt= post.summary

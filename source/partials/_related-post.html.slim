@@ -7,7 +7,7 @@ li
       - post.authors.each do |author|
         => author.name
       ' on
-      = post.createdOn.strftime('%-d %B %Y')
+      = post.created_on.strftime('%-d %B %Y')
       '
 
     p.excerpt= post.summary

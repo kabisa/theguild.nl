@@ -3,12 +3,12 @@
 - content_for(:slug, post.slug)
 - content_for(:pagetype, 'article')
 - content_for :extra_opengraph_tags do
-  - [post.featuredImage && post.featuredImage.url, post.authors.map {|a| a.profilePhoto.url }, "#{data.config.site_url}/images/theguild-logo.png"].flatten.compact.each do |f|
+  - [post.featured_image && post.featured_image.url, post.authors.map {|a| a.profile_photo.url }, "#{data.config.site_url}/images/theguild-logo.png"].flatten.compact.each do |f|
     meta property="og:image" content=(f)
   meta name="twitter:label1" value="Reading time"
   meta name="twitter:data1" value=(average_reading_time post.body)
 
-header.hero[style=("background-image: url('#{post.featuredImage.url}')" if post.featuredImage)]
+header.hero[style=("background-image: url('#{post.featured_image.url}')" if post.featured_image)]
   .hero-inner
     h1
       a.hero-logo href="/"
@@ -19,19 +19,19 @@ main.post role="main"
   section.prose
     - post.authors.each do |author|
       .written-by.clearfix
-        = image_tag author.profilePhoto.url
+        = image_tag author.profile_photo.url
         p
-          '#{author.name} – #{post.createdOn.strftime('%-d %B %Y')}
+          '#{author.name} – #{post.created_on.strftime('%-d %B %Y')}
           br
           =< content_length_and_average_reading_time(post.body)
 
     = render_markdown(post.body)
 
     - post.authors.each do |author|
-      = partial 'author-testimonial', locals: { author: author }
+      = partial 'partials/author-testimonial', locals: { author: author }
 
 - if post.comments
   section.prose.comments
-    = partial 'disqus', locals: { disqus_shortname: 'kabisa-blog' }
+    = partial 'partials/disqus', locals: { disqus_shortname: 'kabisa-blog' }
 
-= partial 'related-posts', locals: { posts: similar_posts(post, @posts) }
+= partial 'partials/related-posts', locals: { posts: similar_posts(post, posts) }

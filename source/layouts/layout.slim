@@ -1,11 +1,11 @@
 doctype html
 html lang="nl"
   head
-    = partial 'head'
+    = partial 'partials/head'
   body
-    = partial 'header'
+    = partial 'partials/header'
     = yield
-    = partial 'footer'
+    = partial 'partials/footer'
     = javascript_include_tag :all
-    = partial 'ga', locals: { tracking_id: data.config.tracker_id }
+    = partial 'partials/ga', locals: { tracking_id: data.config.tracker_id }
     = partial 'partials/dynamic-remarketing', locals: { google_conversion_id: data.config.google_conversion_id }

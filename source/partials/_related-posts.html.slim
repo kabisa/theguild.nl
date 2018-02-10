@@ -6,4 +6,4 @@
     .column-content.clearfix
       ul
         - posts.each do |post|
-          = partial 'related-post', locals: { post: post }
+          = partial 'partials/related-post', locals: { post: post }
