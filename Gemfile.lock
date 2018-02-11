@@ -8,7 +8,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    autoprefixer-rails (7.2.5)
+    autoprefixer-rails (7.2.6)
       execjs
     backports (3.11.1)
     builder (3.2.3)
@@ -199,7 +199,7 @@ DEPENDENCIES
   capybara
   contentful_middleman
   html2slim
-  middleman (~> 4.2)
+  middleman
   middleman-autoprefixer
   middleman-dotenv
   middleman-livereload
