@@ -22,5 +22,4 @@
 !data/*.yml
 /data/site/**
 
-.ruby-version
 *.swp

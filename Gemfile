@@ -19,6 +19,7 @@ gem 'middleman-dotenv'
 gem 'middleman-syntax'
 gem 'middleman-autoprefixer'
 gem 'middleman-search_engine_sitemap'
+gem 'nokogiri', '~> 1.8.1'
 
 gem 'slim'
 gem 'html2slim' # Use `bundle exec erb2slim|html2slim -h` for more info

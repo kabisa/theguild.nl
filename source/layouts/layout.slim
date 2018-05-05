@@ -1,9 +1,11 @@
 doctype html
 html lang="nl"
   head
-    = partial 'partials/head'
+    = partial 'google_tag_manager_script'
+    = partial 'head'
   body
-    = partial 'partials/header'
+    = partial 'google_tag_manager_noscript'
+    = partial 'header'
     = yield
     = partial 'partials/footer'
     = javascript_include_tag :all
