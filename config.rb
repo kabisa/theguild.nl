@@ -1,36 +1,35 @@
-###
 # Compass
-###
+
 
 # Change Compass configuration
 # compass_config do |config|
-#   config.output_style = :compact
+  # config.output_style = :compact
 # end
 
-###
+
 # Page options, layouts, aliases and proxies
-###
+
 
 # Per-page layout changes:
-#
+
 # With no layout
 # page "/path/to/file.html", :layout => false
-#
+
 # With alternative layout
 # page "/path/to/file.html", :layout => :otherlayout
-#
+
 # A path which all have the same layout
 # with_layout :admin do
-#   page "/admin/*"
+  # page "/admin/*"
 # end
 
 # Proxy pages (https://middlemanapp.com/advanced/dynamic_pages/)
 # proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
-#  :which_fake_page => "Rendering a fake page with a local variable" }
+ # :which_fake_page => "Rendering a fake page with a local variable" }
 
-###
+
 # Helpers
-###
+
 
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
@@ -40,11 +39,35 @@ configure :development do
   activate :livereload
 end
 
+# Sitemap configuration
+set :url_root, @app.data.config.site_url
+activate :search_engine_sitemap
+
+activate :contentful do |f|
+  f.space              = { site: '8v4g74v8oew0' }
+  f.access_token       = ENV['THE_GUILD_WEBSITE_ACCESS_TOKEN']
+  f.use_preview_api    = true if ENV['THE_GUILD_WEBSITE_ENVIRONMENT'] == 'preview'
+  f.cda_query          = { limit: 1000 }
+
+  # To get the id for the content type, in Contentful go to
+  # `APIs`, `Content Types`
+  f.content_types      = {
+    author:          '22AHer1UygAKmCC4KOMQ4M',
+    category:        '3hGz8Hs0VG8mYaauKssyk4',
+    post:            '2bSTvV1Q7ug20QoKmM0cIA',
+    page:            '59E4QY5S3eGyAsga0Csmsg'
+  }
+end
+
+activate :autoprefixer do |config|
+  config.browsers = ['last 2 versions', 'Explorer >= 9']
+end
+
 # Methods defined in the helpers block are available in templates
 # helpers do
-#   def some_helper
-#     "Helping"
-#   end
+  # def some_helper
+    # "Helping"
+  # end
 # end
 
 set :css_dir, 'stylesheets'
@@ -68,7 +91,7 @@ configure :build do
   # activate :relative_assets
 
   # Or use a different image path
-  # set :http_prefix, "/Content/images/"
+  set :http_prefix, "/Content/images/"
 end
 
 activate :directory_indexes
@@ -80,47 +103,20 @@ activate :syntax, line_numbers: true
 # https://github.com/middleman-contrib/middleman-dotenv
 # Dotenv for Middleman
 # Loads environment variables from `.env`
-#
+
 # Activate before using any ENV defined in `.env`
 activate :dotenv
 
-# Sitemap configuration
-set :url_root, data.config.site_url
-activate :search_engine_sitemap
+if @app.data.site
+  posts = @app.data.site.post.values.sort_by(&:created_on).reverse
 
-activate :contentful do |f|
-  f.space              = { site: '8v4g74v8oew0' }
-  f.access_token       = ENV['THE_GUILD_WEBSITE_ACCESS_TOKEN']
-  f.use_preview_api    = true if ENV['THE_GUILD_WEBSITE_ENVIRONMENT'] == 'preview'
-  f.cda_query          = { limit: 1000 }
-  #
-  # To get the id for the content type, in Contentful go to
-  # `APIs`, `Content Types`
-  f.content_types      = {
-    author:          '22AHer1UygAKmCC4KOMQ4M',
-    category:        '3hGz8Hs0VG8mYaauKssyk4',
-    post:            '2bSTvV1Q7ug20QoKmM0cIA',
-    page:            '59E4QY5S3eGyAsga0Csmsg'
-  }
-end
-
-activate :autoprefixer do |config|
-  config.browsers = ['last 2 versions', 'Explorer >= 9']
-end
-
-if data['site']
-  @posts = data.site.post.values.sort_by(&:createdOn).reverse
-
-  @posts.each do |post|
+  posts.each do |post|
     proxy "#{post.slug}.html", 'templates/post.html', locals: { post: post }, ignore: true
   end
 end
 
 # Create RSS Feed xml
-page data.config.feed_path, layout: false
-
-# Move partials out of the way of regular pages
-set :partials_dir, 'partials/'
+page @app.data.config.feed_path, layout: false
 
 # Force HTML5 to avoid self-closing tags
 Slim::Engine.options[:format] = :html
@@ -132,8 +128,8 @@ Slim::Engine.options[:pretty] = true
 # at the root of site folder
 after_build do
   # Netlify
-  #
+
   FileUtils.cp 'build/404/index.html', 'build/404.html'
-  #
+
   # End Netlify
 end
