@@ -1,13 +1,12 @@
 doctype html
 html lang="nl"
   head
-    = partial 'google_tag_manager_script'
-    = partial 'head'
+    = partial 'partials/google_tag_manager_script', locals: { tracking_id: data.config.tracker_id }
+    = partial 'partials/head'
   body
-    = partial 'google_tag_manager_noscript'
-    = partial 'header'
+    = partial 'partials/google_tag_manager_noscript', locals: { tracking_id: data.config.tracker_id }
+    = partial 'partials/header'
     = yield
     = partial 'partials/footer'
     = javascript_include_tag :all
-    = partial 'partials/ga', locals: { tracking_id: data.config.tracker_id }
     = partial 'partials/dynamic-remarketing', locals: { google_conversion_id: data.config.google_conversion_id }
