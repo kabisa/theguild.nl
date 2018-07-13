@@ -1,10 +1,10 @@
 # 🌶 Spice up your server-side rendered apps with Stimulus and Turbolinks
 
-These days, SPA's (Single Page Applications) are an undeniable trend on the web. However, I personally think there are many use cases where a 'traditional' server-side rendered application still makes sense, for example for CRUD-style / admin applications or in general when your application doesn't require highly interactive features.
+These days, SPA's (Single Page Applications) are an undeniable trend on the web. However, I personally think there are many use cases where a 'traditional' server-side rendered application still makes sense. For example for CRUD-style / admin applications, or in general when your application doesn't require highly interactive features.
 
-For use cases like these, it's generally more convenient and faster to use server side rendering. Still, also these kinds of applications can benefit from small bits of interactivity like a `copy to clipboard` feature, selecting multiple checkboxes in a table at once etc.
+For use cases like these, it's generally more convenient and faster to use server side rendering. However, also these kind of applications can benefit from small bits of interactivity like a `copy to clipboard` feature, selecting multiple checkboxes in a table at once etc.
 
-[Stimulus](https://stimulusjs.org) is a relatively new Javascript framework designed specifically to be used with server-side rendered applications. It provides tools to bind Javascript to your server-side rendered HTML. It's modest in feature set, but provides just the right tools, abstractions and conventions to add these little nuggests of interactivity to your application in a sane way.
+[Stimulus](https://stimulusjs.org) is a relatively new Javascript framework designed specifically for server-side rendered applications. It provides tools to bind Javascript to your server-side rendered HTML. It's modest in feature set, but provides just the right tools, abstractions and conventions to add these little nuggests of interactivity to your application in a sane way.
 
 For example implementing a `Copy to clipboard` button looks something like this:
 
@@ -42,6 +42,6 @@ Combining Turbolinks and Stimulus will make your app feel very responsive, inter
 
 Note that Turbolinks originated from Ruby on Rails, but works with any server side rendering technology. At Kabisa we've used Turbolinks together with Elixir Phoenix for example.
 
-If you want to learn more about Stimulus be sure to check out its [handbook](https://stimulusjs.org/handbook/introduction). Refer to the [Turbolinks docs](https://github.com/turbolinks/turbolinks/#attaching-behavior-with-stimulus) for more information about using Turbolinks and Stimilus together.
+If you want to learn more about Stimulus be sure to check out its [handbook](https://stimulusjs.org/handbook/introduction). The [Turbolinks docs](https://github.com/turbolinks/turbolinks/#attaching-behavior-with-stimulus) are also excellent and even have a section on using Turbolinks together with Stimulus.
 
 Happy coding!
