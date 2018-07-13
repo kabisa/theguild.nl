@@ -1,8 +1,8 @@
 jobMessages =
-  nl: """Ruby, Java of Frontend developer? Dan zoeken we jou!
-Check onze vacatures: http://kabisa.nl/werken-bij."""
-  en: """Ruby, Java or Frontend developer? Then we're looking for you!
-Have a look at our jobs: http://kabisa.nl/werken-bij."""
+  nl: """Heb jij een passie voor software craftsmanship? Dan komen we graag met je in contact!
+Check onze vacatures: https://kabisa.nl/werken-bij."""
+  en: """Are you passionate about software craftsmanship? We'd love to hear from you!
+Have a look at our jobs: https://kabisa.nl/werken-bij."""
 
 lang = document.documentElement.lang
 
