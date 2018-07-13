@@ -107,7 +107,7 @@ activate :syntax, line_numbers: true
 # Activate before using any ENV defined in `.env`
 activate :dotenv
 
-if @app.data.site
+if @app.data&.site.post.any?
   posts = @app.data.site.post.values.sort_by(&:created_on).reverse
 
   posts.each do |post|
