@@ -109,11 +109,13 @@ activate :syntax, line_numbers: true
 activate :dotenv
 
 after_configuration do
-  posts = @app.data.site.post.values.sort_by(&:created_on).reverse
+  if @app.data && @app.data[:site]
+    posts = @app.data.site.post.values.sort_by(&:created_on).reverse
 
-  posts.each do |post|
-    proxy "#{post.slug}.html",
-      'templates/post.html', locals: { post: post }, ignore: true
+    posts.each do |post|
+      proxy "#{post.slug}.html",
+        'templates/post.html', locals: { post: post }, ignore: true
+    end
   end
 end
 
