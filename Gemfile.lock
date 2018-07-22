@@ -215,7 +215,7 @@ DEPENDENCIES
   wdm (~> 0.1.0)
 
 RUBY VERSION
-   ruby 2.3.0p0
+   ruby 2.4.3p205
 
 BUNDLED WITH
-   1.16.2
+   1.16.3
