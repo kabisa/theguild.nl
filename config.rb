@@ -108,12 +108,14 @@ activate :syntax, line_numbers: true
 # Activate before using any ENV defined in `.env`
 activate :dotenv
 
-# set :posts, @app.data.site.post.values.sort_by(&:created_on).reverse
+after_configuration do
+  set :posts, @app.data.site.post.values.sort_by(&:created_on).reverse
 
-# posts.each do |post|
-  # proxy "#{post.slug}.html",
-        # 'templates/post.html', locals: { post: post }, ignore: true
-# end
+  posts.each do |post|
+    proxy "#{post.slug}.html",
+      'templates/post.html', locals: { post: post }, ignore: true
+  end
+end
 
 # Create RSS Feed xml
 page @app.data.config.feed_path, layout: false
