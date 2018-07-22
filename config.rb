@@ -109,7 +109,7 @@ activate :syntax, line_numbers: true
 activate :dotenv
 
 after_configuration do
-  set :posts, @app.data.site.post.values.sort_by(&:created_on).reverse
+  posts = @app.data.site.post.values.sort_by(&:created_on).reverse
 
   posts.each do |post|
     proxy "#{post.slug}.html",
