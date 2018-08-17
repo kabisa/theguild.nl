@@ -14,5 +14,5 @@ main role="main"
 
   section
     .flex-posts-list
-      - @posts.each do |post|
-        = partial 'post-teaser', locals: { post: post }
+      - posts.each do |post|
+        = partial 'partials/post-teaser', locals: { post: post }

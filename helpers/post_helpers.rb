@@ -39,4 +39,8 @@ module PostHelpers
       (other_categories.map(&:id) & category_ids).present?
     end
   end
+
+  def posts
+    data.site.post.values.sort_by(&:created_on).reverse
+  end
 end
