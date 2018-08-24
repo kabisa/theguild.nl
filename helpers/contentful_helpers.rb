@@ -39,6 +39,14 @@ module ContentfulHelpers
     all_pages.detect { |page| page.id == wanted_id }
   end
 
+  # `find_snippet` returns a Contentful Snippet object
+  # @example:
+  #   => find_snippet ('over-kabisa-snippet')
+  def find_snippet(name, space = 'site')
+    all_snippets = data[space].snippet.values
+    all_snippets.detect { |snippet| snippet.name == name }
+  end
+
   # `find_page_for_file` returns a Contentful Page object
   # The passed `filename`'s basename sould match
   # an ID as defined in data/config.yml.

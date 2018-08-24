@@ -88,7 +88,6 @@ main {
   display: block; // Correct `block` display not defined for `main` in ancient browsers
   overflow: hidden; // Avoid children's margins pushing outside the element
   position: relative;
-  margin-bottom: $content-whitespace;
 }
 
 //
@@ -279,6 +278,8 @@ main {
     font-size: ($h4-size * $heading-scale);
   }
 }
+
+@import 'footer';
 
 @media screen and (max-width: 36em) {
   .hero {

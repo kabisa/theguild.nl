@@ -1,1 +1,55 @@
-footer.site-footer
+footer.site-footer role="contentinfo"
+  .column-content
+    .footer-content
+
+      article.footer-description
+        h4 Over Kabisa
+        = Kramdown::Document.new(find_snippet('over-kabisa-snippet').body).to_html
+
+      article.footer-links
+        h4 Waar zijn we goed in?
+        = Kramdown::Document.new(find_snippet('waar-zijn-we-goed-in-snippet').try(:body)).to_html
+        a.footer-logo href="http://kabisa.nl"
+          img src="/images/kabisa-logo.png"
+
+      article.footer-contact
+        .footer-contact-addresses
+          h4 Hoofdkantoor
+          |Kabisa B.V.
+          br
+          |Marconilaan 8
+          br
+          |6003 DD Weert
+          br
+          br
+          a.tel href="tel:+31-495-430798" 0495 - 430 798
+          br
+          a href="mailto:info@kabisa.nl" info@kabisa.nl
+          br
+          br
+          ul
+            li
+              a target="_blank" href="https://goo.gl/maps/KV9WX3NCmZG2" Weert
+            li
+              a target="_blank" href="https://goo.gl/RDcqOK" Eindhoven
+            li
+              a target="_blank" href="https://goo.gl/dnfNZV" Amsterdam
+          br
+          |Neem
+          '
+          a.underlined href="http://kabisa.nl/contact" contact
+          |  op
+        .external-links
+          a.external-linkedin> target="_blank" href="https://www.linkedin.com/company/kabisa-ict"
+          a.external-twitter> target="_blank" href="https://twitter.com/kabisaict"
+          a.external-facebook> target="_blank" href="https://www.facebook.com/kabisaict"
+          a.external-instagram> target="_blank" href="https://www.instagram.com/kabisaict"
+          a.external-github> target="_blank" href="https://github.com/kabisa"
+
+  .site-footer-menu
+    .column-content
+      .footer-menu
+        li
+          a href="http://kabisa.nl/disclaimer" target="_blank" Disclaimer
+        li
+          a href="http://kabisa.nl/privacy-statement" target="_blank" Privacy Statement
