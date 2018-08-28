@@ -3,18 +3,18 @@ footer.site-footer role="contentinfo"
     .footer-content
 
       article.footer-description
-        h4 Over Kabisa
-        = Kramdown::Document.new(find_snippet('over-kabisa-snippet').body).to_html
+        h4 About Kabisa
+        = Kramdown::Document.new(find_snippet('about-kabisa-snippet').body).to_html
 
       article.footer-links
-        h4 Waar zijn we goed in?
-        = Kramdown::Document.new(find_snippet('waar-zijn-we-goed-in-snippet').try(:body)).to_html
+        h4 What are we good at?
+        = Kramdown::Document.new(find_snippet('what-are-we-good-at-snippet').try(:body)).to_html
         a.footer-logo href="http://kabisa.nl"
           img src="/images/kabisa-logo.png"
 
       article.footer-contact
         .footer-contact-addresses
-          h4 Hoofdkantoor
+          h4 Headquarters
           |Kabisa B.V.
           br
           |Marconilaan 8
@@ -35,10 +35,7 @@ footer.site-footer role="contentinfo"
             li
               a target="_blank" href="https://goo.gl/dnfNZV" Amsterdam
           br
-          |Neem
-          '
-          a.underlined href="http://kabisa.nl/contact" contact
-          |  op
+          a.underlined href="http://kabisa.nl/contact" Contact us
         .external-links
           a.external-linkedin> target="_blank" href="https://www.linkedin.com/company/kabisa-ict"
           a.external-twitter> target="_blank" href="https://twitter.com/kabisaict"
