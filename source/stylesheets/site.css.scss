@@ -298,4 +298,47 @@ main {
       margin: 0 auto 1.5em auto;
     }
   }
+
+  .cookiewall {
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+  }
+}
+
+//
+// Cookie-wall
+//
+.cookiewall {
+  position: fixed;
+  width: 25em;
+  background: $brand-primary-dark;
+  bottom: 3em;
+  right: 1em;
+  border-radius: 0.5em;
+  z-index: 1;
+  padding: 1.1em;
+   p {
+    font-size: 0.8em;
+    color: white;
+  }
+   a {
+    text-decoration: underline;
+    color: #dddddd;
+  }
+   button {
+    width: 40%;
+    height: 3em;
+    background: white;
+    margin: 1.2em 30% 0 30%;
+    border-radius: 0.5em;
+    font-weight: bold;
+    font-size: 0.8em;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
 }
