@@ -1,7 +1,7 @@
 $background-color: #2d2d2d;
 $default-text-color: #eaeaea;
 
-td.code {
+td.code, td.rouge-code {
   padding: 5px 5px 5px 10px;
 }
 
@@ -81,7 +81,7 @@ td.code {
   pre {
     overflow-x: auto;
   }
-  .gutter {
+  .rouge-gutter, .gutter {
     width: 2.5em;
     text-align: center !important;
   }
