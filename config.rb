@@ -109,6 +109,8 @@ activate :syntax, line_numbers: true
 # Activate before using any ENV defined in `.env`
 activate :dotenv
 
+set :site_url, ENV['THE_GUILD_WEBSITE_URL']
+
 after_configuration do
   if @app.data && @app.data[:site]
     posts = @app.data.site.post.values.sort_by(&:created_on).reverse
