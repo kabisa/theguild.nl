@@ -37,6 +37,12 @@ module SocialMediaHelpers
 
   private
 
+  # See: https://www.contentful.com/developers/docs/references/images-api/
+  # for available params
+  def contentful_image_url url, options = Hash.new
+    "#{url}?#{URI.encode_www_form(options)}"
+  end
+
   def prepend_protocol url, protocol = 'https'
     if url
       "#{protocol}:#{url}"

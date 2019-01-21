@@ -2,7 +2,7 @@
 - content_for(:title, post.title)
 - content_for(:slug, post.slug)
 - content_for(:pagetype, 'article')
-- content_for(:social_image, post.socialImage.url) if post.socialImage
+- content_for(:social_image, post.social_image.url) if post.social_image
 
   meta name="twitter:label1" value="Reading time"
   meta name="twitter:data1" value=(average_reading_time post.body)
