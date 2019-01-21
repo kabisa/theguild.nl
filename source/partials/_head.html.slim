@@ -2,14 +2,7 @@ meta charset="utf-8"
 meta name="viewport" content="width=device-width,initial-scale=1"
 meta name="description" content=(current_page.data.description || yield_content(:description) || data.config.description)
 
-meta name="twitter:card" content="summary"
-meta name="twitter:site" content=data.config.twitteraccount
-meta property="og:url" content=[data.config.site_url, current_page.data.slug, yield_content(:slug)].compact.join('/')
-meta property="og:title" content=[yield_content(:title), current_page.data.title].compact.join(' - ')
-meta property="og:description" content=(current_page.data.description || yield_content(:description) || data.config.description)
-meta property="og:site_name" content=(data.config.site_title)
-meta property="og:type" content=(current_page.data.pagetype || yield_content(:pagetype) || data.config.pagetype)
-= yield_content(:extra_opengraph_tags)
+= partial 'partials/social_meta_tags'
 
 title=[current_page.data.title, yield_content(:title), data.config.site_title].compact.join(' - ')
 / = stylesheet_link_tag :site

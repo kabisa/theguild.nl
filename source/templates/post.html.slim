@@ -2,9 +2,8 @@
 - content_for(:title, post.title)
 - content_for(:slug, post.slug)
 - content_for(:pagetype, 'article')
-- content_for :extra_opengraph_tags do
-  - [post.featured_image && post.featured_image.url, post.authors.map {|a| a.profile_photo.url }, "#{data.config.site_url}/images/theguild-logo.png"].flatten.compact.each do |f|
-    meta property="og:image" content=(f)
+- content_for(:social_image, post.socialImage.url) if post.socialImage
+
   meta name="twitter:label1" value="Reading time"
   meta name="twitter:data1" value=(average_reading_time post.body)
 
