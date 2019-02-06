@@ -1,18 +1,4 @@
-main role="main"
-  header.hero.hero-home
-    .hero-inner
-      .prose
-        a href="/"
-          = image_tag "images/theguild-logo.png"
-        h2= data.config.site_subtitle
-        p
-          | Written by&nbsp;
-          a href="http://kabisa.nl/"
-            = data.config.author
-        p
-          | <script async defer src="https://theguildslacking.herokuapp.com/slackin.js"></script>
-
-  section
-    .flex-posts-list
-      - posts.each do |post|
-        = partial 'partials/post-teaser', locals: { post: post }
+section
+  .flex-posts-list
+    - posts.each do |post|
+      = partial 'partials/post-teaser', locals: { post: post }

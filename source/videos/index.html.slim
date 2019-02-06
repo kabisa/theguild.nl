@@ -1,0 +1,18 @@
+section
+  .flex-posts-list
+    - video_playlist = %w(u_F0O_ABPiU nZH08YZX94g NzxRJEryB18 3Rj31S2i6OE lqBMp4o--QY 1Bs8x_xXtiY)
+    - video_playlist.each do |yt|
+      .item
+        .item-background[style=("background-image: url('http://img.youtube.com/vi/#{yt}/hqdefault.jpg')")]
+        a href="/#{}"
+          .item-content
+            h2 Title
+
+            p.meta
+              ' Posted by
+              ' someone
+              ' on
+              ' someday
+              '
+
+            p.excerpt Some summary

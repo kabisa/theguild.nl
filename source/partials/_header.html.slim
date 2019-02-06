@@ -1,1 +1,20 @@
-header.site-header
+nav
+  ul
+    li = ')'
+    li = link_to 'filmed', '/videos/'
+    li ||
+    li = link_to 'written', '/'
+    li = '('
+
+header.hero.hero-home
+  .hero-inner
+    .prose
+      a href="/"
+        = image_tag "images/theguild-logo.png"
+      h2= data.config.site_subtitle
+      p
+        | Written & Filmed by&nbsp;
+        a href="http://kabisa.nl/"
+          = data.config.author
+      p
+        | <script async defer src="https://theguildslacking.herokuapp.com/slackin.js"></script>
