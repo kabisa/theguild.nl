@@ -1,18 +1,15 @@
+- videos = (data.videos.lunch_and_learn.items + data.videos.talks.items)
 section
   .flex-posts-list
-    - video_playlist = %w(u_F0O_ABPiU nZH08YZX94g NzxRJEryB18 3Rj31S2i6OE lqBMp4o--QY 1Bs8x_xXtiY)
-    - video_playlist.each do |yt|
+    - videos.sort_by { |x| x.contentDetails.videoPublishedAt }.reverse.each do |yt|
       .item
-        .item-background[style=("background-image: url('http://img.youtube.com/vi/#{yt}/hqdefault.jpg')")]
-        a href="/#{}"
+        .item-background[style=("background-image: url('http://img.youtube.com/vi/#{yt.snippet.resourceId.videoId}/hqdefault.jpg')")]
+        = link_to "https://www.youtube.com/watch?v=#{yt.contentDetails.videoId}", target: 'blank'
           .item-content
-            h2 Title
+            h2 = yt.snippet.title
 
             p.meta
               ' Posted by
-              ' someone
+              = yt.snippet.channelTitle
               ' on
-              ' someday
-              '
-
-            p.excerpt Some summary
+              = DateTime.parse(yt.contentDetails.videoPublishedAt)&.strftime('%-d %B %Y')
