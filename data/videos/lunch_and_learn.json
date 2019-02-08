@@ -1,0 +1,200 @@
+/**
+* API response
+* taken from: https://developers.google.com/youtube/v3/docs/playlistItems/list
+*/
+{
+  "kind": "youtube#playlistItemListResponse",
+  "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/1_asmqNtlKvxJw23zztsFJ1yZ9Q\"",
+  "pageInfo": {
+    "totalResults": 4,
+    "resultsPerPage": 25
+  },
+  "items": [
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/VLkJOxxGgsiRaMZZ7seQs8aMb0E\"",
+      "id": "UExsa2V3Rk9FS0U4Q2NaclJXekt5QUU3ZzZYRXROZEhLZS4wOTA3OTZBNzVEMTUzOTMy",
+      "snippet": {
+        "publishedAt": "2018-12-24T14:33:39.000Z",
+        "channelId": "UC4slfnTL8vSJcBK78GFUWaQ",
+        "title": "Lunch&Learn - .git",
+        "description": "Rik Tonnard gaf tijdens een Lunch & Learn een presentatie over .git\n------\nVisit our website: http://www.Kabisa.nl",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/v9wroSGYhdM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/v9wroSGYhdM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/v9wroSGYhdM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/v9wroSGYhdM/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "channelTitle": "Kabisa",
+        "playlistId": "PLlkewFOEKE8CcZrRWzKyAE7g6XEtNdHKe",
+        "position": 0,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "v9wroSGYhdM"
+        }
+      },
+      "contentDetails": {
+        "videoId": "v9wroSGYhdM",
+        "videoPublishedAt": "2018-12-14T11:19:26.000Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/8_YiTILOobXjCwxp1dxELu3ArAc\"",
+      "id": "UExsa2V3Rk9FS0U4Q2NaclJXekt5QUU3ZzZYRXROZEhLZS41NkI0NEY2RDEwNTU3Q0M2",
+      "snippet": {
+        "publishedAt": "2017-09-07T06:46:50.000Z",
+        "channelId": "UC4slfnTL8vSJcBK78GFUWaQ",
+        "title": "Lunch & Learn — Great developers don’t write tests (by Jarra Schirris)",
+        "description": "------\nVisit our website: https://www.Kabisa.nl",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/QnLdqUNYbI0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/QnLdqUNYbI0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/QnLdqUNYbI0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/QnLdqUNYbI0/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/QnLdqUNYbI0/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Kabisa",
+        "playlistId": "PLlkewFOEKE8CcZrRWzKyAE7g6XEtNdHKe",
+        "position": 1,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "QnLdqUNYbI0"
+        }
+      },
+      "contentDetails": {
+        "videoId": "QnLdqUNYbI0",
+        "videoPublishedAt": "2017-09-06T15:48:23.000Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/VE5LkGEV2jFkq3ojaUsraFiWkVo\"",
+      "id": "UExsa2V3Rk9FS0U4Q2NaclJXekt5QUU3ZzZYRXROZEhLZS4yODlGNEE0NkRGMEEzMEQy",
+      "snippet": {
+        "publishedAt": "2017-09-07T06:46:50.000Z",
+        "channelId": "UC4slfnTL8vSJcBK78GFUWaQ",
+        "title": "Lunch & Learn — An introduction of GraphQL (by Nick van Eijk)",
+        "description": "------\nVisit our website: https://www.theguild.nl",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/s71tWqmgpVI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/s71tWqmgpVI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/s71tWqmgpVI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/s71tWqmgpVI/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "channelTitle": "Kabisa",
+        "playlistId": "PLlkewFOEKE8CcZrRWzKyAE7g6XEtNdHKe",
+        "position": 2,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "s71tWqmgpVI"
+        }
+      },
+      "contentDetails": {
+        "videoId": "s71tWqmgpVI",
+        "videoPublishedAt": "2017-07-25T14:21:45.000Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/KAPYWv7RCKe-ei1EW4kLgm6U6jU\"",
+      "id": "UExsa2V3Rk9FS0U4Q2NaclJXekt5QUU3ZzZYRXROZEhLZS4wMTcyMDhGQUE4NTIzM0Y5",
+      "snippet": {
+        "publishedAt": "2018-12-24T14:33:39.000Z",
+        "channelId": "UC4slfnTL8vSJcBK78GFUWaQ",
+        "title": "Lunch & Learn — Great developers don’t write tests (by Jarra Schirris)",
+        "description": "------\nVisit our website: https://www.Kabisa.nl",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/QnLdqUNYbI0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/QnLdqUNYbI0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/QnLdqUNYbI0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/QnLdqUNYbI0/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/QnLdqUNYbI0/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Kabisa",
+        "playlistId": "PLlkewFOEKE8CcZrRWzKyAE7g6XEtNdHKe",
+        "position": 3,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "QnLdqUNYbI0"
+        }
+      },
+      "contentDetails": {
+        "videoId": "QnLdqUNYbI0",
+        "videoPublishedAt": "2017-09-06T15:48:23.000Z"
+      }
+    }
+  ]
+}
