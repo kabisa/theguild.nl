@@ -1,10 +1,14 @@
 nav {
+  display: flex;
+  flex-direction: column;
+
   ul {
-    li {
-      display: inline;
-      float: right;
-      margin-right: .75em;
-      padding-top: 1.5em;
-    }
+    align-self: flex-end;
+    display: flex;
+  }
+
+  li {
+    padding: .5em .75em;
   }
 }
+
