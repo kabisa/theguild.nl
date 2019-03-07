@@ -1,8 +1,7 @@
-nav
-  ul
-    li = link_to 'written', '/'
-    li ||
-    li = link_to 'filmed', '/videos/'
+- if content_for :nav, ''
+  nav
+    ul
+      = yield_content :nav
 
 header.hero.hero-home
   .hero-inner
