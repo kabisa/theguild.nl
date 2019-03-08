@@ -7,7 +7,7 @@ section
   .flex-posts-list
     - videos.sort_by { |x| x.contentDetails.videoPublishedAt }.reverse.each do |yt|
       .item
-        .item-background[style=("background-image: url('http://img.youtube.com/vi/#{yt.snippet.resourceId.videoId}/hqdefault.jpg')")]
+        .item-background[style=("background-image: url('https://img.youtube.com/vi/#{yt.snippet.resourceId.videoId}/hqdefault.jpg')")]
         = link_to "https://www.youtube.com/watch?v=#{yt.contentDetails.videoId}", target: 'blank'
           .item-content
             h2 = yt.snippet.title
