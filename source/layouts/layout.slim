@@ -4,7 +4,8 @@ html lang="nl"
     = partial 'partials/head'
   body
     = partial 'partials/header'
-    = yield
+    main role="main"
+      = yield
     = partial 'partials/footer'
     = javascript_include_tag :all
     = partial 'partials/dynamic-remarketing', locals: { google_conversion_id: data.config.google_conversion_id }

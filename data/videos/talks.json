@@ -1,0 +1,435 @@
+/**
+* API response
+* taken from: https://developers.google.com/youtube/v3/docs/playlistItems/list
+*/
+{
+  "kind": "youtube#playlistItemListResponse",
+  "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/53q9m0im0U2Elte771vzXtjHcB0\"",
+  "pageInfo": {
+    "totalResults": 10,
+    "resultsPerPage": 25
+  },
+  "items": [
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/CKPoYa-Cw1MXVBInznYaL7i0EwQ\"",
+      "id": "UExsa2V3Rk9FS0U4QmlqYnI2TkhvOGFmQkQzVklpeGFlcC4wMTcyMDhGQUE4NTIzM0Y5",
+      "snippet": {
+        "publishedAt": "2018-12-24T14:32:52.000Z",
+        "channelId": "UC4slfnTL8vSJcBK78GFUWaQ",
+        "title": "Scaling Elixir projects - Elixir meetup",
+        "description": "Pascal Widdershoven gaf tijdens onze Elixir meetup een talk over Scaling Elixir projects\n------\nVisit our website: http://www.Kabisa.nl",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/u_F0O_ABPiU/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/u_F0O_ABPiU/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/u_F0O_ABPiU/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/u_F0O_ABPiU/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "channelTitle": "Kabisa",
+        "playlistId": "PLlkewFOEKE8Bijbr6NHo8afBD3VIixaep",
+        "position": 0,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "u_F0O_ABPiU"
+        }
+      },
+      "contentDetails": {
+        "videoId": "u_F0O_ABPiU",
+        "videoPublishedAt": "2018-11-29T10:08:55.000Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/b6KbyAvps5NMw_MEhYdFCPLOqe4\"",
+      "id": "UExsa2V3Rk9FS0U4QmlqYnI2TkhvOGFmQkQzVklpeGFlcC4wOTA3OTZBNzVEMTUzOTMy",
+      "snippet": {
+        "publishedAt": "2018-12-24T14:32:52.000Z",
+        "channelId": "UC4slfnTL8vSJcBK78GFUWaQ",
+        "title": "Property based testing in Elixir - NextBuild",
+        "description": "Presentation at NextBuild 2018 from Luc Tielen about property based testing in Elixir\n\n------\nVisit our website: http://www.Kabisa.nl",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/nZH08YZX94g/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/nZH08YZX94g/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/nZH08YZX94g/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/nZH08YZX94g/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "channelTitle": "Kabisa",
+        "playlistId": "PLlkewFOEKE8Bijbr6NHo8afBD3VIixaep",
+        "position": 1,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "nZH08YZX94g"
+        }
+      },
+      "contentDetails": {
+        "videoId": "nZH08YZX94g",
+        "videoPublishedAt": "2018-10-30T11:16:08.000Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/-FYCl5DjGaAmeV-jHIUuQyqo130\"",
+      "id": "UExsa2V3Rk9FS0U4QmlqYnI2TkhvOGFmQkQzVklpeGFlcC5DQUNERDQ2NkIzRUQxNTY1",
+      "snippet": {
+        "publishedAt": "2018-12-24T14:32:52.000Z",
+        "channelId": "UC4slfnTL8vSJcBK78GFUWaQ",
+        "title": "Introduction to Serverless @ Serverless Meetup Eindhoven (by Bart Vollebregt)",
+        "description": "Talk given by Bart Vollebregt during the Serverless Meetup Eindhoven at October 9th 2018. The talk is about a Serverless application, build with services as AWS Cognito, AWS API Gateway, AWS Lambda and DynamoDB.\n\nFor more information:\nPresentation: https://goo.gl/AVM9H1\nDemo App: https://goo.gl/xjuARg\nSource code: https://goo.gl/ym8vDk\n\n------\nVisit our website: http://www.Kabisa.nl",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/NzxRJEryB18/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/NzxRJEryB18/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/NzxRJEryB18/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/NzxRJEryB18/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "channelTitle": "Kabisa",
+        "playlistId": "PLlkewFOEKE8Bijbr6NHo8afBD3VIixaep",
+        "position": 2,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "NzxRJEryB18"
+        }
+      },
+      "contentDetails": {
+        "videoId": "NzxRJEryB18",
+        "videoPublishedAt": "2018-10-25T10:02:39.000Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/v6Wd1QVbg5klQ8xmSCHSCZXxQZQ\"",
+      "id": "UExsa2V3Rk9FS0U4QmlqYnI2TkhvOGFmQkQzVklpeGFlcC41MjE1MkI0OTQ2QzJGNzNG",
+      "snippet": {
+        "publishedAt": "2018-12-24T14:32:52.000Z",
+        "channelId": "UC4slfnTL8vSJcBK78GFUWaQ",
+        "title": "Functioning Domain Modeling - Elixir meetup",
+        "description": "Hans Kenis gaf tijdens onze Elixir meetup een talk over Functioning Domain Modeling\n------\nVisit our website: http://www.Kabisa.nl",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/3Rj31S2i6OE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/3Rj31S2i6OE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/3Rj31S2i6OE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/3Rj31S2i6OE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "channelTitle": "Kabisa",
+        "playlistId": "PLlkewFOEKE8Bijbr6NHo8afBD3VIixaep",
+        "position": 3,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "3Rj31S2i6OE"
+        }
+      },
+      "contentDetails": {
+        "videoId": "3Rj31S2i6OE",
+        "videoPublishedAt": "2018-11-29T09:30:47.000Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/oNpGyE3lFmDqt2GqJSK88z8PzQo\"",
+      "id": "UExsa2V3Rk9FS0U4QmlqYnI2TkhvOGFmQkQzVklpeGFlcC41NkI0NEY2RDEwNTU3Q0M2",
+      "snippet": {
+        "publishedAt": "2018-01-31T18:05:34.000Z",
+        "channelId": "UC4slfnTL8vSJcBK78GFUWaQ",
+        "title": "Meetup Kabisa en React (React, Redux, Preact en Maji Mobile)",
+        "description": "Dinsdag (30 januari) heeft er bij Kabisa Weert een bijeenkomst plaatsgevonden voor Front-end Developers. De meetup  werd georiganiseerd door Fronteers  en Kabisa. Door Nick van Eijk (Kabisa) werd er een presentatie gegeven over React en Redux. Ook werd er uitgebreid stil gestaan bij Maji Mobile; wat is het en waarom is het zo krachtig. De presentatie werd aangevuld met een live demo van Matthijs Groen (Kabisa). Tijdens de sessie werd getoond in welke stappen je een Preact applicatie bouwt.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/1Bs8x_xXtiY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/1Bs8x_xXtiY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/1Bs8x_xXtiY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/1Bs8x_xXtiY/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/1Bs8x_xXtiY/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Kabisa",
+        "playlistId": "PLlkewFOEKE8Bijbr6NHo8afBD3VIixaep",
+        "position": 5,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "1Bs8x_xXtiY"
+        }
+      },
+      "contentDetails": {
+        "videoId": "1Bs8x_xXtiY",
+        "videoPublishedAt": "2018-01-31T18:05:33.000Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/N_erJgwoqvT7nF_8fQrAlGs1ivM\"",
+      "id": "UExsa2V3Rk9FS0U4QmlqYnI2TkhvOGFmQkQzVklpeGFlcC41MzJCQjBCNDIyRkJDN0VD",
+      "snippet": {
+        "publishedAt": "2018-12-24T14:32:52.000Z",
+        "channelId": "UC4slfnTL8vSJcBK78GFUWaQ",
+        "title": "Livecoding: Building a serverless Slackbot @ Serverless Meetup Eindhoven (by Luc van Donkersgoed)",
+        "description": "Talk given by Luc van Donkersgoed during the Serverless Meetup Eindhoven at October 9th 2018. The talk is inclusive a livecoding session about how to build a serverless Slackbot on AWS.\n\nFor more information:\nPresentatie: https://goo.gl/uBo7Fo\nSource code: https://goo.gl/k28TUo\n\n------\nVisit our website: http://www.Kabisa.nl",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/5YW79Uf--L0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/5YW79Uf--L0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/5YW79Uf--L0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/5YW79Uf--L0/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/5YW79Uf--L0/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Kabisa",
+        "playlistId": "PLlkewFOEKE8Bijbr6NHo8afBD3VIixaep",
+        "position": 6,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "5YW79Uf--L0"
+        }
+      },
+      "contentDetails": {
+        "videoId": "5YW79Uf--L0",
+        "videoPublishedAt": "2018-10-25T16:23:22.000Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/ucTPzhWNEvwbYnaEoZDlhtTZu_s\"",
+      "id": "UExsa2V3Rk9FS0U4QmlqYnI2TkhvOGFmQkQzVklpeGFlcC45NDk1REZENzhEMzU5MDQz",
+      "snippet": {
+        "publishedAt": "2018-12-24T14:32:52.000Z",
+        "channelId": "UC4slfnTL8vSJcBK78GFUWaQ",
+        "title": "Scalable and High Available Infrastructure in AWS with Terraform",
+        "description": "Joost Saanen, DevOps engineer van Kabisa geeft een presentatie over een ideale schaalbare en high available setup binnen AWS. De setup bevat de volgende onderdelen.\n\n- Disposable / Immutable environment,\n- High Available, uitgevoerd in meerdere AZ's,\n- Containerized / Microservices met Docker,\n- Scalable cluster,\n- Autoscaling,\n- Cost-efficient, d.m.v. autospotting en gebruikmakende van EC2 spot instances,\n- Continuous Deployment / Integration, d.m.v CodeBuild en CodePipeline,\n- Infrastructure As Code, d.m.v. Terraform,\n- Rolling Deployments in AWS ECS,\n- AWS Multi Account Setup, met MFA,\n- Logging d.m.v. Cloudwatch logforwarding naar LogDNA.\n\n------\nVisit our website: http://www.Kabisa.nl",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/7CUA01MBlAM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/7CUA01MBlAM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/7CUA01MBlAM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/7CUA01MBlAM/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/7CUA01MBlAM/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Kabisa",
+        "playlistId": "PLlkewFOEKE8Bijbr6NHo8afBD3VIixaep",
+        "position": 7,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "7CUA01MBlAM"
+        }
+      },
+      "contentDetails": {
+        "videoId": "7CUA01MBlAM",
+        "videoPublishedAt": "2018-05-16T17:40:14.000Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/q04bSb1jAUaJDkrJjPL5lr-VQVk\"",
+      "id": "UExsa2V3Rk9FS0U4QmlqYnI2TkhvOGFmQkQzVklpeGFlcC5EMEEwRUY5M0RDRTU3NDJC",
+      "snippet": {
+        "publishedAt": "2018-12-24T14:32:52.000Z",
+        "channelId": "UC4slfnTL8vSJcBK78GFUWaQ",
+        "title": "Project Management from the perspective of a free agent",
+        "description": "Presentation at NextBuild 2017 from Jonny Kievits\n\n------\nVisit our website: http://www.Kabisa.nl",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/kFwIpOYseuM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/kFwIpOYseuM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/kFwIpOYseuM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/kFwIpOYseuM/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/kFwIpOYseuM/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Kabisa",
+        "playlistId": "PLlkewFOEKE8Bijbr6NHo8afBD3VIixaep",
+        "position": 8,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "kFwIpOYseuM"
+        }
+      },
+      "contentDetails": {
+        "videoId": "kFwIpOYseuM",
+        "videoPublishedAt": "2017-08-31T13:31:41.000Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/LQBFvJrQVhUDoeZLH-gX4KLRquo\"",
+      "id": "UExsa2V3Rk9FS0U4QmlqYnI2TkhvOGFmQkQzVklpeGFlcC45ODRDNTg0QjA4NkFBNkQy",
+      "snippet": {
+        "publishedAt": "2018-12-24T14:32:52.000Z",
+        "channelId": "UC4slfnTL8vSJcBK78GFUWaQ",
+        "title": "Elm the frontend language that makes backend team jealous",
+        "description": "Presentation at NextBuild 2017 from Tonći Galić.\n\n------\nVisit our website: https://www.Kabisa.nl",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/hbaKP_biI2Q/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/hbaKP_biI2Q/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/hbaKP_biI2Q/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/hbaKP_biI2Q/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/hbaKP_biI2Q/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Kabisa",
+        "playlistId": "PLlkewFOEKE8Bijbr6NHo8afBD3VIixaep",
+        "position": 9,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "hbaKP_biI2Q"
+        }
+      },
+      "contentDetails": {
+        "videoId": "hbaKP_biI2Q",
+        "videoPublishedAt": "2017-08-31T13:31:15.000Z"
+      }
+    }
+  ]
+}

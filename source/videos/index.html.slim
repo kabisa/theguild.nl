@@ -1,0 +1,19 @@
+- content_for :nav do
+  li = link_to '📜 Blog', '/'
+  li.active = link_to '📹 Videos', '/videos/'
+
+- videos = (data.videos.lunch_and_learn.items + data.videos.talks.items)
+section
+  .flex-posts-list
+    - videos.sort_by { |x| x.contentDetails.videoPublishedAt }.reverse.each do |yt|
+      .item
+        .item-background[style=("background-image: url('https://img.youtube.com/vi/#{yt.snippet.resourceId.videoId}/hqdefault.jpg')")]
+        = link_to "https://www.youtube.com/watch?v=#{yt.contentDetails.videoId}", target: 'blank'
+          .item-content
+            h2 = yt.snippet.title
+
+            p.meta
+              ' Posted by
+              = yt.snippet.channelTitle
+              ' on
+              = DateTime.parse(yt.contentDetails.videoPublishedAt)&.strftime('%-d %B %Y')
