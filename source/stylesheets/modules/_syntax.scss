@@ -80,6 +80,7 @@ td.code, td.rouge-code {
   }
   pre {
     overflow-x: auto;
+    font-feature-settings: normal;
   }
   .rouge-gutter, .gutter {
     width: 2.5em;
