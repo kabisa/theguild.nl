@@ -2,8 +2,6 @@
 # the following line to use "http://" instead
 source 'https://rubygems.org'
 
-ruby '2.4.3'
-
 # For faster file watcher updates on Windows:
 gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
 
@@ -19,7 +17,7 @@ gem 'middleman-dotenv'
 gem 'middleman-syntax'
 gem 'middleman-autoprefixer'
 gem 'middleman-search_engine_sitemap'
-gem 'nokogiri', '~> 1.8.1'
+gem 'nokogiri'
 
 gem 'slim'
 gem 'html2slim' # Use `bundle exec erb2slim|html2slim -h` for more info
