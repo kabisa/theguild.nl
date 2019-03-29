@@ -17,3 +17,9 @@ facebook_app_id: 1096226687089373
 # by the corresponding entries in Contentful
 pages:
   '404': 5LCeYkNMqsYkeYYCIo88K2
+
+navbar:
+  - caption: '📜 Blog'
+    url: '/'
+  - caption: '📹 Videos'
+    url: '/videos'

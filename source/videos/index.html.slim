@@ -2,10 +2,6 @@
 layout: landing
 ---
 
-- content_for :nav do
-  li = link_to '📜 Blog', '/'
-  li.active = link_to '📹 Videos', '/videos/'
-
 - videos = (data.videos.lunch_and_learn.items + data.videos.talks.items)
 section
   .flex-posts-list

@@ -1,0 +1,5 @@
+nav
+  ul
+    - navbar_items.each do |item|
+      li[class=(rack[:request].path =~ /^#{item.url}$/ ? 'active' : nil)]
+        = link_to item.caption, item.url
