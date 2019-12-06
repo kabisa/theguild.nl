@@ -60,7 +60,7 @@ For single page apps like I outlined above where you have an `index.html` and a 
 Cache-control: private, max-age=0, no-cache
 ```
 
-This will ensure that the browser will never use a cached copy of your `index.html`, without checking with the server if the cache is still valid via [conditional GET request](https://tools.ietf.org/html/rfc7234#section-4.3).
+This will ensure that the browser will never use a cached copy of your `index.html`, without checking with the server if the cache is still valid via a [conditional GET request](https://tools.ietf.org/html/rfc7234#section-4.3).
 
 For other assets with hashed filenames, you want the opposite:
 
