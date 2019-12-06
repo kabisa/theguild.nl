@@ -77,3 +77,10 @@ With this in place the following will happen during and after a deployment:
 3. The browser will NOT use the old cached page, store the page in cache and will continue sending conditional GET requests in the future.
 
 Problem solved!
+
+## Resources
+
+For more information on HTTP caching (especially about what headers do when they _are_ present) see:
+
+* https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching
+* https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching
