@@ -41,10 +41,11 @@ I'm quite well aware what all these caching headers do when they _are_ present, 
 
 This brings us to `Heuristic Freshness`. The HTTP specification [defines](https://tools.ietf.org/html/rfc7234#section-4.2.2) that, when a server does *not* explicitly specify expiration times, the client (browser) can use heuristics to estimate a plausible expiration time itself.
 
-How exactly this 'plausible' expiration time is determined is left up to the client, but it seems that in practise most browsers use the following algorithm: `(now() - Last-Modified) * 0.10`. This means two things:
+How exactly this 'plausible' expiration time is determined is left up to the client, but it seems that in practise most browsers use the following algorithm: `(now() - Last-Modified) * 0.10`. This means a couple of things:
 
-1. You have no control over how long your files are cached in the browser.
-2. The files will be cached longer as time passes after deployment (assuming your `Last-Modified` headers reflect the time of the last deployment).
+1. When you don't have any `Cache-Control` or `Expires` headers, the browser calculates this plausible expiry time itself.
+2. Once your assets are cached by browsers, there's no way for you to evict them from the cache.
+3. The files will be cached longer as time passes after deployment (assuming your `Last-Modified` headers reflect the time of the last deployment).
 
 As you can see, this can result in some pretty nasty caching issues that are hard to diagnose as the duration for which files are cached will differ case by case depending on time and potentially browser used.
 
