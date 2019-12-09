@@ -1,0 +1,13 @@
+header.hero
+  .hero-inner
+    h1
+      a.hero-logo href="/"
+        = image_tag author.profile_photo.url, class: "author-image"
+      = "Articles by"
+      br
+      =< "#{author.name}"
+
+section
+  .flex-posts-list
+    - posts_by_author(author, posts).each do |post|
+      = partial 'partials/post-teaser', locals: { post: post }

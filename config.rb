@@ -120,6 +120,15 @@ after_configuration do
         'templates/post.html', locals: { post: post }, ignore: true
     end
   end
+
+  if @app.data && @app.data[:site][:author]
+    authors = @app.data.site.author.values
+
+    authors.each do |author|
+      proxy "authors/#{author.name.to_slug}.html",
+        'templates/author.html', locals: { author: author, posts: posts }, ignore: true
+    end
+  end
 end
 
 # Create RSS Feed xml

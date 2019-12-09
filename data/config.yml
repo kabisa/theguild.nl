@@ -23,3 +23,5 @@ navbar:
     url: '/'
   - caption: '📹 Videos'
     url: '/videos'
+  - caption: '👨‍💻 Authors'
+    url: '/authors'

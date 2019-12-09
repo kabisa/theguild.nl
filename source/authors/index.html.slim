@@ -1,0 +1,19 @@
+---
+layout: landing
+---
+
+section
+  .flex-posts-list
+    - authors.each do |author|
+      - post_count = posts_by_author(author, posts).count
+      .item
+        - if author.profile_photo
+          .item-background[style=("background-image: url('#{author.profile_photo.url}')" if author.profile_photo.url)]
+        - else
+          .item-background[style=("background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);")]
+        = link_to author_url(author) do
+          .item-content
+            h2 = author.name
+
+            p.meta
+              = "#{post_count} #{pluralize('Article', post_count)} written"
