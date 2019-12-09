@@ -119,9 +119,7 @@ after_configuration do
       proxy "#{post.slug}.html",
         'templates/post.html', locals: { post: post }, ignore: true
     end
-  end
 
-  if @app.data && @app.data[:site][:author]
     authors = @app.data.site.author.values
 
     authors.each do |author|
