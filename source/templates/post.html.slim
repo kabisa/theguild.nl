@@ -17,12 +17,7 @@ header.hero[style=("background-image: url('#{post.featured_image.url}')" if post
 main.post role="main"
   section.prose
     - post.authors.each do |author|
-      .written-by.clearfix
-        = image_tag author.profile_photo.url
-        p
-          '#{author.name} – #{post.created_on.strftime('%-d %B %Y')}
-          br
-          =< content_length_and_average_reading_time(post.body)
+      = partial 'partials/post-author', locals: { author: author, post: post }
 
     = render_markdown(post.body)
 
