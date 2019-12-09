@@ -73,11 +73,11 @@ These files can be cached for a long, long time, as when they change their filen
 With this in place the following will happen during and after a deployment:
 
 1. A new `index.html` will be uploaded to the server.
-2. When a user loads your application, the browser will send a conditional GET request `If-Modified-Since: <previous Last-Modified value>` , and the server will respond with the new version of your `index.html`, since the file was modified by the deployment.
-3. The browser will NOT use the old cached page, store the page in cache and will continue sending conditional GET requests in the future.
+2. When a user loads your application, the browser will send a conditional GET request `If-Modified-Since: <previous Last-Modified value>` , and the server will respond with the new version of your `index.html`, since the file was modified by the deployment. This happens because you've instructed the browser to always verify if the cached page can be used, using the `Cache-Control` header.
+3. The browser will no longer us the old cached page.
+4. The browser will store the new page in cache and will continue sending conditional GET requests in the future, to verify if the cached page can still be used.
 
 Problem solved!
-
 ## Resources
 
 For more information on HTTP caching (especially about what headers do when they _are_ present) see:
