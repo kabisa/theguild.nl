@@ -124,7 +124,7 @@ after_configuration do
 
     authors.each do |author|
       proxy "authors/#{author.name.to_slug}.html",
-        'templates/author.html', locals: { author: author, posts: posts }, ignore: true
+        'templates/author.html', locals: { author: author }, ignore: true
     end
   end
 end
