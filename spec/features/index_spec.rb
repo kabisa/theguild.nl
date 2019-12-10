@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-describe 'index', :type => :feature do
+describe 'index', type: :feature do
   before do
     visit '/'
   end

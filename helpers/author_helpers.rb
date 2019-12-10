@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AuthorHelpers
   # Returns a array of posts for an author_id
   #
@@ -33,7 +35,7 @@ module AuthorHelpers
   #   "Some String To Convert".to_slug => "some-string-to-convert"
   String.class_eval do
     def to_slug
-      value = self.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n, '').to_s
+      value = mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n, '').to_s
       value.gsub!(/[']+/, '')
       value.gsub!(/\W+/, ' ')
       value.strip!

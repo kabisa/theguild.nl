@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PostHelpers
   # Limits the array to 2 elements and adds recent posts
   # if there are not enough related posts
@@ -11,7 +13,7 @@ module PostHelpers
   # @example
   #   post = @posts.first
   #   similar_posts post, @posts
-  def similar_posts(post, posts, limit=2)
+  def similar_posts(post, posts, limit = 2)
     related_posts = related_posts(post, posts)
     # In case we found < limit:
     completion    = (posts - [post]).first(limit)

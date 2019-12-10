@@ -1,5 +1,6 @@
-module ContentfulHelpers
+# frozen_string_literal: true
 
+module ContentfulHelpers
   # `find_page` returns a Contentful Page object for the given `name`.
   # This `name` corresponds with the Contentful Page Entry that matches
   # the ID as defined in data/config.yml.
