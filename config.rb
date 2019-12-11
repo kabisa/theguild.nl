@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+Dir['lib/mappers/*.rb'].each { |file| require file }
+
 #
 # Compass
 
@@ -50,7 +52,7 @@ activate :contentful do |f|
   # To get the id for the content type, in Contentful go to
   # `APIs`, `Content Types`
   f.content_types      = {
-    author: '22AHer1UygAKmCC4KOMQ4M',
+    author: { mapper: AuthorMapper, id: '22AHer1UygAKmCC4KOMQ4M' },
     category: '3hGz8Hs0VG8mYaauKssyk4',
     post: '2bSTvV1Q7ug20QoKmM0cIA',
     page: '59E4QY5S3eGyAsga0Csmsg',
@@ -120,7 +122,7 @@ after_configuration do
     authors = @app.data.site.author.values
 
     authors.each do |author|
-      proxy "authors/#{author.name.to_slug}.html",
+      proxy "authors/#{author.nameAsSlug}.html",
             'templates/author.html', locals: { author: author }, ignore: true
     end
   end
