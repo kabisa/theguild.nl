@@ -28,14 +28,4 @@ module AuthorHelpers
   def authors
     data.site.author.values.sort_by(&:name)
   end
-
-  def pluralize(singular, count, plural = nil)
-    if count == 1
-      singular
-    elsif plural
-      plural
-    else
-      "#{singular}s"
-    end
-  end
 end
