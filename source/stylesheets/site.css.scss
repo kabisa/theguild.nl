@@ -159,11 +159,15 @@ main {
 
     img.author-image {
       border-radius: 50%;
+      object-fit: cover;
+      width: 100%;
     }
   }
 
   .hero-author {
+    display: flex;
     padding: 0em;
+
     .author-image {
       width: 100%;
     }
