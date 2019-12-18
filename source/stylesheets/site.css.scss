@@ -156,6 +156,22 @@ main {
     img {
       max-width: 100%;
     }
+
+    img.author-image {
+      border-radius: 50%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  .hero-author {
+    display: flex;
+    padding: 0em;
+    left: -0.5em;
+
+    .author-image {
+      width: 100%;
+    }
   }
 }
 .hero-big {

@@ -1,5 +1,6 @@
-module SocialMediaHelpers
+# frozen_string_literal: true
 
+module SocialMediaHelpers
   def page_title
     h(current_page.data.title || yield_content(:title) || data.config.site_title)
   end
@@ -32,6 +33,7 @@ module SocialMediaHelpers
 
   def social_image(opts = {})
     return unless url = yield_content(:social_image)
+
     contentful_image_url(prepend_protocol(url), opts)
   end
 
@@ -39,15 +41,11 @@ module SocialMediaHelpers
 
   # See: https://www.contentful.com/developers/docs/references/images-api/
   # for available params
-  def contentful_image_url url, options = Hash.new
+  def contentful_image_url(url, options = {})
     "#{url}?#{URI.encode_www_form(options)}"
   end
 
-  def prepend_protocol url, protocol = 'https'
-    if url
-      "#{protocol}:#{url}"
-    else
-      nil
-    end
+  def prepend_protocol(url, protocol = 'https')
+    "#{protocol}:#{url}" if url
   end
 end

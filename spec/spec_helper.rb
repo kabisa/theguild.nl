@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rspec'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
@@ -24,6 +26,6 @@ end
 RSpec.configure do |config|
   config.before(:each, js: true, type: :feature) do
     # typekit raises js error which crashes poltergeist
-    page.driver.browser.url_blacklist = %w(http://use.typekit.net)
+    page.driver.browser.url_blacklist = %w[http://use.typekit.net]
   end
 end

@@ -1,0 +1,10 @@
+---
+layout: landing
+---
+
+section
+  .flex-posts-list
+    - authors.each do |author|
+      - post_count = posts_by_author(author, posts).count
+      = partial 'partials/author-teaser', locals: { author: author, post_count:  post_count }
+

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NavbarHelpers
   def navbar_items
     data.config.navbar

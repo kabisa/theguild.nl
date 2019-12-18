@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TextHelpers
   # Show the length and average reading time of
   # the passed `content`
