@@ -12,7 +12,7 @@ I decided to see if I could use [PostCSS](https://postcss.org/), since I figured
 
 ### PostCSS
 
-[PostCSS](https://postcss.org/) is `A tool for transforming CSS with JavaScript`. It's widely use in the industry for things like [auto-prefixing CSS](https://autoprefixer.github.io/).
+[PostCSS](https://postcss.org/) is "A tool for transforming CSS with JavaScript". It's widely use in the industry for things like [auto-prefixing CSS](https://autoprefixer.github.io/).
 
 As the tag line says, PostCSS main business is *transforming* CSS, not generating it from scratch as I wanted to do. Looking at the PostCSS codebase I noticed [a test](https://github.com/postcss/postcss/blob/master/test/postcss.test.js#L116) named `it allows to build own CSS` so I figured it should be possible!
 
