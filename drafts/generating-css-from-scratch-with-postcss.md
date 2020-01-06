@@ -58,11 +58,11 @@ body {
 }
 ```
 
-A couple of things to notice:
+A couple of things to note:
 
 * PostCSS does not provide much help in generating proper declaration values [out of the box](https://github.com/TrySound/postcss-value-parser). For example quoting a `font-family` value in case it contains multiple words is not handled by PostCSS automatically.
 * It's easy to conditionally generate properties, rules, declarations etc. The API follows a typical builder pattern, which makes it easy to conditionally call `append`, or not.
-* The CSS output looks opinionated. There are no semicolons after the last declaration and no newlines between rules.
+* The CSS output is opinionated. There are no semicolons after the last declaration and no newlines between rules.
 
 Fortunately, PostCSS is architected quite well and allows you to provide your own ["Stringifier"](http://api.postcss.org/global.html#stringifier). I didn't find much documentation or guidance on this though, but after a bit of code diving I settled on this:
 
@@ -96,7 +96,7 @@ class PrettyStringifier extends Stringifier {
 }
 ```
 
-As you can see, this is inheriting most of the default behaviour except for the behaviour around rules and declarations.
+As you can see, this is inheriting most of the default behaviour except around rules and declarations.
 
 The custom `Stringifier` can be used like this:
 
