@@ -46,7 +46,7 @@ root.append([
 ]);
 ```
 
-The CSS code can then be generated from the CSS with `toString()`, resulting in this:
+The CSS code can then be generated from the CSS with `root.toString()`, resulting in this:
 
 ```css
 @font-face {
