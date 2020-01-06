@@ -1,6 +1,6 @@
 # Generating CSS from scratch with PostCSS
 
-For a soon-to-be open-sourced project I had to generate a CSS stylesheet from some data.
+For a soon-to-be open-sourced project I had to generate a CSS stylesheet based on user input.
 
 Initially I started out with good 'ol string templating and interpolation but it soon became pretty complex, as I needed to conditionally add certain properties and declarations.
 
