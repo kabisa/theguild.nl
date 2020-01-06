@@ -2,7 +2,7 @@
 
 For a soon-to-be open-sourced project I had to generate a CSS stylesheet from some data.
 
-Initially I started out with good 'ol String templating and interpolation but it soon became pretty complex, as I needed to conditionally add certain properties and declarations.
+Initially I started out with good 'ol string templating and interpolation but it soon became pretty complex, as I needed to conditionally add certain properties and declarations.
 
 It occurred to me that what I wanted was a representation of the CSS structure in code, an AST (Abstract Syntax Tree). That would allow me to build up the CSS tree structure in code and turn it into a String later on.
 
