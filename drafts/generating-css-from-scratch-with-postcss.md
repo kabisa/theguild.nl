@@ -4,7 +4,7 @@ For a soon-to-be open-sourced project I had to generate a CSS stylesheet from so
 
 Initially I started out with good 'ol string templating and interpolation but it soon became pretty complex, as I needed to conditionally add certain properties and declarations.
 
-It occurred to me that what I wanted was a representation of the CSS structure in code, an AST (Abstract Syntax Tree). That would allow me to build up the CSS tree structure in code and turn it into a String later on.
+It occurred to me that what I wanted was a representation of the CSS structure in code, an Abstract Syntax Tree (AST). That would allow me to build up the CSS tree structure in code and turn it into a string later on.
 
 I decided to see if I could use [PostCSS](https://postcss.org/), since I figured it must be turning CSS into an AST already.
 
