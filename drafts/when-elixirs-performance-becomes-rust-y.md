@@ -6,13 +6,13 @@ The post assumes basic Elixir knowledge. Rust knowledge is not required.
 
 ## The use case
 
-In this use case, we want to calculate the prime numbers in the range of 1 up to 1 million. I'd like to show off something a bit more computation intensive than a simple addition of numbers, and also show that Elixir data types map well into Rust.
+In this use case, we want to calculate the prime numbers in the range of 1 up to 1 million. I'd like to show off something a bit more computational intensive than a simple addition of numbers, and also show that Elixir data types map well into Rust.
 
 The code passes a list of numbers instead of just an integer denoting the maximum, to show off that data structures such as lists also translate fine between Elixir and Rust. There are a lot more efficient algorithms available for determining prime numbers, but this approach is fine to show the performance difference.
 
 ## Starting off with pure Elixir
 
-So let's start off with some coding! We'll start off with the Elixir implementation after making a new project. In this example the project is called `rust_nif`.
+So let's get coding! We'll start off with the Elixir implementation after making a new project. In this example the project is called `rust_nif`.
 
 ```Elixir
 defmodule RustNif.ElixirPrimes do
@@ -91,7 +91,7 @@ NIFS:
 
 ### (Web) service
 
-We could define a separate web service, exposing an API that could handle this, in a language better suited for this. We'd need to add a new service to our stack though, and also account for potential network failures and sending potentially large payloads.
+We could define a separate web service, exposing an API that could handle this, in a language better suited for computation heavy tasks. We'd need to add a new service to our stack though, and also account for potential network failures and sending potentially large payloads.
 
 ### Background job
 
