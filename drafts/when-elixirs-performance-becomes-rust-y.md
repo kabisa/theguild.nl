@@ -46,8 +46,7 @@ defmodule RustNif.ElixirPrimes do
 end
 
 time = Time.utc_now
-elixir_task = Task.async(fn -> RustNif.ElixirPrimes.prime_numbers(Enum.into 1..1000000, []) end)
-IO.inspect Task.await(elixir_task, :infinity)
+RustNif.ElixirPrimes.prime_numbers(Enum.into 1..1000000, []) |> IO.inspect
 IO.puts "Elixir task finished after #{Time.diff Time.utc_now, time} seconds"
 ```
 
@@ -81,8 +80,7 @@ After this change, the results are
 
 ```
 time = Time.utc_now
-elixir_task = Task.async(fn -> RustNif.ElixirPrimes.prime_numbers(Enum.into 1..1000000, []) end)
-IO.inspect Task.await(elixir_task, :infinity)
+RustNif.ElixirPrimes.prime_numbers(Enum.into 1..1000000, []) |> IO.inspect
 IO.puts "Elixir task finished after #{Time.diff Time.utc_now, time} seconds"
 
 {:ok,
@@ -288,35 +286,41 @@ We define the OTP app we use, and the Rust crate we're loading, and that's it.
 Now that we have both the Elixir and Rust(Elixir) versions of the code, let's compare them on their execution speed!
 
 ```Elixir
-defmodule NaiveBenchmark do
+defmodule Benchmark do
+  def benchmark do
+    Process.spawn(fn -> benchmark_elixir() end, [:link])
+    Process.spawn(fn -> benchmark_rust() end, [:link])
+    nil
+  end
+
   def benchmark_elixir do
     time = Time.utc_now
-    elixir_task = Task.async(fn -> RustNif.ElixirPrimes.prime_numbers(Enum.into 1..1000000, []) end)
-    IO.inspect Task.await(elixir_task, :infinity)
+    RustNif.ElixirPrimes.prime_numbers(Enum.into 1..1000000, [])
+    |> IO.inspect
+
     IO.puts "Elixir task finished after #{Time.diff Time.utc_now, time} seconds"
   end
 
   def benchmark_rust do
     time = Time.utc_now
-    rust_task = Task.async(fn -> RustNif.PrimeNumbers.prime_numbers(Enum.into 1..1000000, []) end)
-    IO.inspect Task.await(rust_task, :infinity)
+    RustNif.PrimeNumbers.prime_numbers(Enum.into 1..1000000, [])
+    |> IO.inspect
+
     IO.puts "Rust task finished after #{Time.diff Time.utc_now, time} seconds"
   end
 end
-
-iex(1)> NaiveBenchmark.benchmark_elixir
+iex(1)> Benchmark.benchmark
+nil
 {:ok,
  [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
   73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151,
-  157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, ...]}
-Elixir task finished after 328 seconds
-:ok
-
-{:ok,
- [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
-  73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151,
-  157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, ...]}
+  157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, ...]}
 Rust task finished after 29 seconds
+{:ok,
+ [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
+  73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151,
+  157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, ...]}
+Elixir task finished after 283 seconds
 ```
 
 Well that's quite a lot better!
