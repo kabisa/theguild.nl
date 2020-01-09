@@ -1,6 +1,6 @@
 # Post title: When Elixir's performance becomes Rust-y
 
-Elixir is a good language to develop fault tolerant and predictable performant systems. However, it lends itself worse to heavy computational demands. What can we do to improve this?
+Elixir is a good language to develop fault tolerant and predictable, performant systems. However for heavy computational work it's less suitable. How can we keep using Elixir for the things it's good at, but achieve better performance for computational heavy work?
 
 The post assumes basic Elixir knowledge. Rust knowledge is not required.
 
@@ -10,7 +10,7 @@ In this use case, we want to calculate the prime numbers in the range of 1 up to
 
 The code passes a list of numbers instead of just an integer denoting the maximum, to show off that data structures such as lists also translate fine between Elixir and Rust.
 
-## Starting off with pure elixir
+## Starting off with pure Elixir
 
 So let's start off with some coding! We'll start off with the Elixir implementation after making a new project. In this example the project is called `rust_nif`.
 
@@ -106,14 +106,14 @@ Ports:
 + Safety
 + Error trapping
 + Flexible communication
-+ No external erlang/elixir specific libraries required
++ No external Erlang/Elixir specific libraries required
 - Communication via STDIN and STDOUT
 
 NIFS:
 + Fast and simple implementationn
 + No context switch required
 + Simple debugging
-- Not very safe
+- Not very safe (a bug in your NIF could crash the whole VM)
 - NIF-specific C libraries
 - Native implementation can leak into Elixir code
 
@@ -192,7 +192,7 @@ fn add<'a>(env: Env<'a>, args: &[Term<'a>]) -> Result<Term<'a>, Error> {
 The first statement imports the Encoder, Env, Error and Term types from rustler, so we can make use of them.
 The atoms section declares atoms which will map to Elixir's :ok annd :error atoms, so we can provide an interface similar to elixir.
 
-methods defined in the `rustler::rustler_export_nifs!` statement are made available to Elixir, in the PrimeNumbers module. In the example, add is exported and defined with an arity of 2.
+Methods defined in the `rustler::rustler_export_nifs!` statement are made available to Elixir, in the PrimeNumbers module. In the example, `add` is exported and defined with an arity of 2.
 
 The add function decodes the arguments that are provided, adds them together and yields them back to Elixir as `{:ok, <result>}`. (Although I won't dive deeper into it, rustler makes this possible by implementing the [External Term Format](http://erlang.org/doc/apps/erts/erl_ext_dist.html)).
 
