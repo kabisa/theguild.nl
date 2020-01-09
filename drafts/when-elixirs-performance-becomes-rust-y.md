@@ -69,7 +69,7 @@ That takes quite some time. Surely we can do better.
 
 ### Ports & Nifs
 
-We could resort to ports or NIFs.
+We could resort to ports or NIFs, if you would want to improve this by writing it in another language.
 There's a good summary of ports and nifs here: https://spin.atomicobject.com/2015/03/16/Elixir-native-interoperability-ports-vs-nifs/
 
 In short:
