@@ -8,7 +8,7 @@ The post assumes basic Elixir knowledge. Rust knowledge is not required.
 
 In this use case, we want to calculate the prime numbers in the range of 1 up to 1 million. I'd like to show off something a bit more computation intensive than a simple addition of numbers, and also show that Elixir data types map well into Rust.
 
-The code sends a list of numbers instead of just a maximum, to show off that data structures such as lists also translate fine between Elixir and Rust.
+The code passes a list of numbers instead of just a integer denoting the maximum, to show off that data structures such as lists also translate fine between Elixir and Rust.
 
 ## Starting off with raw elixir
 
