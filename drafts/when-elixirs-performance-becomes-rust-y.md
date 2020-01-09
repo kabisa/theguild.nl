@@ -8,7 +8,7 @@ The post assumes basic Elixir knowledge. Rust knowledge is not required.
 
 In this use case, we want to calculate the prime numbers in the range of 1 up to 1 million. I'd like to show off something a bit more computation intensive than a simple addition of numbers, and also show that Elixir data types map well into Rust.
 
-The code passes a list of numbers instead of just an integer denoting the maximum, to show off that data structures such as lists also translate fine between Elixir and Rust.
+The code passes a list of numbers instead of just an integer denoting the maximum, to show off that data structures such as lists also translate fine between Elixir and Rust. There are a lot more efficient algorithms available for determining prime numbers, but this approach is fine to show the performance difference.
 
 ## Starting off with pure Elixir
 
@@ -21,7 +21,7 @@ defmodule RustNif.ElixirPrimes do
   end
 
   def prime_numbers([], result) do
-    {:ok, result |> Enum.reverse()}
+    {:ok, result |> Enum.reverse() }
   end
 
   def prime_numbers([number | rest], result) do
@@ -38,67 +38,39 @@ defmodule RustNif.ElixirPrimes do
   end
 
   defp add_if_prime_number(numbers, n) do
-    case (numbers |> Enum.any?(fn x -> rem(n, x) == 0 end)) do
+    range = 2..(n - 1)
+    case Enum.any?(range, fn x -> rem(n, x) == 0 end) do
       false -> [n | numbers]
       _ -> numbers
     end
   end
 end
 
+
 time = Time.utc_now
-RustNif.ElixirPrimes.prime_numbers(Enum.into 1..1000000, []) |> IO.inspect
+RustNif.ElixirPrimes.prime_numbers(Enum.into 1..100000, []) |> IO.inspect
 IO.puts "Elixir task finished after #{Time.diff Time.utc_now, time} seconds"
 ```
 
+We prepend each number to the list, and reverse the list in the final result. See [this section](http://erlang.org/doc/efficiency_guide/listHandling.html) as to why we do this.
 Running this, the results on my machine were:
 
 ```
 {:ok,
  [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
   73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151,
-  157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, ...]}
-Elixir task finished after 2288 seconds
-:ok
+  157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, ...]}
+Elixir task finished after 31 seconds
 ```
 
-Well, that's a bit on the long side. Surely we can do better than that.
-Yes we can. The current implementation prepends each new prime number to the start of the list. This list is reversed in the end. See [list handling](http://erlang.org/doc/efficiency_guide/listHandling.html) as to why we do this.
-
-Most likely, the first divisible number for non prime numbers will reside at the start of the list (the number 2 comes to mind). So let's start our `any?` comparison at the reverse of the list.
-
-```Elixir
-defp add_if_prime_number(numbers, n) do
-  # Enum.reverse() is added
-  case (numbers |> Enum.reverse() |> Enum.any?(fn x -> rem(n, x) == 0 end)) do
-    false -> [n | numbers]
-    _ -> numbers
-  end
-end
-```
-
-After this change, the results are
-
-```
-time = Time.utc_now
-RustNif.ElixirPrimes.prime_numbers(Enum.into 1..1000000, []) |> IO.inspect
-IO.puts "Elixir task finished after #{Time.diff Time.utc_now, time} seconds"
-
-{:ok,
- [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
-  73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151,
-  157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, ...]}
-Elixir task finished after 328 seconds
-:ok
-```
-
-Well that's a lot better! But it still takes a fair bit of time.
+That takes quite some time. Surely we can do better.
 
 ## So what are our alternatives?
 
 ### Ports & Nifs
 
 We could resort to ports or NIFs.
-There's a good summary of ports and nifs here: https://spin.atomicobject.com/2015/03/16/elixir-native-interoperability-ports-vs-nifs/
+There's a good summary of ports and nifs here: https://spin.atomicobject.com/2015/03/16/Elixir-native-interoperability-ports-vs-nifs/
 
 In short:
 
@@ -123,7 +95,7 @@ We could define a separate web service, exposing an API that could handle this, 
 
 ### Background job
 
-Depending on the case, this time would be fine and could perhaps be moved into a background task. But for this example, this will not do.
+Depending on the case, it would be acceptable to move this computation into a background task. But in our scenario, this isn't the case
 
 ### Summary
 
@@ -190,11 +162,11 @@ fn add<'a>(env: Env<'a>, args: &[Term<'a>]) -> Result<Term<'a>, Error> {
 ```
 
 The first statement imports the Encoder, Env, Error and Term types from rustler, so we can make use of them.
-The atoms section declares atoms which will map to Elixir's :ok annd :error atoms, so we can provide an interface similar to elixir.
+The atoms section declares atoms which will map to Elixir's :ok annd :error atoms, so we can provide an interface similar to Elixir.
 
 Methods defined in the `rustler::rustler_export_nifs!` statement are made available to Elixir, in the PrimeNumbers module. In the example, `add` is exported and defined with an arity of 2.
 
-The add function decodes the arguments that are provided, adds them together and yields them back to Elixir as `{:ok, <result>}`. (Although I won't dive deeper into it, rustler makes this possible by implementing the [External Term Format](http://erlang.org/doc/apps/erts/erl_ext_dist.html)).
+The add function decodes the arguments that are provided, adds them together and yields them back to Elixir as `{:ok, <result>}`. (Although I won't dive deeper into it, rustler makes this possible by implementing the [External Term Format](http://Erlang.org/doc/apps/erts/erl_ext_dist.html)).
 
 So let's modify that so we can get us some prime numbers.
 
@@ -221,40 +193,39 @@ rustler::rustler_export_nifs! {
 }
 ```
 
-We'll define a `prime_numbers` method with an arity of 1 to be exported.
+We'll register a `prime_numbers` method to rustler with an arity of 1 to be exported. This will be made available to Elixir.
 
 ```Rust
-fn is_prime_number(numbers: &Vec<i64>, x: i64) -> bool {
+fn is_prime_number(x: i64) -> bool {
+    let end_of_range = x - 1;
+
     if x == 1 {
         false
-    } else if x == 2 {
-        true
     } else {
-        !numbers.iter()
-          .any(|&num| x % num == 0)
+        !(2..end_of_range).any(|num| x % num == 0)
     }
 }
 ```
 
-We'll define a method to define whether a number is a prime number. It'll be supplied the current list of prime numbers we know, and the number we want to check. We'll define 1 and 2 as separate cases to allow a starting point for us.
+We'll define a method to determine whether a number is a prime number. It accepts the number as argument and returns a boolean.
 
 ```Rust
 fn prime_numbers<'a>(env: Env<'a>, args: &[Term<'a>]) -> Result<Term<'a>, Error> {
     let is_list: bool = args[0].is_list();
 
     if !is_list {
-      Ok((atoms::error(), "No list supplied").encode(env))
+        Ok((atoms::error(), "No list supplied").encode(env))
     } else {
-      let numbers: Vec<i64> = args[0].decode()?;
-      let mut vec = Vec::new();
+        let numbers: Vec<i64> = args[0].decode()?;
+        let mut vec = Vec::new();
 
-      for number in numbers {
-          if is_prime_number(&vec, number) {
-              vec.push(number)
-          }
-      }
+        for number in numbers {
+            if is_prime_number(number) {
+                vec.push(number)
+            }
+        }
 
-      Ok((atoms::ok(), &*vec).encode(env))
+        Ok((atoms::ok(), &*vec).encode(env))
     }
 }
 ```
@@ -288,14 +259,14 @@ Now that we have both the Elixir and Rust(Elixir) versions of the code, let's co
 ```Elixir
 defmodule Benchmark do
   def benchmark do
-    Process.spawn(fn -> benchmark_elixir() end, [:link])
+    Process.spawn(fn -> benchmark_Elixir() end, [:link])
     Process.spawn(fn -> benchmark_rust() end, [:link])
     nil
   end
 
-  def benchmark_elixir do
+  def benchmark_Elixir do
     time = Time.utc_now
-    RustNif.ElixirPrimes.prime_numbers(Enum.into 1..1000000, [])
+    RustNif.ElixirPrimes.prime_numbers(Enum.into 1..100000, [])
     |> IO.inspect
 
     IO.puts "Elixir task finished after #{Time.diff Time.utc_now, time} seconds"
@@ -303,7 +274,7 @@ defmodule Benchmark do
 
   def benchmark_rust do
     time = Time.utc_now
-    RustNif.PrimeNumbers.prime_numbers(Enum.into 1..1000000, [])
+    RustNif.PrimeNumbers.prime_numbers(Enum.into 1..100000, [])
     |> IO.inspect
 
     IO.puts "Rust task finished after #{Time.diff Time.utc_now, time} seconds"
@@ -315,19 +286,19 @@ nil
  [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
   73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151,
   157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, ...]}
-Rust task finished after 29 seconds
+Rust task finished after 3 seconds
 {:ok,
  [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
   73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151,
   157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, ...]}
-Elixir task finished after 283 seconds
+Elixir task finished after 31 seconds
 ```
 
 Well that's quite a lot better!
 
 ## Do other people do this?
 
-Yes! An example of a company having this setup is Discord, see [Using Rust to Scale Elixir for 11 Million Concurrent Users](https://blog.discordapp.com/using-rust-to-scale-elixir-for-11-million-concurrent-users-c6f19fc029d3)
+Yes! An example of a company having this setup is Discord, see [Using Rust to Scale Elixir for 11 Million Concurrent Users](https://blog.discordapp.com/using-rust-to-scale-Elixir-for-11-million-concurrent-users-c6f19fc029d3)
 
 ## Conclusion
 
@@ -340,9 +311,8 @@ I'm sure both implementations can be further refined. The point that I want to m
 ## The full code samples
 
 ```Elixir
-# elixir_primes.ex
+# Elixir_primes.ex
 defmodule RustNif.ElixirPrimes do
-  # http://erlang.org/doc/efficiency_guide/listHandling.html
   def prime_numbers(numbers) do
     prime_numbers(numbers, [])
   end
@@ -365,12 +335,14 @@ defmodule RustNif.ElixirPrimes do
   end
 
   defp add_if_prime_number(numbers, n) do
-    case (numbers |> Enum.reverse() |> Enum.any?(fn x -> rem(n, x) == 0 end)) do
+    range = 2..(n - 1)
+    case Enum.any?(range, fn x -> rem(n, x) == 0 end) do
       false -> [n | numbers]
       _ -> numbers
     end
   end
 end
+
 ```
 
 ```Elixir
@@ -402,14 +374,13 @@ rustler::rustler_export_nifs! {
     None
 }
 
-fn is_prime_number(numbers: &Vec<i64>, x: i64) -> bool {
+fn is_prime_number(x: i64) -> bool {
+    let end_of_range = x - 1;
+
     if x == 1 {
         false
-    } else if x == 2 {
-        true
     } else {
-        !numbers.iter()
-          .any(|&num| x % num == 0)
+        !(2..end_of_range).any(|num| x % num == 0)
     }
 }
 
@@ -417,18 +388,18 @@ fn prime_numbers<'a>(env: Env<'a>, args: &[Term<'a>]) -> Result<Term<'a>, Error>
     let is_list: bool = args[0].is_list();
 
     if !is_list {
-      Ok((atoms::error(), "No list supplied").encode(env))
+        Ok((atoms::error(), "No list supplied").encode(env))
     } else {
-      let numbers: Vec<i64> = args[0].decode()?;
-      let mut vec = Vec::new();
+        let numbers: Vec<i64> = args[0].decode()?;
+        let mut vec = Vec::new();
 
-      for number in numbers {
-          if is_prime_number(&vec, number) {
-              vec.push(number)
-          }
-      }
+        for number in numbers {
+            if is_prime_number(number) {
+                vec.push(number)
+            }
+        }
 
-      Ok((atoms::ok(), &*vec).encode(env))
+        Ok((atoms::ok(), &*vec).encode(env))
     }
 }
 ```
