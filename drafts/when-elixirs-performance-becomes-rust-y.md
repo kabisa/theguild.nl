@@ -8,9 +8,9 @@ The post assumes basic Elixir knowledge. Rust knowledge is not required.
 
 In this use case, we want to calculate the prime numbers in the range of 1 up to 1 million. I'd like to show off something a bit more computation intensive than a simple addition of numbers, and also show that Elixir data types map well into Rust.
 
-The code passes a list of numbers instead of just a integer denoting the maximum, to show off that data structures such as lists also translate fine between Elixir and Rust.
+The code passes a list of numbers instead of just an integer denoting the maximum, to show off that data structures such as lists also translate fine between Elixir and Rust.
 
-## Starting off with raw elixir
+## Starting off with pure elixir
 
 So let's start off with some coding! We'll start off with the Elixir implementation after making a new project. In this example the project is called `rust_nif`.
 
@@ -93,12 +93,13 @@ Elixir task finished after 328 seconds
 :ok
 ```
 
-Well that's a lot better! But it's still quite long.
+Well that's a lot better! But it still takes a fair bit of time.
 
 ## So what are our alternatives?
 
 ### Ports & Nifs
 
+We could resort to ports or NIFs.
 There's a good summary of ports and nifs here: https://spin.atomicobject.com/2015/03/16/elixir-native-interoperability-ports-vs-nifs/
 
 In short:
@@ -134,13 +135,13 @@ A NIF looks nice at a glance, but we'd need to eliminate the risk of the NIF bei
 
 This is where Rust comes in. Rust is a low level language, like C, developed by Mozilla. It's designed to provide better memory safety than C does, while also maintaining solid performance.
 
-There's a library which allows creating Elixir/Erlang NIF's which make use of Rust, called [rustler](https://github.com/rusterlium/rustler). One of its main features is that its safety should prevent the Beam from crashing if something unexpected happens. In the meanwhile, we get to leverage Rust's performance in our Elixir apps!
+There's a library which allows creating Elixir/Erlang NIF's which make use of Rust, called [rustler](https://github.com/rusterlium/rustler). One of its main features is that its safety should prevent the Beam from crashing if something unexpected happens. In the meanwhile, we get to leverage Rust's performance in our Elixir apps when we need it!
 
 ### Writing the Rust code
 
 Disclaimer: I don't have much prior knowledge with Rust, I'm sure this code can be improved. We have to start somewhere!
 
-We'll go through the code piece by piece, the total solution will be posted below.
+We'll go through the code piece by piece, the total solution will be posted at the end of the article.
 
 The first thing we need to do is add rustler to the project, so let's do that!
 Let's add `{:rustler, "~> 0.21.0"}`, to our dependencies in `mix.exs` and install it with `mix deps.get`.
@@ -264,11 +265,11 @@ We can use the same function signature that the example add function used (note 
 
 In this case we will verify whether the first argument is a list, and stop the function and yield `{:error, "No list suppled"}` if it's not.
 
-Afterwards, we use rustler's `decode()` method to convert the data type into a Vec of `i64`. We'll make a mutable Vec (you need to specify mutability explicitely in Rust), and loop through the numbers to determine the prime number.
+Afterwards, we use rustler's `decode()` method to convert the data type into a Vec of `i64`. We'll make a mutable Vec (you need to specify mutability explicitely in Rust), and loop through the numbers to determine the prime number. If a number is determined to be a prime number, we push it into the Vec.
 
 ### Glueing Elixir and Rust together
 
-We'll need a module in Elixir that will be the interface to the Rust code.
+We'll need a module in Elixir that will be the interface to the Rust code. The module name corresponds to the name known in the Rust code.
 
 ```Elixir
 # prime_numbers.ex
@@ -280,7 +281,7 @@ defmodule RustNif.PrimeNumbers do
 end
 ```
 
-We define the OTP app we use, and the Rust crate we're loading, and that's it essentially.
+We define the OTP app we use, and the Rust crate we're loading, and that's it.
 
 ## Comparison of performance
 
@@ -326,7 +327,7 @@ Yes! An example of a company having this setup is Discord, see [Using Rust to Sc
 
 ## Conclusion
 
-Let me preface the conclusion by stating you shouldn't just introduce Rust in your Elixir stack like this because you think you'll need it.
+Let me preface the conclusion by stating you shouldn't just introduce Rust in your Elixir stack like this because you *think* you'll need it.
 
 It's great to see the ease in which a low level, but safe language such as Rust, can be added to our stack to overcome one of Elixir's weaker points with relative ease.
 
