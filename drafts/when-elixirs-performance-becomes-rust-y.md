@@ -48,8 +48,10 @@ end
 
 
 time = Time.utc_now
-RustNif.ElixirPrimes.prime_numbers(Enum.into 1..100000, []) |> IO.inspect
-IO.puts "Elixir task finished after #{Time.diff Time.utc_now, time} seconds"
+result = RustNif.ElixirPrimes.prime_numbers(Enum.into 1..100000, [])
+execution_time = Time.diff Time.utc_now, time
+IO.puts "Elixir task finished after #{execution_time} seconds"
+IO.inspect(result)
 ```
 
 We prepend each number to the list, and reverse the list in the final result. See [this section](http://erlang.org/doc/efficiency_guide/listHandling.html) as to why we do this.
@@ -60,7 +62,7 @@ Running this, the results on my machine were:
  [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
   73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151,
   157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, ...]}
-Elixir task finished after 31 seconds
+Elixir task finished after 33 seconds
 ```
 
 That takes quite some time. Surely we can do better.
@@ -259,39 +261,42 @@ Now that we have both the Elixir and Rust(Elixir) versions of the code, let's co
 ```Elixir
 defmodule Benchmark do
   def benchmark do
-    Process.spawn(fn -> benchmark_Elixir() end, [:link])
+    Process.spawn(fn -> benchmark_elixir() end, [:link])
     Process.spawn(fn -> benchmark_rust() end, [:link])
     nil
   end
 
-  def benchmark_Elixir do
+  def benchmark_elixir do
     time = Time.utc_now
-    RustNif.ElixirPrimes.prime_numbers(Enum.into 1..100000, [])
-    |> IO.inspect
+    result = RustNif.ElixirPrimes.prime_numbers(Enum.into 1..100000, [])
+    execution_time = Time.diff Time.utc_now, time
 
-    IO.puts "Elixir task finished after #{Time.diff Time.utc_now, time} seconds"
+    IO.inspect result
+    IO.puts "Elixir task finished after #{execution_time} seconds"
   end
 
   def benchmark_rust do
     time = Time.utc_now
-    RustNif.PrimeNumbers.prime_numbers(Enum.into 1..100000, [])
-    |> IO.inspect
+    result = RustNif.PrimeNumbers.prime_numbers(Enum.into 1..100000, [])
+    execution_time = Time.diff Time.utc_now, time
 
-    IO.puts "Rust task finished after #{Time.diff Time.utc_now, time} seconds"
+    IO.inspect result
+    IO.puts "Rust task finished after #{execution_time} seconds"
   end
 end
+
 iex(1)> Benchmark.benchmark
 nil
 {:ok,
  [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
   73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151,
   157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, ...]}
-Rust task finished after 3 seconds
+Rust task finished after 4 seconds
 {:ok,
  [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
   73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151,
   157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, ...]}
-Elixir task finished after 31 seconds
+Elixir task finished after 33 seconds
 ```
 
 Well that's quite a lot better!
