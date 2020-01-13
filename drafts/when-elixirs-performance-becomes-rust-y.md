@@ -259,31 +259,37 @@ We define the OTP app we use, and the Rust crate we're loading, and that's it.
 Now that we have both the Elixir and Rust(Elixir) versions of the code, let's compare them on their execution speed!
 
 ```Elixir
-defmodule Benchmark do
-  def benchmark do
-    Process.spawn(fn -> benchmark_elixir() end, [:link])
-    Process.spawn(fn -> benchmark_rust() end, [:link])
-    nil
+defmodule RustNif.ElixirPrimes do
+  def prime_numbers(numbers) do
+    prime_numbers(numbers, [])
   end
 
-  def benchmark_elixir do
-    time = Time.utc_now
-    result = RustNif.ElixirPrimes.prime_numbers(Enum.into 1..100000, [])
-    execution_time = Time.diff Time.utc_now, time
-
-    IO.inspect result
-    IO.puts "Elixir task finished after #{execution_time} seconds"
+  defp prime_numbers([], result) do
+    {:ok, result |> Enum.reverse() }
   end
 
-  def benchmark_rust do
-    time = Time.utc_now
-    result = RustNif.PrimeNumbers.prime_numbers(Enum.into 1..100000, [])
-    execution_time = Time.diff Time.utc_now, time
+  defp prime_numbers([number | rest], result) do
+    new_result = result
+    |> add_if_prime_number(number)
 
-    IO.inspect result
-    IO.puts "Rust task finished after #{execution_time} seconds"
+    prime_numbers(rest, new_result)
+  end
+
+  defp add_if_prime_number(numbers, 1), do: numbers
+
+  defp add_if_prime_number(numbers, 2) do
+    [2 | numbers]
+  end
+
+  defp add_if_prime_number(numbers, n) do
+    range = 2..(n - 1)
+    case Enum.any?(range, fn x -> rem(n, x) == 0 end) do
+      false -> [n | numbers]
+      _ -> numbers
+    end
   end
 end
+
 
 iex(1)> Benchmark.benchmark
 nil
@@ -318,15 +324,16 @@ I'm sure both implementations can be further refined. The point that I want to m
 ```Elixir
 # Elixir_primes.ex
 defmodule RustNif.ElixirPrimes do
+  # http://erlang.org/doc/efficiency_guide/listHandling.html
   def prime_numbers(numbers) do
     prime_numbers(numbers, [])
   end
 
-  def prime_numbers([], result) do
+  defp prime_numbers([], result) do
     {:ok, result |> Enum.reverse() }
   end
 
-  def prime_numbers([number | rest], result) do
+  defp prime_numbers([number | rest], result) do
     new_result = result
     |> add_if_prime_number(number)
 
@@ -347,7 +354,6 @@ defmodule RustNif.ElixirPrimes do
     end
   end
 end
-
 ```
 
 ```Elixir
