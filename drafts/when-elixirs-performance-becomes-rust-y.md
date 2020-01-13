@@ -261,25 +261,27 @@ Now that we have both the Elixir and Rust(Elixir) versions of the code, let's co
 ```Elixir
 defmodule Benchmark do
   def benchmark do
-    Process.spawn(fn -> benchmark_Elixir() end, [:link])
+    Process.spawn(fn -> benchmark_elixir() end, [:link])
     Process.spawn(fn -> benchmark_rust() end, [:link])
     nil
   end
 
-  def benchmark_Elixir do
+  def benchmark_elixir do
     time = Time.utc_now
-    RustNif.ElixirPrimes.prime_numbers(Enum.into 1..100000, [])
-    |> IO.inspect
+    result = Enum.into(1..100000, []) |> RustNif.ElixirPrimes.prime_numbers()
+    execution_time = Time.diff Time.utc_now, time
 
-    IO.puts "Elixir task finished after #{Time.diff Time.utc_now, time} seconds"
+    IO.inspect result
+    IO.puts "Elixir task finished after #{execution_time} seconds"
   end
 
   def benchmark_rust do
     time = Time.utc_now
-    RustNif.PrimeNumbers.prime_numbers(Enum.into 1..100000, [])
-    |> IO.inspect
+    result = Enum.into(1..100000, []) |> RustNif.PrimeNumbers.prime_numbers()
+    execution_time = Time.diff Time.utc_now, time
 
-    IO.puts "Rust task finished after #{Time.diff Time.utc_now, time} seconds"
+    IO.inspect result
+    IO.puts "Rust task finished after #{execution_time} seconds"
   end
 end
 
