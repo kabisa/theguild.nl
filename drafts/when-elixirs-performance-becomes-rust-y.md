@@ -16,15 +16,16 @@ So let's get coding! We'll start off with the Elixir implementation after making
 
 ```Elixir
 defmodule RustNif.ElixirPrimes do
+  # http://erlang.org/doc/efficiency_guide/listHandling.html
   def prime_numbers(numbers) do
     prime_numbers(numbers, [])
   end
 
-  def prime_numbers([], result) do
+  defp prime_numbers([], result) do
     {:ok, result |> Enum.reverse() }
   end
 
-  def prime_numbers([number | rest], result) do
+  defp prime_numbers([number | rest], result) do
     new_result = result
     |> add_if_prime_number(number)
 
@@ -45,7 +46,6 @@ defmodule RustNif.ElixirPrimes do
     end
   end
 end
-
 
 time = Time.utc_now
 result = RustNif.ElixirPrimes.prime_numbers(Enum.into 1..100000, [])
