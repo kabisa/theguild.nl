@@ -97,7 +97,7 @@ We could define a separate web service, exposing an API that could handle this, 
 
 ### Background job
 
-Depending on the case, it would be acceptable to move this computation into a background task. But in our scenario, this isn't the case
+Depending on the case, it would be acceptable to move this computation into a background task (we don't need to return the immediate result to the end user). But in our scenario, this isn't the case
 
 ### Summary
 
