@@ -48,7 +48,7 @@ defmodule RustNif.ElixirPrimes do
 end
 
 time = Time.utc_now
-result = RustNif.ElixirPrimes.prime_numbers(Enum.into 1..100000, [])
+result = Enum.into(1..100000, []) |> RustNif.ElixirPrimes.prime_numbers()
 execution_time = Time.diff Time.utc_now, time
 IO.puts "Elixir task finished after #{execution_time} seconds"
 IO.inspect(result)
@@ -259,37 +259,29 @@ We define the OTP app we use, and the Rust crate we're loading, and that's it.
 Now that we have both the Elixir and Rust(Elixir) versions of the code, let's compare them on their execution speed!
 
 ```Elixir
-defmodule RustNif.ElixirPrimes do
-  def prime_numbers(numbers) do
-    prime_numbers(numbers, [])
+defmodule Benchmark do
+  def benchmark do
+    Process.spawn(fn -> benchmark_Elixir() end, [:link])
+    Process.spawn(fn -> benchmark_rust() end, [:link])
+    nil
   end
 
-  defp prime_numbers([], result) do
-    {:ok, result |> Enum.reverse() }
+  def benchmark_Elixir do
+    time = Time.utc_now
+    RustNif.ElixirPrimes.prime_numbers(Enum.into 1..100000, [])
+    |> IO.inspect
+
+    IO.puts "Elixir task finished after #{Time.diff Time.utc_now, time} seconds"
   end
 
-  defp prime_numbers([number | rest], result) do
-    new_result = result
-    |> add_if_prime_number(number)
+  def benchmark_rust do
+    time = Time.utc_now
+    RustNif.PrimeNumbers.prime_numbers(Enum.into 1..100000, [])
+    |> IO.inspect
 
-    prime_numbers(rest, new_result)
-  end
-
-  defp add_if_prime_number(numbers, 1), do: numbers
-
-  defp add_if_prime_number(numbers, 2) do
-    [2 | numbers]
-  end
-
-  defp add_if_prime_number(numbers, n) do
-    range = 2..(n - 1)
-    case Enum.any?(range, fn x -> rem(n, x) == 0 end) do
-      false -> [n | numbers]
-      _ -> numbers
-    end
+    IO.puts "Rust task finished after #{Time.diff Time.utc_now, time} seconds"
   end
 end
-
 
 iex(1)> Benchmark.benchmark
 nil
