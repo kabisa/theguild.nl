@@ -628,6 +628,7 @@ spec:
             value: $DOMAIN
 ```
 
+The above yaml file has references to a number of environment variables. The nice thing is that we can add all of these secrets inside of our Gitlab project and the deploy will use these. In your project go to `Settings -> CI/CD -> Variables`.
 Now if we have all of this in our project all we have to do is commit and push it to our gitlab repo. Then Gitlab CI will do it's magic and our application will be up and running after the pipeline jobs succeed. Nice!
 
 ## Conclusion
