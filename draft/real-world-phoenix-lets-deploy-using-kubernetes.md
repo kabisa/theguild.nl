@@ -18,10 +18,7 @@ easy deployment workflow. Let's see if we can make that dream come true!
 
 ## The Kubernetes Cluster
 
-If you are not aware of what Kubernetes is (under what rock have you been
-hiding...?), head over to [their
-website](https://kubernetes.io/docs/tutorials/kubernetes-basics/), 
-as they have great documentation to get started on the basics.
+If you are not aware of what Kubernetes is head over to [their website](https://kubernetes.io/docs/tutorials/kubernetes-basics/), as they have great documentation to get started on the basics.
 
 To use Kubernetes for our deployment the first thing we'll need is a Kubernetes
 cluster. Now this is the part where you see most tutorials and guides grab for a
@@ -29,20 +26,19 @@ local setup with minikube. While I like that it's possible to do this, it still
 seems a bit too far from real life for me, so I wanted to have a bit more of a
 production-like environment, like... for instance... a production environment :) 
 
-The beauty is that these days there are more and more managed kubernetes
+The beauty is that these days there are more and more managed Kubernetes
 services that do all the hard work like setting up the cluster, managing
-upgrades etc etc. I'll be using the service digitalocean is offering, because I
-already have a lot of content running at digitalocean, so it is known territory
-for me and they make it really easy to get sarted with Kubernetes.
-If you haven't used digitalocean before, you can use this [referral
+upgrades etc etc. I'll be using the service DigitalOcean is offering, because I
+already have a lot of content running at DigitalOcean, so it is known territory
+for me and they make it really easy to get started with Kubernetes.
+If you haven't used DigitalOcean before, you can use this [referral
 link](https://m.do.co/c/78020d21b236) to create an account and get $100 credit
 to spend in first 60 days. So more than enough to follow along with this tutorial.
 
 ## Terraform + Helm
 
 Oh and we are going to need to use 2 more tools to get this setup up and
-running. Terraform and Helm. We'll use terraform to setup most of the infrastructure.
-In this way I don't have to remember all the tweaks and install steps I took to
+running. [Terraform](https://www.terraform.io/) and [Helm](https://helm.sh/). We'll use terraform to setup most of the infrastructure. In this way I don't have to remember all the tweaks and install steps I took to
 get everything up and running. I can just automate the whole setup declaratively
 and put the whole thing under version control. 
 This is often referred to these days as an infrastructure-as-code setup.
@@ -63,25 +59,25 @@ And we'll use Helm to:
 
 So let's get crackin'!
 
-### install doctl to talk to your digitalocean account
+### install doctl to talk to your DigitalOcean account
 
 If we want to automate any of this stuff we'll have to be able to talk to
-digitalocean programmatically, so installing doctl is step one. Please refer to
+DigitalOcean programmatically, so installing doctl is step one. Please refer to
 this guide to get that setup: [doctl up and running
 guide](https://blog.digitalocean.com/introducing-doctl/)
 
-After you have `doctl` installed, make sure you create a personal access token
-in digitalocean and add that in an environment variable and also initialize your
+After you have `doctl` installed, make sure you create a [personal access token](https://www.digitalocean.com/docs/api/create-personal-access-token/) in DigitalOcean and add that in an environment variable and also initialize your
 account.
+
 ```bash
 export DIGITALOCEAN_TOKEN=[token]
 doctl auth init -t $DIGITALOCEAN_TOKEN
-doctl get account
+doctl account get
 ```
 
 ### Install Terraform
 
-Ofcourse there is a handy install guide for terraform also. Actually just an
+Of course there is a handy install guide for terraform also. Actually just an
 executable, as it is written in go, so they have a handy packaged binary you can use.
 See: [terraform install](https://www.terraform.io/downloads.html) 
 
@@ -96,26 +92,28 @@ cd kube-terra
 touch main.tf
 ```
 
-### Setup the digitalocean Kubernetes cluster
+### Setup the DigitalOcean Kubernetes cluster
 
 Terraform works in a declaritive manner, which means that we state what we want
 the world to be like and terraform figures out how to get to that state. In
 terraform you describe an item you want to exist as a resource. A Kubernetes
 cluster is a form of a resource that is provided by one of the many providers
-that exist in terraform. So let's create a digitalocean kubernetes cluster:
+that exist in terraform. So let's create a DigitalOcean kubernetes cluster:
 
 Creating a resource is always in the format: `resource [kind] [reference] {}`
 We can use the reference we provide later on to refer back to this resource.
 
-```json
+```hcl
 resource "digitalocean_tag" "kubernetes-cl01" {
   name = "kubernetes-cl01"
 }
 
+data "digitalocean_kubernetes_versions" "versions" {}
+
 resource "digitalocean_kubernetes_cluster" "cl01" {
   name    = "cl01"
   region  = "ams3"
-  version = "1.16.2-do.1"
+  version = data.digitalocean_kubernetes_versions.versions.latest_version
 
   node_pool {
     name       = "default"
@@ -139,17 +137,12 @@ up and running. Now that was easy!
 
 ### Install Traefik
 
-Kubernetes needs an ingress controller to route traffik from the outside world
+Kubernetes needs an ingress controller to route traffic from the outside world
 to the services that are running inside the cluster as these services are not
-exposed to the outside world, which is a good thing! Nginx is often used, but I went with Traefik, a very nice alternative that has a lot of
-nice functinality out of the box, like automatic ssl certificates using Let's Encrypt
-and auto discovery of services running in the cluster.
+exposed to the outside world, which is a good thing! Nginx is often used, but I went with Traefik, a very nice alternative that has a lot of nice functinality out of the box, like automatic ssl certificates using Let's Encrypt
+and auto discovery of services running in the cluster. This setup also takes advantage of a DigitalOcean load balancer, which will automatically be created by the serviceType set below to `loadBalancer`.
 
-Create a file called `traefik-values.yml` in the root of your kubernetes config
-directory and add the following content. If you manage dns settings with
-digitalocean, you can comment out those parts as well. This will provide
-automatic ssl certificate generation. Very cool! If not you can just leave it
-like this. It'll work, but without ssl enabled.
+Create a file called `traefik-values.yml` in the root of your kubernetes config directory and add the following content. If you manage dns settings with DigitalOcean, you can comment out those parts as well. This will provide automatic ssl certificate generation. Very cool! If not you can just leave it like this. It'll work, but without ssl enabled. A benefit of using the dns-challenge as opposed to the more standard acme-challenge is that you can also get a valid certificate if your production system is behind a firewall.
 
 ```yaml
 
@@ -182,7 +175,7 @@ Now we can go ahead and install traefik in our cluster:
 
 Install helm:
 ```bash
-brew install kubernetes-helm
+brew install helm
 ```
 
 Pull in our fresh cluster configuration locally (otherwise helm will
@@ -194,6 +187,9 @@ doctl kubernetes cluster kubeconfig save cl01
 And install traefik:
 
 ```bash
+# get the helm/stable charts
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+# install Traefik
 helm install traefik --values traefik-values.yml stable/traefik
 ```
 
@@ -203,10 +199,10 @@ install a gitlab-runner in our cluster first so we can use that in our project.
 
 ### Creating a kubernetes secret to access our registry
 
-If we install the gitlqb runner in the next step, we'll need a kubernetes secret
-that will be able to pull from our private registry in gitlab.
+If we install the Gitlab runner in the next step, we'll need a kubernetes secret
+to be able to pull from our private registry in gitlab.
 Go to https://gitlab.com/profile/personal_access_tokens and create an access
-token to access the gitlab registry. Scopes: appi, read_registry.
+token to access the gitlab registry. Scopes: api, read_registry.
 
 Then create a file at `~/.docker/docker-registry.json` with the credentials for
 the access token:
@@ -221,7 +217,7 @@ the access token:
 ```
 
 And then in our main.tf we can create the kubernetes secret.
-```json
+```hcl
 resource "kubernetes_secret" "docker_pull_secret" {
   metadata {
     name = "gitlab.com"
@@ -235,13 +231,11 @@ resource "kubernetes_secret" "docker_pull_secret" {
 }
 ```
 
-With that in place, we'll have the initialize the new provider and then we can
-add the secret:
+With that in place, we'll have to initialize the new provider and then we can add the secret:
 ```bash
 terraform init
 terraform apply
 ```
-
 
 ### Install Gitlab Runner
 
@@ -273,9 +267,9 @@ helm install --namespace default gitlab-runner  -f gitlab-runner-values.yml gitl
 
 ### Connect a gitlab project to the cluster
 
-This is something you can do through the gitlab interface, but I like automating
-it here as well. We need to provide the gitlab_project in terraform like this.
-If you don't have a project yet, you should create it on gitlab.com and add the
+This is something you can do through the Gitlab interface, but I like automating
+it here as well. We need to provide the Gitlab_project in terraform like this.
+If you don't have a project yet, you should create it on `gitlab.com` and add the
 ID here.
 
 ```
@@ -288,7 +282,7 @@ Then we can use this reference to create the settings in our project:
 
 ```
 resource "gitlab_project_cluster" "gitlab-kubernetes" {
-  project                       = data.gitlab_project.project-xid
+  project                       = data.gitlab_project.project-x.id
   name                          = "my-awesome-cluster"
   domain                        = "[mydomain.com]"
   enabled                       = true
@@ -304,14 +298,14 @@ resource "gitlab_project_cluster" "gitlab-kubernetes" {
 And lastly we are not going the skip the database, as that is too easy to do.
 You could potentially setup a database persistent volume in kubernetes and have
 db_pods spinup, but I think that it is much easier to have the
-database as a separate service outside of kubernetes. The digitalocean managed
+database as a separate service outside of kubernetes. The DigitalOcean managed
 database service is a great option. You pay a little extra, but it takes care of
 backups etc. It is just one of those things that you don't want to worry about,
 right?
 
 Ofcourse, we can easily add the creation of a database cluster to our terraform
 setup:
-```json
+```hcl
 resource "digitalocean_database_cluster" "postgres-db" {
   name       = "postgres-db-cluster"
   engine     = "pg"
@@ -324,7 +318,7 @@ resource "digitalocean_database_cluster" "postgres-db" {
 
 And while we are at it, let's create the database and firewall settings as well.
 
-```json
+```hcl
 resource "digitalocean_database_db" "test-prod" {
   cluster_id = digitalocean_database_cluster.postgres-db.id
   name       = "test_prod"
@@ -341,7 +335,7 @@ resource "digitalocean_database_firewall" "db-fw" {
 ```
 
 This concludes our cluster setup. To get our app deployed we'll have to add some
-setup to our project. We'll need to dockerize our project, add kubctl deploy
+setup to our project. We'll need to dockerize our project, add kubectl deploy
 config files and add a gitlab-ci.yml that will trigger the gitlab-ci pipeline.
 
 ## A project to deploy
@@ -355,7 +349,7 @@ files to trigger deployment which I'll explain next.
 
 Go ahead and clone the project from the tag I created:
 ```
-git clone git@gitlab.com:drumusician/real_world_phoenix.git --branch kubernetes-deploy
+git clone https://gitlab.com/drumusician/real_world_phoenix.git --branch kubernetes-deploy
 ```
 
 ### Gitlab pipeline
