@@ -1,6 +1,6 @@
 # Real World Phoenix |> Let's D4Y |> __using__ K8S
 
-As promised in my last post here is step 3 in my deployment adventure. The one
+As promised in my [last post](https://www.theguild.nl/real-world-phoenix-lets-d4y/) here is step 3 in my deployment adventure. The one
 where I use Kubernetes!
 
 In the last post we explored a very straightforward and simple
@@ -10,7 +10,7 @@ Today I want to discuss a much more complicated setup, using Kubernetes. I know 
 most applications you will surely not need a setup using Kubernetes, but I've
 been having an urge to try it out for a while now and wanted to see if it is
 really that complicated as I seem to be hearing through the grapevine. Who
-knows, maybe it turns out to not to be that hard in the end. 
+knows, maybe it turns out it's actually not that hard at all. 
 Also I really like the fact that I can have a cluster to spin up nodes (ie.
 applications) of all the experiments / ideas / apps that I'm currently playing
 with, so I can actually expose those into the Real World with a reproducable and
@@ -18,10 +18,10 @@ easy deployment workflow. Let's see if we can make that dream come true!
 
 ## The Kubernetes Cluster
 
-If you are not aware of what Kubernetes is head over to [their website](https://kubernetes.io/docs/tutorials/kubernetes-basics/), as they have great documentation to get started on the basics.
+If you are not aware of what Kubernetes is, head over to [their website](https://kubernetes.io/docs/tutorials/kubernetes-basics/), as they have great documentation to get started on the basics.
 
 To use Kubernetes for our deployment the first thing we'll need is a Kubernetes
-cluster. Now this is the part where you see most tutorials and guides grab for a
+cluster. This is the part where you see most tutorials and guides grab for a
 local setup with minikube. While I like that it's possible to do this, it still
 seems a bit too far from real life for me, so I wanted to have a bit more of a
 production-like environment, like... for instance... a production environment :) 
@@ -33,17 +33,14 @@ already have a lot of content running at DigitalOcean, so it is known territory
 for me and they make it really easy to get started with Kubernetes.
 If you haven't used DigitalOcean before, you can use this [referral
 link](https://m.do.co/c/78020d21b236) to create an account and get $100 credit
-to spend in first 60 days. So more than enough to follow along with this tutorial.
+to spend in the first 60 days. So more than enough to follow along with this tutorial.
 
 ## Terraform + Helm
 
-Oh and we are going to need to use 2 more tools to get this setup up and
-running. [Terraform](https://www.terraform.io/) and [Helm](https://helm.sh/). We'll use terraform to setup most of the infrastructure. In this way I don't have to remember all the tweaks and install steps I took to
-get everything up and running. I can just automate the whole setup declaratively
-and put the whole thing under version control. 
+We are going to need to use 2 more tools to get this setup up and running. [Terraform](https://www.terraform.io/) and [Helm](https://helm.sh/). We'll use terraform to setup most of the infrastructure. In this way I don't have to remember all the tweaks and install steps I took to get everything up and running. I can just automate the whole setup declaratively and put the whole thing under version control. 
 This is often referred to these days as an infrastructure-as-code setup.
 I wanted to use terraform for everything, but ran into some trouble setting up a 
-few of the tools needed, so reverted to Helm (the kubernetes package manager) to
+few of the tools needed, so reverted to Helm (the Kubernetes package manager) to
 install Traefik and our Gitlab Runner. 
 
 Our Terraform setup will include:
@@ -59,7 +56,7 @@ And we'll use Helm to:
 
 So let's get crackin'!
 
-### install doctl to talk to your DigitalOcean account
+### Install doctl to talk to your DigitalOcean account
 
 If we want to automate any of this stuff we'll have to be able to talk to
 DigitalOcean programmatically, so installing doctl is step one. Please refer to
@@ -84,7 +81,7 @@ See: [terraform install](https://www.terraform.io/downloads.html)
 ### Setup our project
 
 If you want to follow along with this guide, create a folder that will hold your
-terraform configs and create a `main.tf` file that will hold our terraform declarations.
+terraform configs and create a `main.tf` file that will hold the terraform declarations.
 
 ```bash
 mkdir kube-terra
@@ -140,7 +137,7 @@ up and running. Now that was easy!
 Kubernetes needs an ingress controller to route traffic from the outside world
 to the services that are running inside the cluster as these services are not
 exposed to the outside world, which is a good thing! Nginx is often used, but I went with Traefik, a very nice alternative that has a lot of nice functinality out of the box, like automatic ssl certificates using Let's Encrypt
-and auto discovery of services running in the cluster. This setup also takes advantage of a DigitalOcean load balancer, which will automatically be created by the serviceType set below to `loadBalancer`.
+and auto discovery of services running in the cluster. This setup also takes advantage of a DigitalOcean load balancer, which will automatically be created by the serviceType set below to `LoadBalancer`.
 
 Create a file called `traefik-values.yml` in the root of your kubernetes config directory and add the following content. If you manage dns settings with DigitalOcean, you can comment out those parts as well. This will provide automatic ssl certificate generation. Very cool! If not you can just leave it like this. It'll work, but without ssl enabled. A benefit of using the dns-challenge as opposed to the more standard acme-challenge is that you can also get a valid certificate if your production system is behind a firewall.
 
@@ -175,7 +172,7 @@ Now we can go ahead and install traefik in our cluster:
 
 Install helm:
 ```bash
-brew install helm
+brew install kubernetes-helm
 ```
 
 Pull in our fresh cluster configuration locally (otherwise helm will
@@ -193,7 +190,7 @@ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 helm install traefik --values traefik-values.yml stable/traefik
 ```
 
-After Traefik is installed we have enough running to be able to deploy our stuff
+After Traefik is installed we have enough running to be able to deploy our application
 to the cluster. We are going to use gitlab-ci to deploy so we'll need to
 install a gitlab-runner in our cluster first so we can use that in our project.
 
@@ -239,11 +236,7 @@ terraform apply
 
 ### Install Gitlab Runner
 
-For this setup to work we will need our runner to run inside of our cluster
-and have enough access rights to actually spin-up pods and services in our
-cluster. So we'll install that using helm as well. Gitlab has an install script
-from their interface, but that doesn't provide you with customisation options
-that we'll need for our use case.
+To be able to deploy into our cluster from Gitlab CI we will need our runner to run inside of our cluster and have enough access rights to actually spin-up pods and services in our cluster. So we'll install that using helm as well. Gitlab has an install script from their interface, but that doesn't provide you with customisation options that we'll need for our use case.
 
 Create the following file in your kubernetes dir: `gitlab-runner-values.yml` and
 add this content:
@@ -268,7 +261,7 @@ helm install --namespace default gitlab-runner  -f gitlab-runner-values.yml gitl
 ### Connect a gitlab project to the cluster
 
 This is something you can do through the Gitlab interface, but I like automating
-it here as well. We need to provide the Gitlab_project in terraform like this.
+it here as well. We need to provide the Gitlab project in terraform like this.
 If you don't have a project yet, you should create it on `gitlab.com` and add the
 ID here.
 
@@ -303,8 +296,9 @@ database service is a great option. You pay a little extra, but it takes care of
 backups etc. It is just one of those things that you don't want to worry about,
 right?
 
-Ofcourse, we can easily add the creation of a database cluster to our terraform
-setup:
+Of course, we can easily add the creation of a database cluster to our terraform
+setup. Note that I am using only 1 node for the cluster in this example. For actual failsafe production usage, you probably want to have at least 2 nodes.
+
 ```hcl
 resource "digitalocean_database_cluster" "postgres-db" {
   name       = "postgres-db-cluster"
@@ -458,9 +452,11 @@ To trigger the gitlab-ci pipeline we'll need to add a `.gitlab-ci.yml` file in
 the root of our project.
 
 This is the content needed to initialize, build, push and deploy using the CI
-pipeline. We start of creating a few variables we'll need and then define the
+pipeline. We start off creating a few variables we'll need and then define the
 stages. I have added some comments in the yaml file below that should explain
-the steps in detail
+the steps in detail.
+
+Note the use of [Kaniko](https://github.com/GoogleContainerTools/kaniko) to build the container and push it to our registry. Kaniko doesn't depend on a Docker daemon and executes each command within a Dockerfile completely in userspace. This enables building container images in environments that can't easily or securely run a Docker daemon, such as a our Kubernetes cluster. Very nice!
 
 ```yaml
 variables:
@@ -536,7 +532,8 @@ deploy:
 The last thing we need is the kubernetes yaml files that are used in the ci
 pipeline:
 
-* service.yml
+#### service.yml
+
 The service pod running our application. This is basically our app running in a docker container.
 
 ```yaml
@@ -553,7 +550,8 @@ spec:
     app: real_world_phoenix
 ```
 
-* ingress.yml
+#### ingress.yml
+
 The mapping of our domain name to our service
 
 ```yaml
@@ -572,8 +570,9 @@ spec:
           servicePort: web
 ```
 
-* deploy.yml
-Our deployment configuration
+#### deploy.yml
+
+Our deployment configuration. This provides Kubernetes the info about which container image to use and how many replicas of our app we want to have running.
 
 ```yaml
 apiVersion: apps/v1
@@ -622,7 +621,7 @@ spec:
             value: $DOMAIN
 ```
 
-The above yaml file has references to a number of environment variables. The nice thing is that we can add all of these secrets inside of our Gitlab project and the deploy will use these. In your project go to `Settings -> CI/CD -> Variables`.
+The above yaml file has references to a number of environment variables. The nice thing is that we can add all of these secrets inside of our Gitlab project and the deployment will use these values. In your project go to `Settings -> CI/CD -> Variables`.
 Now if we have all of this in our project all we have to do is commit and push it to our gitlab repo. Then Gitlab CI will do it's magic and our application will be up and running after the pipeline jobs succeed. Nice!
 
 ## Conclusion
