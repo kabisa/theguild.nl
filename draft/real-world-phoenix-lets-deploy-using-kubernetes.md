@@ -1,6 +1,6 @@
 # Real World Phoenix |> Let's D4Y |> __using__ K8S
 
-As promised in my [last post](https://www.theguild.nl/real-world-phoenix-lets-d4y/) here is step 3 in my deployment adventure. The one
+As promised in my [last post](https://www.theguild.nl/real-world-phoenix-lets-d4y/), here is step 3 in my deployment adventure. The one
 where I use Kubernetes!
 
 In the last post we explored a very straightforward and simple
@@ -28,7 +28,7 @@ production-like environment, like... for instance... a production environment :)
 
 The beauty is that these days there are more and more managed Kubernetes
 services that do all the hard work like setting up the cluster, managing
-upgrades etc etc. I'll be using the service DigitalOcean is offering, because I
+upgrades etc etc. I'll be using the service DigitalOcean is offering. Mainly because I
 already have a lot of content running at DigitalOcean, so it is known territory
 for me and they make it really easy to get started with Kubernetes.
 If you haven't used DigitalOcean before, you can use this [referral
