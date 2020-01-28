@@ -59,16 +59,21 @@ defmodule RealWorldPhoenix.Engines.Scrambled do
   end
 
   defp shuffle(word) do
-    scrambled =
+    if String.length(word) < 4 do
       word
-      |> String.split("", trim: true)
-      |> Enum.slice(1..-2)
-      |> Enum.shuffle()
-      |> Enum.join("")
+    else
+      scrambled =
+        word
+        |> String.split("", trim: true)
+        |> Enum.slice(1..-2)
+        |> Enum.shuffle()
+        |> Enum.join("")
 
-    String.first(word) <> scrambled <> String.last(word)
+      String.first(word) <> scrambled <> String.last(word)
+    end
   end
 end
+
 ```
 
 And to use this in our Phoenix app, we need to configure the file extension we want to invoke scrambling for. You can see this is the same as I did in my app to configure `phoenix_markdown`. At compile time Phoenix will match any templates with the `.scrambled` extension and will run that source file through our Engine by calling our `compile/2` function defined in our Engine module.
