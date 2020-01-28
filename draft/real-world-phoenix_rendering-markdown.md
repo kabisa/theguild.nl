@@ -1,10 +1,10 @@
 # Rendering Markdown
 
-Recently I acquired the domain `realworldphoenix.com` in order to continue my blogging adventure on a separate blog dedicated to writing exclusive content on Phoenix and Elixir (and some related subjects occassionally). I could of course take an off the shelf blogging platform or just use some kind of static site generator. But as I am writing about using Phoenix in the Real World, I figured why not just create a Phoenix application to host my blog. Then I can also do some nice things like make it a bit interactive or even let people sign-up and comment without using a third-party tool for that. We'll see.
+Recently, I acquired the domain `realworldphoenix.com` in order to continue my blogging adventure on a separate blog dedicated to writing exclusive content on Phoenix and Elixir (and some related subjects occassionally). I could of course take an off the shelf blogging platform or just use some kind of static site generator. But as I am writing about using Phoenix in the Real World, I figured why not just create a Phoenix application to host my blog. Then I can also do some nice things like make it a bit interactive or even let people sign-up and comment without using a third-party tool for that. We'll see.
 
 ## Writing content for a blog.
 
-As most of you would probably agree, writing long-form content using html is a bit of a pain. So most people use markdown to write blogposts and I'm not any different. So let's find out how we can write markdown, put it under version control (just because that is nice to have) and then make sure it gets rendered as html in our Phoenix app.
+As most of you would probably agree, writing long-form content using html is a bit of a pain. So most people use markdown to write blogposts and I'm no exception. So let's find out how we can write markdown, put it under version control (just because that is nice to have) and then make sure it gets rendered as html in our Phoenix app.
 
 ## Earmark
 
@@ -20,7 +20,7 @@ Ofcourse, Phoenix has this all figured out. The way that `eex` and `exs` are imp
 
 ## How do we create a Template Engine?
 
-So how does one go about and create a template engine? Well, the best way to find out is to see if we can create one for ourselves, right? So let's create a template engine that scrambles all the text that gets rendered by the engine. We'll use the `Cambridge University Scrambled Text` concept. So scramble all letters in words but keep the first and last letters intact. Fun fact, this so-called research was actually never done at Cambridge University! Somehow this internet meme got morphed into being a Cambridge research subject, but was actually never the case. Here is [nice article](https://www.mrc-cbu.cam.ac.uk/people/matt.davis/cmabridge/) from a Cambridge Professor about this.
+So how does one go about and create a template engine? Well, the best way to find out is to see if we can create one for ourselves, right? So let's create a template engine that scrambles all the text that gets rendered by the engine. We'll use the `Cambridge University Scrambled Text` concept. So scramble all letters in words but keep the first and last letters intact. Fun fact, this so-called research was actually never done at Cambridge University! Somehow this internet meme got morphed into being a Cambridge research subject, but was actually never the case. Here's a [nice article](https://www.mrc-cbu.cam.ac.uk/people/matt.davis/cmabridge/) from a Cambridge Professor about this.
 This however doesn't hold us back from using the concept to build our awesome scramble engine! So let's get cakrcnig!
 
 ## Our scramble Engine
@@ -110,12 +110,52 @@ config :phoenix_markdown, :earmark, %{
   smartypants: false
 }
 ```
+## Interactive blog...
 
+The example below is rendered using LiveView. You can see this if you head over to my [interactive blog](http://realworldphoenix.com/blog/2020-01-28/rendering_markdown#scramble).
+
+```elixir
 <%= Phoenix.LiveView.Helpers.live_render(@conn, RealWorldPhoenixWeb.Live.Scrambled) %>
+```
+
+And here is the LiveView component responsible for rendering the scambled text:
+```elixir
+defmodule RealWorldPhoenixWeb.Live.Scrambled do
+  use Phoenix.LiveView
+  @moduledoc false
+
+  def render(assigns) do
+    ~L"""
+      <h2 id="scramble">Let's Scramble!
+        <button phx-click="scramble" class="button">
+          <%= if @scrambled, do: "un-scramble", else: "scramble" %>
+        </button>
+      </h2>
+      <%= get_scrambled_content(@scrambled) %>
+    """
+  end
+
+  def mount(_session, socket) do
+    {:ok, assign(socket, :scrambled, true)}
+  end
+
+  def handle_event("scramble", _value, socket) do
+    {:noreply, assign(socket, :scrambled, !socket.assigns.scrambled)}
+  end
+
+  defp get_scrambled_content(true) do
+    Phoenix.View.render(RealWorldPhoenixWeb.PostView, "blogs/2020-01-28/_scrambled.html", [])
+  end
+
+  defp get_scrambled_content(false) do
+    Phoenix.View.render(RealWorldPhoenixWeb.PostView, "blogs/2020-01-28/_notscrambled.html", [])
+  end
+end
+```
 
 ## Hold on buddy! This can't work!
 
-Now, how did I get that button to `scramble` and `unscramble`...?
+The above LiveView renders scrambled text and when the button is pressed it unscrambles it.
 
 Ah I was wondering if you would notice. You smartypants out there probably were already wondering how in the world I get this `scrambling` functionality working. No, I'm not fooling you, it is running though our actual template engine. But indeed Phoenix pre-compiles the templates. That is also one of the reasons it is so fast.
 
