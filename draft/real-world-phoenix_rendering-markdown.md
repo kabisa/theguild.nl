@@ -123,7 +123,7 @@ The example below is rendered using LiveView. You can see this if you head over 
 <%= Phoenix.LiveView.Helpers.live_render(@conn, RealWorldPhoenixWeb.Live.Scrambled) %>
 ```
 
-And here is the LiveView component responsible for rendering the scambled text:
+And here is the LiveView component responsible for rendering the scrambled text:
 ```elixir
 defmodule RealWorldPhoenixWeb.Live.Scrambled do
   use Phoenix.LiveView
