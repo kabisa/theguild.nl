@@ -8,7 +8,7 @@ Let's see how that would work.
 
 We are going to build a very simple but powerful feature for the blog you are currently reading. We will add an indicator at the top of the page that shows how many people are currently reading this page. So where do we want this indicator? Preferable this would reside on the same page as a blog post so that it would indicate for every individual blog post how many users are currently reading that article. To do this, we'll create a very small LiveView component inserted in the markdown of our post. Just like we did in my [last post](https://realworldphoenix.com/blog/2020-01-28/rendering_markdown) when I rendered scrambled text. At a later stage I will probably want to make it more generic, but for now let's focus on getting this to work for this blog post.
 
-If you head over to my [interactive blog](https://realworldphoenix.com/blog/2020-02-11/phoenix_presence), you can see this counter in action!
+If you head over to my [interactive blog](https://realworldphoenix.com/blog/2020-02-11/simple_phoenix_presence), you can see this counter in action!
 
 ## LiveView or LiveView Component?
 
