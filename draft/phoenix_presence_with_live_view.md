@@ -113,7 +113,7 @@ end
 
 ## Track diff of topic
 
-Now the only left for us to do is implement a callback in our live_view to catch any diffs happening on th etopic we are tracking. The folling function will do the trick:
+Now the only left for us to do is implement a callback in our live_view to catch any diffs happening on the topic we are tracking. The following function will do the trick:
 
 ```elixir
 ...
