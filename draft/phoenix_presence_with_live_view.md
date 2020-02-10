@@ -10,6 +10,12 @@ We are going to build a very simple but powerful feature for the blog you are cu
 
 If you head over to my [interactive blog](https://realworldphoenix.com/blog/2020-02-11/simple_phoenix_presence), you can see this counter in action!
 
+This is how we embed the LiveView Component into out markdown post:
+
+```elixir
+<%= Phoenix.LiveView.Helpers.live_render(@conn, RealWorldPhoenixWeb.Live.ReaderCount, session: %{slug: "simple_phoenix_presence"}) %>
+```
+
 ## LiveView or LiveView Component?
 
 LiveView is maturing quickly and currently also has a concept of Components. Which basically are small building blocks that either are stateful or stateless. I am definitely planning on doing a writeup on using LiveView components, but for our usecase we simply need the basic LiveView.
@@ -88,19 +94,18 @@ In our `mount/2` function we'll subscribe to the page topic. Basically using a t
 defmodule RealWorldPhoenixWeb.Live.ReaderCount do
   ...
 
-  @topic "blog:simple_phoenix_presence"
-
-  def mount(_session, socket) do
+  def mount(%{slug: slug}, socket) do
     # before subscribing, let's get the current_reader_count
-    initial_count = Presence.list(@topic) |> map_size
+    topic = "blog:#{slug}"
+    initial_count = Presence.list(topic) |> map_size
 
     # Subscribe to the topic
-    RealWorldPhoenixWeb.Endpoint.subscribe(@topic)
+    RealWorldPhoenixWeb.Endpoint.subscribe(topic)
 
     # Track changes to the topic
     Presence.track(
       self(),
-      @topic,
+      topic,
       socket.id,
       %{}
     )
