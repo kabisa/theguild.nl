@@ -128,7 +128,7 @@ Now the only left for us to do is implement a callback in our live_view to catch
 ...
 ```
 
-We pattern match on the "presence_diff" event and also use pattern matching to get the current values for joins, leaves and count respectively. When someone subscribes to the topic, there will be change in the `joins` and when they leave a similar change in `leaves`. The `reader_count` is something we update ourselves in the socket whenever someone joins or leaves.
+We pattern match on the "presence_diff" event and also use pattern matching to get the current values for joins, leaves and count respectively. When someone subscribes to the topic, there will be a change in the `joins` and when they leave a similar change in `leaves`. The `reader_count` is something we update ourselves in the socket whenever someone joins or leaves.
 
 That is really all we need to do to get realtime updates of the number of readers of our page. That is quite easy and really cool to be able to see that data. Currently we don't ask user for information once they enter our blog, but once we add login or even just their name, we would be able to show that data as part of the presence_diff as well. But, let's leave that for another time.
 
