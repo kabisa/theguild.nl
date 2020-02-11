@@ -1,12 +1,12 @@
 # Using Phoenix Presence in LiveView |> A Simple Example
 
-Normally I'm not a big fan of things that seem like magic, but in the case of Phoenix Presence I actually love it. I love the way you can very simply add Phoenix Presence to your Phoenix app and you suddenly get tracking info on who's online at any given time. Amazing! I will definitely dig into the internals at some point in the future, but for now I wanted to show a very simple example of using Phoenix Presence inside LiveView!
+Normally I'm not a big fan of things that seem like magic, but in the case of Phoenix Presence I actually love it. I love the way you can very simply add Phoenix Presence to your Phoenix app and easily track user's presence with it. Amazing! I will definitely dig into the internals at some point in the future, but for now I wanted to show a very simple example of using Phoenix Presence inside LiveView!
 
 Let's see how that would work.
 
 ## Who's reading?
 
-We are going to build a very simple but powerful feature for the blog you are currently reading. We will add an indicator at the top of the page that shows how many people are currently reading this page. So where do we want this indicator? Preferable this would reside on the same page as a blog post so that it would indicate for every individual blog post how many users are currently reading that article. To do this, we'll create a very small LiveView component inserted in the markdown of our post. Just like we did in my [last post](https://realworldphoenix.com/blog/2020-01-28/rendering_markdown) when I rendered scrambled text. At a later stage I will probably want to make it more generic, but for now let's focus on getting this to work for this blog post.
+We are going to build a very simple but powerful feature for the blog you're currently reading. We'll add an indicator at the top of the page that shows how many people are currently reading this page. So where do we want this indicator? Preferably this would reside on the same page as a blog post so that it would indicate for every individual blog post how many users are currently reading that article. To do this, we'll create a very small LiveView component inserted in the markdown of our post. Just like we did in my [last post](https://realworldphoenix.com/blog/2020-01-28/rendering_markdown) when I rendered scrambled text. At a later stage I will probably want to make it more generic, but for now let's focus on getting this to work for this blog post.
 
 If you head over to my [interactive blog](https://realworldphoenix.com/blog/2020-02-11/simple_phoenix_presence), you can see this counter in action!
 
@@ -18,7 +18,7 @@ This is how we embed the LiveView Component into out markdown post:
 
 ## LiveView or LiveView Component?
 
-LiveView is maturing quickly and currently also has a concept of Components. Which basically are small building blocks that either are stateful or stateless. I am definitely planning on doing a writeup on using LiveView components, but for our usecase we simply need the basic LiveView.
+LiveView is maturing quickly and currently also has a concept of Components. Components basically are small building blocks that either are stateful or stateless. I am definitely planning on doing a writeup on using LiveView components, but for our usecase we simply need the basic LiveView.
 
 Let's create a basic LiveView boilerplate:
 
@@ -53,7 +53,7 @@ Let's first setup Presence using the guide provides by the Phoenix Team:
 ```elixir
 defmodule RealWorldPhoenix.Presence do
   use Phoenix.Presence, otp_app: :real_world_phoenix,
-                        pubsub_server: MyApp.PubSub
+                        pubsub_server: RealWorldPhoenix.PubSub
 end
 ```
 
@@ -86,7 +86,9 @@ end
 
 ## I don't have any Channels... ?
 
-So the next and last step in the guide shows an example of adding Presence tracking to a channel implementation. But we are not using channels! So how do we go about and add this to our LiveView. Presence uses a PubSub (Publish-Subscribe) mechanism to perform it's magic. So what we should do in our LiveView is make sure we subscribe to the topic of the current page. Once we do that we can add a callback that will track any presence_diff where we will update the counter if someone leaves or joins the current topic.
+So the next and last step in the guide shows an example of adding Presence tracking to a channel implementation. But we are not using channels! So how do we go about and add this to our LiveView?
+
+Presence uses a PubSub (Publish-Subscribe) mechanism to perform it's magic. So what we should do in our LiveView is make sure we subscribe to the topic of the current page. Once we do that we can add a callback that will track any presence_diff where we'll update the counter if someone leaves or joins the current topic.
 
 In our `mount/2` function we'll subscribe to the page topic. Basically using a topic such as `blog:simple_phoenix_presence`. So in essence a general category with a post slug after the colon. Here are the updates to our LiveView module:
 
@@ -116,9 +118,9 @@ defmodule RealWorldPhoenixWeb.Live.ReaderCount do
 end
 ```
 
-## Track diff of topic
+## Listening to topic events to track changes
 
-Now the only left for us to do is implement a callback in our live_view to catch any diffs happening on the topic we are tracking. The following function will do the trick:
+Now the only thing left for us to do is implement a callback in our live_view to catch any diffs happening on the topic we are tracking. The following function will do the trick:
 
 ```elixir
 ...
