@@ -14,6 +14,6 @@ section
 
             p.meta
               ' Posted by
-              = yt.snippet.channelTitle
+              => yt.snippet.channelTitle.strip
               ' on
-              = DateTime.parse(yt.contentDetails.videoPublishedAt)&.strftime('%-d %B %Y')
+              =< DateTime.parse(yt.contentDetails.videoPublishedAt)&.strftime('%-d %B %Y')
