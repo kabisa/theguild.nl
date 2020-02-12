@@ -1,6 +1,6 @@
 # Extending Flutter Driver with custom commands
 
-[Flutter Driver](https://flutter.dev/docs/cookbook/testing/integration/introduction) is a library to write end-to-end integration tests for Flutter apps. It's similar to Selenium WebDriver (for web apps), Espresso (for native Android apps) and Earl Grey (for native iOS apps). It works by instrumenting the Flutter app and then driving the application using a suite of Dart tests.
+[Flutter Driver](https://flutter.dev/docs/cookbook/testing/integration/introduction) is a library to write end-to-end integration tests for Flutter apps. It's similar to Selenium WebDriver (for web apps), Espresso (for native Android apps) and Earl Grey (for native iOS apps). It works by instrumenting the Flutter app and then driving the application using a suite of Dart [tests](https://pub.dev/packages/test).
 
 A typical, basic Flutter Driver test looks like this:
 
