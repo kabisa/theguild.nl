@@ -127,7 +127,7 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-What this does is allow us to hook up a NavigationObserver from our test wrapper like so:
+This allows us to hook up a NavigationObserver from our test wrapper like so:
 
 ```dart
 import 'package:flutter/material.dart';
@@ -176,4 +176,3 @@ void main() {
 This will make sure that before every test, the app navigates back to the root route no matter where we navigated to in our tests.
 
 Of course, this is just an example of how you can implement communication between your Driver tests and your app. If you're going to send more complex commands that require arguments you might want to send JSON data, but I'll leave that as an exercise to you, dear reader ;-)
-
