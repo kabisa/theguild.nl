@@ -22,9 +22,7 @@ void main() {
 
     // Close the connection to the driver after the tests have completed.
     tearDownAll(() async {
-      if (driver != null) {
-        driver.close();
-      }
+      driver?.close();
     });
 
     test('starts at 0', () async {
@@ -158,7 +156,6 @@ void main() {
 
   setUpAll(() async {
     driver = await FlutterDriver.connect();
-    TestHelper.driver = driver;
   });
 
   tearDownAll(() async {
