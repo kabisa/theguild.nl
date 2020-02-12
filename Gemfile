@@ -25,6 +25,8 @@ gem 'builder' # XMLfeeds
 gem 'html2slim' # Use `bundle exec erb2slim|html2slim -h` for more info
 gem 'slim'
 
+gem 'rack', '2.0.8' # https://github.com/middleman/middleman/issues/2309
+
 # Testing
 group :development do
   gem 'capybara'
