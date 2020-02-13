@@ -10,7 +10,7 @@ module SocialMediaHelpers
   end
 
   def current_page_url
-    "#{config.site_url}#{current_page.url}"
+    "#{data.config.site_url}#{current_page.url}"
   end
 
   def page_twitter_card_type
