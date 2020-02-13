@@ -8,9 +8,7 @@
         "@id": "#{data.config.site_url}"
       },
       "headline": "#{page_title}",
-      "image":
-        "#{news_article_schema_image}"
-       ],
+      "image": ["#{news_article_schema_image}"],
       "datePublished": "#{post.created_on.to_time.iso8601}",
       "dateModified": "#{DateTime.parse(post._meta.updated_at).to_time.iso8601}",
       "author": {
