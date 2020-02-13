@@ -22,8 +22,8 @@ module SocialMediaHelpers
     social_image(w: 560)
   end
 
-  def google_plus_social_image
-    social_image(w: 800)
+  def news_article_schema_image
+    social_image(w: 1200) || data.config.site_url + '/images/theguild-logo.png'
   end
 
   def facebook_social_image
