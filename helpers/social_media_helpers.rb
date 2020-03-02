@@ -37,6 +37,7 @@ module SocialMediaHelpers
 
   def organization_schema_logo
     contentful_image_url(image_path('/images/kabisa-logo.png'), w: 1200)
+  end
 
   def social_image(opts = {})
     return unless url = yield_content(:social_image)
