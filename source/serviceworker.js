@@ -8,7 +8,7 @@ function onInstall(event) {
       return cache.addAll([
         "/stylesheets/site.css",
         '/offline.html',
-
+        '/',
       ]);
     })
   );
