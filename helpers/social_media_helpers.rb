@@ -32,11 +32,11 @@ module SocialMediaHelpers
   end
 
   def author_schema_logo
-    contentful_image_url(image_path('/images/theguild-logo.png'), w: 1200)
+    data.config.site.url + image_path('/images/theguild-logo.png')
   end
 
   def organization_schema_logo
-    contentful_image_url(image_path('/images/kabisa-logo.png'), w: 1200)
+    data.config.site.url + image_path('/images/kabisa-logo.png')
   end
 
   def social_image(opts = {})
