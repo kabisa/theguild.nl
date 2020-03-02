@@ -6,11 +6,8 @@ function onInstall(event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function prefill(cache) {
       return cache.addAll([
-
-        '<%%#= asset_path "javascript/all.js" %>',
-
-        '<%%= asset_path "stylesheets/site.css" %>',
-
+        "/javascript/all.js",
+        "/stylesheets/site.css",
         '/offline.html',
 
       ]);
