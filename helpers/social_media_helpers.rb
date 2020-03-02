@@ -27,16 +27,16 @@ module SocialMediaHelpers
     social_image(w: 1200)
   end
 
-  def news_article_schema_image
-    social_image(w: 1200) || organization_schema_logo
+  def schema_news_article_image
+    social_image(w: 1200) || schema_organization_logo
   end
 
-  def author_schema_logo
-    data.config.site_url + image_path('/images/theguild-logo.png')
-  end
-
-  def organization_schema_logo
+  def schema_kabisa_logo
     data.config.site_url + image_path('/images/kabisa-logo.png')
+  end
+
+  def schema_organization_logo
+    data.config.site_url + image_path('/images/theguild-logo.png')
   end
 
   def social_image(opts = {})

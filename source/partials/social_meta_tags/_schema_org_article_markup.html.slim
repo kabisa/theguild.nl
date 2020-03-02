@@ -8,7 +8,7 @@
         "@id": "#{data.config.site_url}"
       },
       "headline": "#{page_title}",
-      "image": ["#{news_article_schema_image}"],
+      "image": ["#{schema_news_article_image}"],
       "datePublished": "#{post.created_on.to_time.iso8601}",
       "dateModified": "#{DateTime.parse(post._meta.updated_at).to_time.iso8601}",
       "author": {
@@ -20,7 +20,7 @@
         "name": "#{data.config.author}",
         "logo": {
           "@type": "ImageObject",
-          "url": "#{author_schema_logo}"
+          "url": "#{schema_kabisa_logo}"
         }
       },
       "description": "#{page_description}"
