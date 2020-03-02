@@ -32,14 +32,11 @@ module SocialMediaHelpers
   end
 
   def author_schema_logo
-    asset_url = data.config.site_url + '/images/theguild-logo.png'
-    contentful_image_url(prepend_protocol(asset_url), w: 1200)
+    contentful_image_url(image_path('/images/theguild-logo.png'), w: 1200)
   end
 
   def organization_schema_logo
-    asset_url = data.config.site_url + '/images/kabisa-logo.png'
-    contentful_image_url(prepend_protocol(asset_url), w: 1200)
-  end
+    contentful_image_url(image_path('/images/kabisa-logo.png'), w: 1200)
 
   def social_image(opts = {})
     return unless url = yield_content(:social_image)
