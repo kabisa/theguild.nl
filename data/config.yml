@@ -3,7 +3,7 @@ site_subtitle: The Guild — A Blog About Development and Geekery
 description: A blog about development and geekery
 author: Kabisa
 email: info@kabisa.nl
-site_url: http://www.theguild.nl
+site_url: https://www.theguild.nl
 feed_path: /feed.xml
 twitteraccount: '@theguildtech'
 
