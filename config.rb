@@ -39,6 +39,10 @@ configure :development do
   activate :livereload
 end
 
+activate :sprockets do |c|
+  c.supported_output_extensions = [".js"]
+end
+
 # Sitemap configuration
 set :url_root, @app.data.config.site_url
 activate :search_engine_sitemap
