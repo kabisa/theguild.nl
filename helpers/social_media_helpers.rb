@@ -22,13 +22,23 @@ module SocialMediaHelpers
     social_image(w: 560)
   end
 
-  def news_article_schema_image
-    social_image(w: 1200) || data.config.site_url + '/images/theguild-logo.png'
-  end
-
   def facebook_social_image
     # https://developers.facebook.com/docs/sharing/best-practices
     social_image(w: 1200)
+  end
+
+  def news_article_schema_image
+    social_image(w: 1200) || organization_schema_logo
+  end
+
+  def author_schema_logo
+    asset_url = data.config.site_url + '/images/theguild-logo.png'
+    contentful_image_url(prepend_protocol(asset_url), w: 1200)
+  end
+
+  def organization_schema_logo
+    asset_url = data.config.site_url + '/images/kabisa-logo.png'
+    contentful_image_url(prepend_protocol(asset_url), w: 1200)
   end
 
   def social_image(opts = {})
