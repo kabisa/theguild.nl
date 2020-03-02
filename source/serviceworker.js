@@ -6,7 +6,6 @@ function onInstall(event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function prefill(cache) {
       return cache.addAll([
-        "/javascript/all.js",
         "/stylesheets/site.css",
         '/offline.html',
 
