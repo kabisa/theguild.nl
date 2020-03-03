@@ -11,7 +11,7 @@ Writing good and clear user stories is not a trivial task and once you have a go
 
 ## Acceptance Criteria using Gherkin
 
-The way that I like to tackle the process of translating a user story into managable chunks to build is by defining a good set of acceptance criteria. It is often a good idea to write these with a product owner or stakeholder from the business, as they are the ones that are going to be accepting the story in the end. It is a feature that they have requested, right? I really like the [Gherkin language](https://en.wikipedia.org/wiki/Cucumber_(software)#Gherkin_language) to write up my acceptance criteria. If you have used the Cucumber testing framework this will look very familiar.
+The way that I like to tackle the process of translating a user story into managable chunks to build is by defining a good set of acceptance criteria. It is often a good idea to write these with a product owner or stakeholder from the business, as they are the ones that are going to be accepting the story in the end. It is a feature that they have requested, right? I really like the [Gherkin language](https://en.wikipedia.org/wiki/Cucumber_(software)#Gherkin_language) to write up my acceptance criteria. If you have used the Cucumber testing framework in Rails land this will look very familiar.
 This is the syntax Gherkin uses:
 
 ```gherkin
@@ -33,11 +33,11 @@ We'll build a feature for an app I'm working on at the moment. It is an app that
 
 Let's see an example of a really bad written user story first and see what we can do to improve this. You might find this example funny and unrealistic, but I can tell you that I have seen many occassions of user stories that have been thrown on a board that look similar to this one...
 
-> create contracts for everyone
+> Create contracts for everyone
 
-So there is very little detail in this story and the main problem with that is the fact that it is very widely interpretable to basically develop something that totally misses the intended feature a business needs. So let's improve.
+So there is very little detail in this story and the main problem with that is the fact that it is widely interpretable to basically develop something that totally misses the intended feature a business needs. So let's improve.
 
-> as a teacher I would like to be able to create contracts for my students so there is a mutual understanding of the agreed terms of me providing lessons to them
+> As a teacher I would like to be able to create contracts for my students so there is a mutual understanding of the agreed terms of me providing lessons to them
 
 So let's review this. There is a lot of detail in this story. Let's evaluate the different parts:
 
@@ -49,7 +49,7 @@ So let's review this. There is a lot of detail in this story. Let's evaluate the
 
 It might seem like this is a very good story, and in many aspects it is. But although the last part is written in great detail, let's take a step back and think about this. What is the goal a teacher has when creating a contract. Or, in a more general sense, what is the goal of a contract? Is that goal really to have a mutual understanding? That is not really the goal, but more of an aspect of a contract. So what is the real end goal? If you really think this through, there is a simpler and more concise end goal that is actually the essence of why contracts are needed. Check the story below and you'll see what I mean:
 
-> as a teacher I would like to be able to create contracts for my students so that I don't have to worry about getting paid
+> As a teacher I would like to be able to create contracts for my students so that I don't have to worry about getting paid
 
 ## So why is this distinction important?
 
@@ -71,14 +71,14 @@ AND should see the specific contract for this student
 
 # Adding a contract
 GIVEN I am looking at the details for a student
-WHEN I click on Add Contract
+WHEN I click on "Add Contract"
 THEN I should be able to enter all the details needed to create a contract 
 
 # Contract created flow
-GIVEN I Have entered all the details for a contract for a student
-WHEN I create this contract
-THEN I should be redirected back to the students overview page
-AND I should see the contract just created
+GIVEN I have entered all the details for a contract for a student
+WHEN I create the entered contract
+THEN I should be back at to the students overview page
+AND I will see the contract just created
 AND the students parent should receive an email with the details of this new contract
 
 # Contract approval flow
@@ -86,24 +86,22 @@ GIVEN I am a parent of a student
 AND I have received an email indicating there is a new contract
 WHEN I click the link provided in the email
 AND I log in after following that link
-THEN I should see a page where I can view the contract details
-AND I should be able to accept and approve the contract 
+THEN I see a page where I can view the contract details
+AND I'll be able to accept and approve the contract
 ```
 
-So that's a good start. If you notice (like above here) that you have a lot of acceptance criteria for one story, it is usually a sign that it's probably best to split it up into more user stories. This way the original user story can become an Epic and you can add all the more fine-grained stories as part of this Epic. 
+So that's a good start. If you notice (like above here) that you have a lot of acceptance criteria for one story, it is usually a sign that it's probably best to split it up into more user stories. This way the original user story can become an Epic and you can add all the more fine-grained stories as part of this Epic. So the Epic would be: `Managing Student Contracts` and the stories below could be about `Listing COntracts`, `Adding a contract`, `Contract Created Flow` and `Contract Approval Flow`. Of course by now you would know how to make great user stories out of these short descriptions, right?
 
 ## Let's talk about tools 🧰
 
-First let me shout out to a more project management tool I have been a fan of for quite a while now and am using actively for any projects where I am in control of managing these things: [Clubhouse](https://clubhouse.io) -> [here is a referal link](http://r.clbh.se/mvf8Wo5). A great and flexible system to manage your user stories in an agile way!
-
-Now on the Phoenix side I have been a huge fan of [Wallaby](https://github.com/elixir-wallaby/wallaby) for writing feature tests. However, I have experienced that when you have a lot of feature tests, your test suite can become a bit slow to run. So I use Wallaby when there is javascript in the frontent that needs to be executed. For server-side rendered content I have been meaning to try another project that recently got a significant update as well and that is [Phoenix Integration](https://github.com/boydm/phoenix_integration). When you don't need to execute javascript on the frontend, Phoenix Integration can be a great tool, because it tightly integrates with `Phoenix.ConnTest`, which means it is basically really fast for testing. I like!
+Let's find out how we can incorporate these user stories as tests in our project. On the Phoenix side I have been a huge fan of [Wallaby](https://github.com/elixir-wallaby/wallaby) for writing feature tests. However, I have experienced that when you have a lot of feature tests, your test suite can become a bit slow to run. So I use Wallaby when there is javascript in the frontent that needs to be executed. For server-side rendered content I have been meaning to try another project that recently got a significant update as well and that is [Phoenix Integration](https://github.com/boydm/phoenix_integration). When you don't need to execute javascript on the frontend, Phoenix Integration can be a great tool, because it tightly integrates with `Phoenix.ConnTest`, which means it is basically really fast for testing. I like!
 
 
 ## Let's BDD
 
 Let's quickly setup `phoenix_integration` and get our first feature shipped using a BDD process!
 
-Add it to `mix.exs`
+Add package to `mix.exs`
 
 ```elixir
 defp deps do
@@ -219,9 +217,9 @@ setup %{conn: conn} do
 end
 ```
 
-Now I started out that same way and couldn't get it to work. Apparently when I made two consequent requests in my test pipeline, the assigns would get wiped. At first I was unsure if it was a bug or if it was just something I was doing wrong. So I added an issue to discuss it with Boyd(the creator of Phoenix Integration), and he did some digging and explained fully what was happening. You can see that discussion [here](https://github.com/boydm/phoenix_integration/issues/38). So the reason that just setting the current assign won't work, is because `Phoenix.ConnTest` actually wipes the assigns between each request. Basically mimicing stateless browser request behaviour. They call this recycling and is explained [here](https://github.com/phoenixframework/phoenix/blob/9f703bfec83a2f35102af7c9489ebb4a01c35f6a/lib/phoenix/test/conn_test.ex#L79). They do however carry over cookies that are set, so basically the solution was to actually login through the browser in my test.
+Now I started out that same way and couldn't get this to work. Apparently when I made two consequent requests in my test pipeline, the assigns would get wiped. At first I was unsure if it was a bug or if it was just something I was doing wrong. So I added an issue to discuss it with Boyd(the creator of Phoenix Integration), and he did some digging and explained fully what was happening. You can see that discussion [here](https://github.com/boydm/phoenix_integration/issues/38). So the reason that just setting the current assign won't work, is because `Phoenix.ConnTest` actually wipes the assigns between each request. Basically mimicing stateless browser request behaviour. They call this recycling and is explained [here](https://github.com/phoenixframework/phoenix/blob/9f703bfec83a2f35102af7c9489ebb4a01c35f6a/lib/phoenix/test/conn_test.ex#L79). They do however carry over cookies that are set, so basically the solution was to actually login through the browser in my test.
 
-In the example above I am login in directly in the pipeline, but you really don't want to do this all over the place if you add a lot of tests. In the [github issue](https://github.com/boydm/phoenix_integration/issues/38#issuecomment-593679075) Boyd also gives an example of how he does it mostly. Basically you can add a helper function in `ConnCase` you can call to sign in different types of users easily. For my example I'll leave it as because this post is long enough already.
+In the example above I am login in directly in the pipeline, but you really don't want to do this all over the place if you add a lot of tests. In the [github issue](https://github.com/boydm/phoenix_integration/issues/38#issuecomment-593679075) Boyd also gives an example of how he does this mostly. Basically you can add a helper function in `ConnCase` you can call to sign in different types of users easily. For my example I'll leave it as for now.
 
 ## Conclusion
 
