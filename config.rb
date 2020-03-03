@@ -147,6 +147,7 @@ after_build do
   # Netlify
 
   FileUtils.cp 'build/404/index.html', 'build/404.html'
+  FileUtils.cp 'build/offline/index.html', 'build/offline.html'
 
   # End Netlify
 end
