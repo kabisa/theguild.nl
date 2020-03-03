@@ -1,8 +1,10 @@
 {
   "name": "TheGuild.nl - Blog",
   "short_name": "TheGuild",
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "minimal-ui",
   "background_color": "#fff",
+  "theme_color": "#fff",
   "description": "A technical blog by Kabisa.nl",
 }
