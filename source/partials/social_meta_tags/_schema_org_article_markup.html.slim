@@ -1,5 +1,27 @@
-meta[itemprop='name' content=page_title]
-meta[itemprop='description' content=page_description]
-
-- if google_plus_social_image
-  meta[itemprop='image' content=google_plus_social_image]
+- if locals.fetch(:post, false)
+  script type="application/ld+json"
+    | {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "#{data.config.site_url}"
+      },
+      "headline": "#{page_title}",
+      "image": ["#{schema_news_article_image}"],
+      "datePublished": "#{post.created_on.to_time.iso8601}",
+      "dateModified": "#{DateTime.parse(post._meta.updated_at).to_time.iso8601}",
+      "author": {
+        "@type": "Person",
+        "name": "#{post.authors.first.name}"
+      },
+       "publisher": {
+        "@type": "Organization",
+        "name": "#{data.config.author}",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "#{schema_kabisa_logo}"
+        }
+      },
+      "description": "#{page_description}"
+      }

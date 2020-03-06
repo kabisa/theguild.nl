@@ -22,13 +22,21 @@ module SocialMediaHelpers
     social_image(w: 560)
   end
 
-  def google_plus_social_image
-    social_image(w: 800)
-  end
-
   def facebook_social_image
     # https://developers.facebook.com/docs/sharing/best-practices
     social_image(w: 1200)
+  end
+
+  def schema_news_article_image
+    social_image(w: 1200) || schema_organization_logo
+  end
+
+  def schema_kabisa_logo
+    data.config.site_url + image_path('/images/kabisa-logo.png')
+  end
+
+  def schema_organization_logo
+    data.config.site_url + image_path('/images/theguild-logo.png')
   end
 
   def social_image(opts = {})
