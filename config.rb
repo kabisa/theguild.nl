@@ -34,6 +34,12 @@ Dir['lib/mappers/*.rb'].each { |file| require file }
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
 
+# Since Middleman 4.3, sprockets have been removed, and require_tree is not
+# working anymore - Alternative is to go with webpack as an external pipeline
+activate :sprockets do |c|
+  c.supported_output_extensions = [".js"]
+end
+
 # Reload the browser automatically whenever files change
 configure :development do
   activate :livereload
