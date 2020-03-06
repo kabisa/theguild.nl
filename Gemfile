@@ -19,6 +19,7 @@ gem 'middleman-autoprefixer'
 gem 'middleman-dotenv'
 gem 'middleman-search_engine_sitemap'
 gem 'middleman-syntax'
+gem 'middleman-sprockets' # needed after MM 4.3 version
 gem 'nokogiri'
 
 gem 'builder' # XMLfeeds
