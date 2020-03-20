@@ -1,6 +1,6 @@
 .item
   - if post.featured_image
-    .item-background[style=("background-image: url('#{post.featured_image.url}')" if post.featured_image)]
+    .item-background[style=("background-image: url('#{post.featured_image.url}?q=50&h=1000')" if post.featured_image)]
   - else
     .item-background[style=("background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);")]
 
