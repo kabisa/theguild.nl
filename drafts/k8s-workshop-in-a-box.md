@@ -4,18 +4,18 @@ We recently organised an internal Kubernetes workshop at our office. Each partic
 
 ## Why
 
-I wanted participants to have a real cluster to experiment with, but didn't want to ask everyone to install Minikube. It's heavy weight and I didn't want people to have to mess with this, workshops should have a low as possible barrier to entry.
+I wanted participants to have a real cluster to experiment with, but didn't want to ask everyone to install Minikube. It's heavy weight, can be a bit of a hassle to setup and I just didn't want people to have to mess with stuff life this. Workshops should have a low as possible barrier to entry.
 
 To pull this off I used [Kind](https://kind.sigs.k8s.io/) (Kubernetes In Docker) + a bit of scripting and Unix magic! 💪
 
-## How it works
+## The setup
 
-It works as follows:
+The setup works as follows:
 
-1. A single, beefy cloud server is used to host all Kubernetes clusters.
-2. Every clusters runs 3 Docker containers (via Kind) and is fully isolated from the other clusters. Every cluster consists of one master and two worker nodes.
+1. A **single**, beefy cloud server is used to host all Kubernetes clusters.
+2. Kind creates true Kubernetes clusters inside Docker containers. This way, each cluster is fully isolated from the other clusters and clusters can run side-by-side on a single host machine. Every cluster consists of one master and two worker nodes.
 3. The clusters are (automatically) provisioned in advance to the workshop, as creating the clusters is quite resource intensive and takes a couple of minutes per cluster.
-4. During the workshop participants can claim their own cluster via SSH and then access their cluster via a new SSH session.
+4. During the workshop participants can claim their own cluster via SSH and then access their private cluster via a new SSH session.
 
 You can see the process from a participant perspective in action below:
 
