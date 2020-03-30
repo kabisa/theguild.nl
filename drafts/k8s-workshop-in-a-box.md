@@ -4,7 +4,7 @@ We recently organised an internal Kubernetes workshop at our office. Each partic
 
 ## Why
 
-I wanted participants to have a real cluster to experiment with, but didn't want to ask everyone to install Minikube. It's heavy weight, can be a bit of a hassle to setup and I just didn't want people to have to mess with stuff life this. Workshops should have a low as possible barrier to entry.
+I wanted participants to have a real cluster to experiment with, but didn't want to ask everyone to install Minikube. It's heavy weight, can be a bit of a hassle to setup and I just didn't want people to have to mess with stuff like this. Workshops should have a low as possible barrier to entry.
 
 To pull this off I used [Kind](https://kind.sigs.k8s.io/) (Kubernetes In Docker) + a bit of scripting and Unix magic! 💪
 
