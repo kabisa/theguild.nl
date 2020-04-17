@@ -1,7 +1,7 @@
 # You're not stubbing, stupid!
 
 Recently, in a [Ruby on Rails](https://rubyonrails.org/) project, I was writing a [Cucumber](https://cucumber.netlify.app/docs/installation/ruby/) scenario that was deleting a resource by having the user clicking a 'Delete' button. Before the action was executed, the user had to confirm a message shown in a confirmation dialog. You may have seen this dozens of times when scaffolding a Rails application.  
-Oh and upon deleting, I also had to do a request to an external API (to be more precise: the use case was that a user unsubscribing, so I had to send a DELETE request to a [Mollie API](https://docs.mollie.com/reference/v2/subscriptions-api/cancel-subscription)).
+Oh and upon deleting, I also had to do a request to an external API (to be more precise: the use case was that of a user unsubscribing, so I had to send a `DELETE` request to a [Mollie API](https://docs.mollie.com/reference/v2/subscriptions-api/cancel-subscription)).
 
 So, "nothing new here", I thought. I knew about [WebMock](https://github.com/bblimke/webmock), since I wanted to stub the external API request and my test suite was set up to test [JavaScript](https://github.com/teamcapybara/capybara#setup), so I knew I could use the [`accept_confirm`](https://www.rubydoc.info/github/jnicklas/capybara/Capybara%2FSession:accept_confirm) method here that Capybara offers. 
 
