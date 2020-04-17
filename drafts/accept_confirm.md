@@ -57,11 +57,14 @@ One way to work around this is, instead of using `accept_confirm`, is 'overridin
 # features/step_definitions/general_steps.rb
 
 When('I delete the resource') do
+  link_or_button = find(::link_or_button, 'Destroy')
   page.evaluate_script('window.confirm = function() { return true; }')
-  click_on 'Destroy'
+  expect(link_or_button['data-confirm']).to be_a(String)
+  link_or_button.click
 end
 ```
 
 
 This way the DELETE request _is_ being stubbed, you can still show a nice confirmation dialog and your test will pass.  
-(Of course you can, and probably _should_, recover the `confirm` function in this step after clicking 'Destroy', but I kept the code simple.)
+
+> Be aware that during the test, the confirmation dialog will not be shown anymore (due to the 'stubbed' `confirm` function in JavaScript. Therefor, I added an assertion to check indirectly if the confirmation dialog will be shown (by using the `data-confirm` attribute added and used by Rails) when clicking the 'Destroy' link or button. 
