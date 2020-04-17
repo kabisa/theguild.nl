@@ -67,4 +67,4 @@ end
 
 This way the DELETE request _is_ being stubbed, you can still show a nice confirmation dialog and your test will pass.  
 
-> Be aware that during the test, the confirmation dialog will not be shown anymore (due to the 'stubbed' `confirm` function in JavaScript. Therefor, I added an assertion to check indirectly if the confirmation dialog will be shown (by using the `data-confirm` attribute added and used by Rails) when clicking the 'Destroy' link or button. 
+> Be aware that during the test, the confirmation dialog will not be shown anymore (due to the 'stubbed' `confirm` function in JavaScript. Therefor, I added an assertion to check indirectly if the confirmation dialog will be shown (by using the `data-confirm` attribute [added and used by Rails](https://guides.rubyonrails.org/working_with_javascript_in_rails.html#confirmations)) when clicking the 'Destroy' link or button. 
