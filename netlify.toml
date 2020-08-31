@@ -1,0 +1,815 @@
+[[redirects]]
+	from = "/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/4-rules-of-simple-design/"
+	to = "https://kabisa.nl/tech/4-rules-of-simple-design/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/5-reasons-not-to-use-safe-navigation-operators/"
+	to = "https://kabisa.nl/tech/5-reasons-not-to-use-safe-navigation-operators/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/an-introduction-to-graphql/"
+	to = "https://kabisa.nl/tech/an-introduction-to-graphql/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/andy-maes/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/ariejan-de-vroom/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/eric-bartholemy/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/etienne-van-delden/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/harm-de-laat/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/joery-vreijsen/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/jonny-kievits/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/joost-saanen/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/laurens-boekhorst/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/luc-engelen/"
+	to = "https://kabisa.nl/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/luc-tielen/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/ludo-van-den-boom/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/luk-van-den-borne/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/marciano-schildmeijer/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/martijn-versluis/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/matthijs-groen/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/nick-van-eijk/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/nicole-bekkers/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/niek-horsmans/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/niels-stevens/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/pascal-widdershoven/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/patrick-baselier/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/rik-tonnard/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/roel-nieskens/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/sjuul-janssen/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/stefan-van-raaphorst/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/tjaco-oostdijk/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/authors/tonci-galic/"
+	to = "https://kabisa.nl/tech/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/backup-postgresql-from-a-rails-project-to-amazon-s3/"
+	to = "https://kabisa.nl/tech/backup-postgresql-from-a-rails-project-to-amazon-s3/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/browser-beats-i-synthesizing-a-kick-drum/"
+	to = "https://kabisa.nl/tech/browser-beats-i-synthesizing-a-kick-drum/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/browser-beats-ii-synthesizing-a-snare-drum-and-a-hi-hat/"
+	to = "https://kabisa.nl/tech/browser-beats-ii-synthesizing-a-snare-drum-and-a-hi-hat/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/build-and-deploy-static-sites-w-middleman-circleci-and-amazon-s3/"
+	to = "https://kabisa.nl/tech/build-and-deploy-static-sites-w-middleman-circleci-and-amazon-s3/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/building-github-pull-requests-using-jenkins-pipelines/"
+	to = "https://kabisa.nl/tech/building-github-pull-requests-using-jenkins-pipelines/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/building-github-pull-requests-with-jenkins/"
+	to = "https://kabisa.nl/tech/building-github-pull-requests-with-jenkins/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/camelone-2013/"
+	to = "https://kabisa.nl/tech/camelone-2013/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/caveats-storing-large-amounts-of-data-in-elixir-agents/"
+	to = "https://kabisa.nl/tech/caveats-storing-large-amounts-of-data-in-elixir-agents/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/check-the-latest-videos-of-the-serverless-meetup-in-eindhoven/"
+	to = "https://kabisa.nl/tech/check-the-latest-videos-of-the-serverless-meetup-in-eindhoven/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/clean-and-maintainable-docker-images-using-multi-stage-builds/"
+	to = "https://kabisa.nl/tech/clean-and-maintainable-docker-images-using-multi-stage-builds/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/confidence-in-your-software/"
+	to = "https://kabisa.nl/tech/confidence-in-your-software/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/cost-saving-with-nat-instances/"
+	to = "https://kabisa.nl/tech/cost-saving-with-nat-instances/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/custom-array-uniq-for-activerecord-results/"
+	to = "https://kabisa.nl/tech/custom-array-uniq-for-activerecord-results/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/dashbling-hackable-react-based-dashboarding/"
+	to = "https://kabisa.nl/tech/dashbling-hackable-react-based-dashboarding/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/dealing-with-technical-debt/"
+	to = "https://kabisa.nl/tech/dealing-with-technical-debt/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/deploy-a-spring-boot-app-on-your-own-server-in-less-than-15-minutes/"
+	to = "https://kabisa.nl/tech/deploy-a-spring-boot-app-on-your-own-server-in-less-than-15-minutes/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/devoxx-2012-talks-roundup/"
+	to = "https://kabisa.nl/tech/devoxx-2012-talks-roundup/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/devoxx-2012/"
+	to = "https://kabisa.nl/tech/devoxx-2012/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/docker-workshop-getting-started-with-docker/"
+	to = "https://kabisa.nl/tech/docker-workshop-getting-started-with-docker/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/dockerizing-a-custom-karaf-distribution-in-5-minutes/"
+	to = "https://kabisa.nl/tech/dockerizing-a-custom-karaf-distribution-in-5-minutes/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/does-your-test-tell-a-story/"
+	to = "https://kabisa.nl/tech/does-your-test-tell-a-story/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/duality/"
+	to = "https://kabisa.nl/tech/duality/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/dynamic-queue-assignment-for-resque-jobs/"
+	to = "https://kabisa.nl/tech/dynamic-queue-assignment-for-resque-jobs/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/elixirconf-eu-2015-impressions/"
+	to = "https://kabisa.nl/tech/elixirconf-eu-2015-impressions/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/emacs-vs-vim-vs-rubymine/"
+	to = "https://kabisa.nl/tech/emacs-vs-vim-vs-rubymine/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/enriching-requests-with-an-aws-lambda-authorizer/"
+	to = "https://kabisa.nl/tech/enriching-requests-with-an-aws-lambda-authorizer/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/euruko-2012-highlights/"
+	to = "https://kabisa.nl/tech/euruko-2012-highlights/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/extending-flutter-driver-with-custom-commands/"
+	to = "https://kabisa.nl/tech/extending-flutter-driver-with-custom-commands/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/flight-tracking-for-fun-and-learning-getting-started/"
+	to = "https://kabisa.nl/tech/flight-tracking-for-fun-and-learning-getting-started/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/generating-css-from-scratch-with-postcss/"
+	to = "https://kabisa.nl/tech/generating-css-from-scratch-with-postcss/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/git-content-based-addressing-branches-and-tags/"
+	to = "https://kabisa.nl/tech/git-content-based-addressing-branches-and-tags/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/git-putting-the-knowledge-into-practice/"
+	to = "https://kabisa.nl/tech/git-putting-the-knowledge-into-practice/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/git-the-object-database/"
+	to = "https://kabisa.nl/tech/git-the-object-database/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/good-looking-pdfs-with-css-for-paged-media-and-markdown/"
+	to = "https://kabisa.nl/tech/good-looking-pdfs-with-css-for-paged-media-and-markdown/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/hanami-and-multi-database-testing-with-travis/"
+	to = "https://kabisa.nl/tech/hanami-and-multi-database-testing-with-travis/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/handle-cmyk-colorspace-uploads-with-paperclip/"
+	to = "https://kabisa.nl/tech/handle-cmyk-colorspace-uploads-with-paperclip/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/headless-cucumbers-and-capybaras-with-selenium-and-hudson/"
+	to = "https://kabisa.nl/tech/headless-cucumbers-and-capybaras-with-selenium-and-hudson/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/how-the-css-stacking-context-works/"
+	to = "https://kabisa.nl/tech/how-the-css-stacking-context-works/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/how-to-avoid-ora-12899-value-too-large-for-column-in-your-rails-application/"
+	to = "https://kabisa.nl/tech/how-to-avoid-ora-12899-value-too-large-for-column-in-your-rails-application/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/how-to-enable-or-disable-the-press-and-hold-menu-in-mac-os-x/"
+	to = "https://kabisa.nl/tech/how-to-enable-or-disable-the-press-and-hold-menu-in-mac-os-x/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/how-to-handle-javascript-frontend-errors-with-selenium-webdriver/"
+	to = "https://kabisa.nl/tech/how-to-handle-javascript-frontend-errors-with-selenium-webdriver/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/how-to-manage-dotfiles-with-gnu-stow/"
+	to = "https://kabisa.nl/tech/how-to-manage-dotfiles-with-gnu-stow/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/how-to-setup-ruby-on-rails-apache-and-passenger-on-debian-linux/"
+	to = "https://kabisa.nl/tech/how-to-setup-ruby-on-rails-apache-and-passenger-on-debian-linux/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/how-to-use-fonts-in-your-hybrid-mobile-app/"
+	to = "https://kabisa.nl/tech/how-to-use-fonts-in-your-hybrid-mobile-app/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/http-caching-gotcha-heuristic-freshness/"
+	to = "https://kabisa.nl/tech/http-caching-gotcha-heuristic-freshness/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/immutable-objects-in-python/"
+	to = "https://kabisa.nl/tech/immutable-objects-in-python/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/installing-nokogiri-libv8-therubyracer-on-os-x/"
+	to = "https://kabisa.nl/tech/installing-nokogiri-libv8-therubyracer-on-os-x/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/integrating-3d-graphics-into-a-website-using-babylonjs/"
+	to = "https://kabisa.nl/tech/integrating-3d-graphics-into-a-website-using-babylonjs/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/jenkins-docker-awesome-ci/"
+	to = "https://kabisa.nl/tech/jenkins-docker-awesome-ci/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/jenkinsfiles-for-beginners-and-masochists/"
+	to = "https://kabisa.nl/tech/jenkinsfiles-for-beginners-and-masochists/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/k8s-workshop-in-a-box/"
+	to = "https://kabisa.nl/tech/k8s-workshop-in-a-box/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/kabisa-at-arrrrcamp-2011/"
+	to = "https://kabisa.nl/tech/kabisa-at-arrrrcamp-2011/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/kabisa-supports-rails-girls/"
+	to = "https://kabisa.nl/tech/kabisa-supports-rails-girls/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/learn-ember-with-our-free-workshop/"
+	to = "https://kabisa.nl/tech/learn-ember-with-our-free-workshop/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/long-running-migrations-use-the-right-tool-for-the-job/"
+	to = "https://kabisa.nl/tech/long-running-migrations-use-the-right-tool-for-the-job/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/lunch-and-learn-kubernetes-the-emerging-standard-for-container-orchestration/"
+	to = "https://kabisa.nl/tech/lunch-and-learn-kubernetes-the-emerging-standard-for-container-orchestration/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/lunch-break-game-development/"
+	to = "https://kabisa.nl/tech/lunch-break-game-development/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/lunch-en-learn-eslint-of-get-more-out-of-it-for-your-project/"
+	to = "https://kabisa.nl/tech/lunch-en-learn-eslint-of-get-more-out-of-it-for-your-project/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/lunch-en-learn-reasonml-of-pascal-widdershoven/"
+	to = "https://kabisa.nl/tech/lunch-en-learn-reasonml-of-pascal-widdershoven/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/macos-sierra-cursor-not-moving-when-holding-a-key/"
+	to = "https://kabisa.nl/tech/macos-sierra-cursor-not-moving-when-holding-a-key/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/matching-multipart-request-bodies-with-vcr/"
+	to = "https://kabisa.nl/tech/matching-multipart-request-bodies-with-vcr/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/no-architectures-to-compile-in-xcode-4/"
+	to = "https://kabisa.nl/tech/no-architectures-to-compile-in-xcode-4/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/nvm-in-docker/"
+	to = "https://kabisa.nl/tech/nvm-in-docker/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/open-sourcing-at-kabisa/"
+	to = "https://kabisa.nl/tech/open-sourcing-at-kabisa/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/print-list-of-integers-as-integers-in-iex/"
+	to = "https://kabisa.nl/tech/print-list-of-integers-as-integers-in-iex/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/project-management-from-the-perspective-of-a-free-agent/"
+	to = "https://kabisa.nl/tech/project-management-from-the-perspective-of-a-free-agent/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/rails-generate-model-be-specific/"
+	to = "https://kabisa.nl/tech/rails-generate-model-be-specific/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/reactive-java-using-the-vert-x-toolkit/"
+	to = "https://kabisa.nl/tech/reactive-java-using-the-vert-x-toolkit/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/real-world-phoenix-lets-auth-some-users/"
+	to = "https://kabisa.nl/tech/real-world-phoenix-lets-auth-some-users/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/real-world-phoenix-lets-d4y-using-k8s/"
+	to = "https://kabisa.nl/tech/real-world-phoenix-lets-d4y-using-k8s/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/real-world-phoenix-lets-d4y/"
+	to = "https://kabisa.nl/tech/real-world-phoenix-lets-d4y/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/real-world-phoenix-lets-send-some-emails/"
+	to = "https://kabisa.nl/tech/real-world-phoenix-lets-send-some-emails/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/real-world-phoenix-of-groter-dan-a-liveview-dashboard/"
+	to = "https://kabisa.nl/tech/real-world-phoenix-of-groter-dan-a-liveview-dashboard/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/real-world-phoenix-sign-up-flow-spa-style-with-liveview/"
+	to = "https://kabisa.nl/tech/real-world-phoenix-sign-up-flow-spa-style-with-liveview/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/real-world-phoenix-user-roles-the-explicit-way/"
+	to = "https://kabisa.nl/tech/real-world-phoenix-user-roles-the-explicit-way/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/rendering-markdown/"
+	to = "https://kabisa.nl/tech/rendering-markdown/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/ruby-and-ssl-certificate-validation/"
+	to = "https://kabisa.nl/tech/ruby-and-ssl-certificate-validation/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/running-cucumber-features-with-sunspot_rails/"
+	to = "https://kabisa.nl/tech/running-cucumber-features-with-sunspot_rails/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/running-multiple-docker-containers-in-parallel-with-jenkins/"
+	to = "https://kabisa.nl/tech/running-multiple-docker-containers-in-parallel-with-jenkins/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/sending-data-to-the-other-side-of-the-world-json-protocol-buffers-rest-grpc/"
+	to = "https://kabisa.nl/tech/sending-data-to-the-other-side-of-the-world-json-protocol-buffers-rest-grpc/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/setting-up-dokku-on-azure-with-terraform-and-ansible-a-guided-tour/"
+	to = "https://kabisa.nl/tech/setting-up-dokku-on-azure-with-terraform-and-ansible-a-guided-tour/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/setup-a-self-signed-ssl-site-with-apache2/"
+	to = "https://kabisa.nl/tech/setup-a-self-signed-ssl-site-with-apache2/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/setup-remote-pair-programming/"
+	to = "https://kabisa.nl/tech/setup-remote-pair-programming/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/share-sessions-between-rails-2-and-rails-3-applications/"
+	to = "https://kabisa.nl/tech/share-sessions-between-rails-2-and-rails-3-applications/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/sorting-displayed-data-in-ember-js/"
+	to = "https://kabisa.nl/tech/sorting-displayed-data-in-ember-js/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/spice-up-your-server-side-rendered-apps-with-stimulus-and-turbolinks/"
+	to = "https://kabisa.nl/tech/spice-up-your-server-side-rendered-apps-with-stimulus-and-turbolinks/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/splitting-domain-logging-from-application-logging-in-sentry/"
+	to = "https://kabisa.nl/tech/splitting-domain-logging-from-application-logging-in-sentry/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/technical-debt-cucumber/"
+	to = "https://kabisa.nl/tech/technical-debt-cucumber/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/the-guild-1/"
+	to = "https://kabisa.nl/tech/the-guild-1/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/the-guild-2/"
+	to = "https://kabisa.nl/tech/the-guild-2/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/thing-you-could-do-with-mix-2/"
+	to = "https://kabisa.nl/tech/thing-you-could-do-with-mix-2/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/things-you-could-do-with-mix-3/"
+	to = "https://kabisa.nl/tech/things-you-could-do-with-mix-3/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/things-you-could-do-with-mix-4/"
+	to = "https://kabisa.nl/tech/things-you-could-do-with-mix-4/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/things-you-could-do-with-mix/"
+	to = "https://kabisa.nl/tech/things-you-could-do-with-mix/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/til-about-vcr/"
+	to = "https://kabisa.nl/tech/til-about-vcr/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/using-phoenix-presence-in-liveview-a-simple-example/"
+	to = "https://kabisa.nl/tech/using-phoenix-presence-in-liveview-a-simple-example/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/using-transactions-with-ruby-datamapper/"
+	to = "https://kabisa.nl/tech/using-transactions-with-ruby-datamapper/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/when-elixirs-performance-becomes-rust-y/"
+	to = "https://kabisa.nl/tech/when-elixirs-performance-becomes-rust-y/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/where-to-put-json-web-tokens-in-2019/"
+	to = "https://kabisa.nl/tech/where-to-put-json-web-tokens-in-2019/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/xcode4-attaching-to-myapp/"
+	to = "https://kabisa.nl/tech/xcode4-attaching-to-myapp/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/xen-how-to-fix-siocsifaddr-no-such-device/"
+	to = "https://kabisa.nl/tech/xen-how-to-fix-siocsifaddr-no-such-device/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/you-dont-have-to-choose/"
+	to = "https://kabisa.nl/tech/you-dont-have-to-choose/"
+	status = 302
+	force = true
+
+[[redirects]]
+	from = "/youre-not-stubbing-stupid/"
+	to = "https://kabisa.nl/tech/youre-not-stubbing-stupid/"
+	status = 302
+	force = true
