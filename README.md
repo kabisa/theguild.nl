@@ -1,3 +1,11 @@
+# ARCHIVED
+
+This repo has been archived.
+
+We no longer run the theguild.nl separately, the tech blog is now part of the Kabisa.nl website. 
+
+If you want to write a blog post, see https://github.com/kabisa/blogging
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
