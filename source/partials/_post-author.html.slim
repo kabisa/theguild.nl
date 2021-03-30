@@ -1,9 +1,0 @@
-.written-by.clearfix
-  = link_to image_tag(author.profile_photo.url), author_url(author)
-  p
-    = link_to author.name, author_url(author)
-
-    =< "- #{post.created_on.strftime('%-d %B %Y')}"
-    br
-    =< content_length_and_average_reading_time(post.body)
-

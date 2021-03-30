@@ -1,5 +1,0 @@
-nav
-  ul
-    - navbar_items.each do |item|
-      li[class=navbar_item_class_name(rack[:request].path, item)]
-        = link_to item.caption, item.url
